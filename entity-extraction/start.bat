@@ -22,6 +22,9 @@ if errorlevel 1 (
   exit /b 1
 )
 
+REM Host port, in case 8000 is already taken:  set APP_PORT=8080 && .\start.bat
+if not defined APP_PORT set "APP_PORT=8000"
+
 set "COMPOSE_FILES=-f docker-compose.yml"
 set "HOST_GPU_FREE_MB=0"
 set "OLLAMA_NUM_PARALLEL=1"
@@ -58,7 +61,7 @@ if defined GPU_FREE (
 echo.
 echo Starting. The first run builds the image and downloads the language model
 echo ^(a few GB^), so expect 10-20 minutes. Later runs reuse both.
-echo When it is ready, open http://localhost:8000
+echo When it is ready, open http://localhost:%APP_PORT%
 echo.
 
 docker compose %COMPOSE_FILES% up --build

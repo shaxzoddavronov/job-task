@@ -31,6 +31,16 @@ In the older `cmd.exe` prompt, plain `start.bat` works too.
 
 Then open <http://localhost:8000> and upload a PDF.
 
+If port 8000 is already in use on your machine, pick another one:
+
+```powershell
+$env:APP_PORT=8080; .\start.bat      # PowerShell
+```
+
+```bash
+APP_PORT=8080 ./start.sh              # Linux / macOS
+```
+
 The first start builds the image and downloads the language model (2.5–9 GB
 depending on your hardware), so expect 10–20 minutes. Later starts reuse both
 and are ready in seconds.

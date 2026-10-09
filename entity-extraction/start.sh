@@ -9,6 +9,9 @@ cd "$(dirname "$0")"
 
 compose_files=(-f docker-compose.yml)
 
+# Host port, in case 8000 is already taken: APP_PORT=8080 ./start.sh
+export APP_PORT="${APP_PORT:-8000}"
+
 if command -v nvidia-smi >/dev/null 2>&1 \
    && free_mb=$(nvidia-smi --query-gpu=memory.free --format=csv,noheader,nounits 2>/dev/null | sort -rn | head -1) \
    && [ -n "${free_mb:-}" ]; then
@@ -26,7 +29,7 @@ fi
 echo
 echo "Starting. The first run downloads the language model (a few GB); later"
 echo "runs reuse it. Progress appears in the logs below."
-echo "When it is ready, open http://localhost:8000"
+echo "When it is ready, open http://localhost:${APP_PORT:-8000}"
 echo
 
 exec docker compose "${compose_files[@]}" up --build

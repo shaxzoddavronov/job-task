@@ -20,7 +20,8 @@ services:
   app:
     build: .
     ports:
-      - "8000:8000"
+      # Override the host port if 8000 is taken: APP_PORT=8080 ./start.sh
+      - "${APP_PORT:-8000}:8000"
     environment:
       OLLAMA_URL: "http://ollama:11434"
       # Free VRAM measured on the *host* by the launcher; 0 means no GPU.
