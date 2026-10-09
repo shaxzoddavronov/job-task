@@ -18,13 +18,16 @@ cd job-task/entity-extraction
 ./start.sh
 ```
 
-**Windows**
+**Windows** (PowerShell — note the `.\`, PowerShell does not run programs from
+the current directory without it)
 
-```bat
+```powershell
 git clone https://github.com/shaxzoddavronov/job-task.git
 cd job-task\entity-extraction
-start.bat
+.\start.bat
 ```
+
+In the older `cmd.exe` prompt, plain `start.bat` works too.
 
 Then open <http://localhost:8000> and upload a PDF.
 
