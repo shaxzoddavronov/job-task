@@ -9,8 +9,30 @@ cd "$(dirname "$0")"
 
 compose_files=(-f docker-compose.yml)
 
-# Host port, in case 8000 is already taken: APP_PORT=8080 ./start.sh
-export APP_PORT="${APP_PORT:-8000}"
+# Pick a free host port, starting at 8000. Set APP_PORT to force a specific
+# one; otherwise the first free port is used, so a busy 8000 is not an error
+# the user has to diagnose.
+port_in_use() {
+  if command -v ss >/dev/null 2>&1; then
+    ss -ltn 2>/dev/null | grep -q ":$1[[:space:]]"
+  elif command -v netstat >/dev/null 2>&1; then
+    netstat -ltn 2>/dev/null | grep -q ":$1[[:space:]]"
+  else
+    return 1
+  fi
+}
+
+if [ -z "${APP_PORT:-}" ]; then
+  APP_PORT=8000
+  while [ "$APP_PORT" -lt 8020 ] && port_in_use "$APP_PORT"; do
+    APP_PORT=$((APP_PORT + 1))
+  done
+  # Not `[ ... ] && echo`: under `set -e` a false test would exit the script.
+  if [ "$APP_PORT" != "8000" ]; then
+    echo "Port 8000 is busy; using $APP_PORT instead."
+  fi
+fi
+export APP_PORT
 
 if command -v nvidia-smi >/dev/null 2>&1 \
    && free_mb=$(nvidia-smi --query-gpu=memory.free --format=csv,noheader,nounits 2>/dev/null | sort -rn | head -1) \

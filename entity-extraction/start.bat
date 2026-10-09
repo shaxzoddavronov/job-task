@@ -22,8 +22,22 @@ if errorlevel 1 (
   exit /b 1
 )
 
-REM Host port, in case 8000 is already taken:  set APP_PORT=8080 && .\start.bat
-if not defined APP_PORT set "APP_PORT=8000"
+REM Pick a free host port, starting at 8000. Set APP_PORT to force a specific
+REM one; otherwise the first free port is used, so a busy 8000 is not an error
+REM the user has to diagnose.
+if not defined APP_PORT (
+  set "APP_PORT=8000"
+  for /l %%p in (8000,1,8019) do (
+    if not defined PORT_FOUND (
+      netstat -ano | findstr /r /c:":%%p .*LISTENING" >nul 2>&1
+      if errorlevel 1 (
+        set "APP_PORT=%%p"
+        set "PORT_FOUND=1"
+      )
+    )
+  )
+  if not "!APP_PORT!"=="8000" echo Port 8000 is busy; using !APP_PORT! instead.
+)
 
 set "COMPOSE_FILES=-f docker-compose.yml"
 set "HOST_GPU_FREE_MB=0"
