@@ -13,31 +13,69 @@ Everything runs on your own machine; no document is ever sent anywhere.
 **Linux / macOS**
 
 ```bash
+git clone https://github.com/shaxzoddavronov/job-task.git
+cd job-task/entity-extraction
 ./start.sh
 ```
 
 **Windows**
 
 ```bat
+git clone https://github.com/shaxzoddavronov/job-task.git
+cd job-task\entity-extraction
 start.bat
 ```
 
-Then open <http://localhost:8000>.
+Then open <http://localhost:8000> and upload a PDF.
 
-The first start downloads the language model (2.5–9 GB depending on your
-hardware) and may take several minutes. Later starts reuse it.
+The first start builds the image and downloads the language model (2.5–9 GB
+depending on your hardware), so expect 10–20 minutes. Later starts reuse both
+and are ready in seconds.
+
+To see when it is ready, and which model it chose for your hardware:
+
+```bash
+curl http://localhost:8000/health
+# {"status":"ready","model":"qwen3:4b","tier":"T1","reason":"detected 5100 MB free VRAM"}
+```
+
+Until that says `ready`, uploads are refused with a message rather than queued
+behind the download.
 
 ### What you need
 
 | | |
 |---|---|
-| Everywhere | Docker (with Compose) |
-| Windows | Docker Desktop with the WSL2 backend |
+| Everywhere | Docker (with Compose), ~8 GB free disk |
+| Windows | Docker Desktop with the **WSL2 backend** |
 | GPU (optional) | An NVIDIA card and a recent driver |
 
 No GPU is fine — the app detects that and runs on CPU, just slower. **You never
 have to configure anything**: the launcher measures your hardware and the app
 picks a model to match.
+
+If you have an NVIDIA card, this should print your GPU. If it does not, the app
+will still run, on CPU:
+
+```bash
+docker run --rm --gpus all nvidia/cuda:12.4.0-base-ubuntu22.04 nvidia-smi
+```
+
+### Test documents
+
+No sample PDFs are included — use your own Uzbek documents, or generate a set:
+
+```bash
+pip install -r requirements-dev.txt
+python eval/make_synthetic.py      # 40 PDFs in eval/data/synthetic/
+python eval/fetch_lexuz.py         # real documents from lex.uz
+```
+
+### Stopping it
+
+```bash
+docker compose down
+```
 
 ---
 
