@@ -27,7 +27,7 @@ from app.grounding import TASK_THRESHOLD, ground, ground_all, source_for
 from app.llm import CLAUSE_BATCH_SIZE, Client
 from app.regex_rules import find_document_date, find_document_number
 from app.schemas import Analysis, DateField, Details, Field_, Signatory, SourceInfo, Task, Timings
-from app.script_utils import detect_script, to_latin_with_offsets
+from app.script_utils import detect_script, normalise_organization, to_latin_with_offsets
 
 #: Section 7.2: the details call sees only the top of page 1 and the end of the
 #: document, not the whole text.
@@ -237,7 +237,12 @@ async def analyze(
         date = DateField(value=parsed["deadline_date"], raw=raw, method="llm")
 
     details = Details(
-        organization=Field_(value=from_llm("organization"), method="llm"),
+        # A letterhead names the document, not only its author
+        # ("... KENGASHINING QARORI"), so the genitive and the document word
+        # are trimmed back to the organisation itself.
+        organization=Field_(
+            value=normalise_organization(from_llm("organization")), method="llm"
+        ),
         document_number=number,
         document_date=date,
         signatory=Signatory(

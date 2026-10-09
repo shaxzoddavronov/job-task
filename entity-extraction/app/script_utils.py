@@ -184,3 +184,54 @@ def detect_script(text: str) -> str:
             latin += 1
     total = cyrillic + latin
     return "cyrillic" if total and cyrillic > total / 2 else "latin"
+
+
+# --- organisation names ----------------------------------------------------
+
+#: Words naming the *document*, which often trail the issuing body in a
+#: letterhead: "... KENGASHINING QARORI", "... PREZIDENTINING FARMONI".
+DOCUMENT_WORDS = (
+    "qarori", "qaroriga", "farmoni", "farmoyishi", "buyrugʻi", "buyrugi",
+    "buyruq", "xati", "bayonnomasi", "nizomi", "hujjati",
+    "қарори", "фармони", "фармойиши", "буйруғи", "буйруқ", "хати",
+    "баённомаси", "низоми", "ҳужжати",
+)
+
+#: Uzbek genitive suffix: "kengash" + "ining" -> "kengashining" (of the council).
+GENITIVE = ("ning", "нинг")
+
+
+def normalise_organization(name: str | None) -> str | None:
+    """Turn a letterhead phrase into the organisation's own name.
+
+    Letterheads name the document, not just its author — "NOTARIAT ...
+    KENGASHINING QARORI" means "resolution *of* the ... Council". The model is
+    told to copy text verbatim, so it returns exactly that. Dropping the
+    document word and the genitive suffix leaves the body itself:
+
+        NOTARIAT ... KENGASHINING QARORI -> NOTARIAT ... KENGASHI
+        ... PREZIDENTINING FARMONI       -> ... PREZIDENTI
+
+    Case is preserved, and anything that does not end this way is returned
+    untouched.
+    """
+    if not name or not name.strip():
+        return name
+
+    words = name.strip().split()
+
+    # Drop a trailing document word, and anything after it (a date, a number).
+    for i, word in enumerate(words):
+        if word.strip(",.;:").casefold() in DOCUMENT_WORDS:
+            words = words[:i]
+            break
+    if not words:
+        return name.strip()
+
+    last = words[-1].strip(",.;:")
+    for suffix in GENITIVE:
+        if len(last) > len(suffix) + 2 and last.casefold().endswith(suffix):
+            words[-1] = last[: -len(suffix)]
+            break
+
+    return " ".join(words).strip(" ,.;:") or name.strip()
