@@ -7,6 +7,15 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 
+# Load .env first, so settings there are not overridden by what this script
+# exports. Compose reads .env too, but only for values this script leaves unset.
+if [ -f .env ]; then
+  set -a
+  # shellcheck disable=SC1091
+  . ./.env
+  set +a
+fi
+
 compose_files=(-f docker-compose.yml)
 
 # Pick a free host port, starting at 8000. Set APP_PORT to force a specific
@@ -34,7 +43,15 @@ if [ -z "${APP_PORT:-}" ]; then
 fi
 export APP_PORT
 
-if command -v nvidia-smi >/dev/null 2>&1 \
+if [ -n "${HOST_GPU_FREE_MB:-}" ]; then
+  # Forced via .env — used to test a tier this machine does not have.
+  export HOST_GPU_FREE_MB
+  export OLLAMA_NUM_PARALLEL="${OLLAMA_NUM_PARALLEL:-4}"
+  if [ "$HOST_GPU_FREE_MB" -gt 0 ]; then
+    compose_files+=(-f docker-compose.gpu.yml)
+  fi
+  echo "Using HOST_GPU_FREE_MB=${HOST_GPU_FREE_MB} from .env."
+elif command -v nvidia-smi >/dev/null 2>&1 \
    && free_mb=$(nvidia-smi --query-gpu=memory.free --format=csv,noheader,nounits 2>/dev/null | sort -rn | head -1) \
    && [ -n "${free_mb:-}" ]; then
   # Largest GPU, if there is more than one: Ollama will use a single card.

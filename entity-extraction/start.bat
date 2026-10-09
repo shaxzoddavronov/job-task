@@ -39,6 +39,14 @@ if not defined APP_PORT (
   if not "!APP_PORT!"=="8000" echo Port 8000 is busy; using !APP_PORT! instead.
 )
 
+REM Load .env first, so settings there are not overridden by what this script
+REM sets. Compose reads .env too, but only for values left unset here.
+if exist ".env" (
+  for /f "usebackq eol=# tokens=1,* delims==" %%a in (".env") do (
+    if not "%%a"=="" if not defined %%a set "%%a=%%b"
+  )
+)
+
 set "COMPOSE_FILES=-f docker-compose.yml"
 set "HOST_GPU_FREE_MB=0"
 set "OLLAMA_NUM_PARALLEL=1"

@@ -32,7 +32,22 @@ In the older `cmd.exe` prompt, plain `start.bat` works too.
 Then open <http://localhost:8000> and upload a PDF.
 
 If port 8000 is already taken the launcher picks the next free one and tells
-you which — or set `APP_PORT` to choose it yourself.
+you which.
+
+### Optional settings
+
+Everything has a working default; there is nothing you must configure. To
+change something, copy `.env.example` to `.env`:
+
+| Setting | Default | What it does |
+|---|---|---|
+| `APP_PORT` | first free from 8000 | host port for the web page |
+| `CLAUSE_BATCH_SIZE` | `1` | clauses per LLM call; `4` is ~2x faster on long documents and measurably less accurate |
+| `HOST_GPU_FREE_MB` | measured | force a tier, for testing hardware you do not have |
+| `OLLAMA_NUM_PARALLEL` | 4 on GPU, 1 on CPU | concurrent model requests |
+
+**Model selection is not configurable** and does not belong here — the launcher
+measures your GPU and the app picks a model to match.
 
 The first start builds the image and downloads the language model (2.5–9 GB
 depending on your hardware), so expect 10–20 minutes. Later starts reuse both
