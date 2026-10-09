@@ -19,3 +19,6 @@ eval/data/
 # Internal planning notes
 PLAN_TASK.md
 CHECKPOINT.md
+
+# Never commit documents — real ones must not leave the machine
+*.pdf

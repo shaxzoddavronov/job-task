@@ -190,6 +190,21 @@ def _cell_text(cell) -> str:
     return (getattr(cell, "text", "") or "").strip()
 
 
+def _clean_header(text: str) -> str:
+    """Drop a stray leading character from a column heading.
+
+    OCR picks up the table's rule lines as characters, so a heading arrives as
+    "B Topshiriq mazmuni" or "Г Masʼul ijrochi". Those headings are rendered
+    into the text the model reads and the user sees, so the noise propagates.
+    A single non-digit character followed by a real word is never a heading in
+    its own right.
+    """
+    parts = text.split()
+    if len(parts) > 1 and len(parts[0]) == 1 and not parts[0].isdigit():
+        return " ".join(parts[1:])
+    return text
+
+
 def _tables_by_page(docling_doc) -> dict[int, list[Table]]:
     """Pull tables out of a converted document, grouped by page.
 
@@ -209,7 +224,7 @@ def _tables_by_page(docling_doc) -> dict[int, list[Table]]:
         if not rows:
             continue
 
-        header, data = rows[0], rows[1:]
+        header, data = [_clean_header(c) for c in rows[0]], rows[1:]
         if not any(header):  # no header row detected; treat everything as data
             header, data = [], rows
         by_page.setdefault(page_no, []).append(

@@ -31,6 +31,12 @@ UPLOAD_CHUNK = 1024 * 1024
 
 PDF_MAGIC = b"%PDF-"
 
+#: The PDF header need not sit at byte 0 — the spec lets a reader scan for it,
+#: and real files do have bytes in front (one sample carried its own filename
+#: as leading text, putting %PDF- at offset 26). Checking only byte 0 rejects
+#: perfectly readable documents.
+PDF_MAGIC_SEARCH_BYTES = 1024
+
 
 class State:
     """What the app knows about its model (plan section 8.3).
@@ -97,8 +103,8 @@ async def _save_upload(upload: UploadFile) -> Path:
     first = b""
     try:
         while chunk := await upload.read(UPLOAD_CHUNK):
-            if not first:
-                first = chunk[: len(PDF_MAGIC)]
+            if len(first) < PDF_MAGIC_SEARCH_BYTES:
+                first += chunk[: PDF_MAGIC_SEARCH_BYTES - len(first)]
             total += len(chunk)
             if total > MAX_UPLOAD_BYTES:
                 raise HTTPException(
@@ -113,7 +119,7 @@ async def _save_upload(upload: UploadFile) -> Path:
     if total == 0:
         path.unlink(missing_ok=True)
         raise HTTPException(status_code=400, detail="The file is empty.")
-    if not first.startswith(PDF_MAGIC):
+    if PDF_MAGIC not in first:
         path.unlink(missing_ok=True)
         raise HTTPException(status_code=400, detail="That file is not a PDF.")
     return path

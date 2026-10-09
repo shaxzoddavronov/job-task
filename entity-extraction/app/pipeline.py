@@ -133,6 +133,29 @@ async def _tasks(client: Client, chunks: list[Chunk], document_text: str):
     return answers
 
 
+#: A table cell shorter than this is a row number or a code, not a task.
+MIN_TABLE_TASK_CHARS = 12
+
+
+def _table_row_task(row_text: str, deadline: str | None, executors: list[str]) -> str:
+    """The description cell of a rendered table row.
+
+    Falls back to the whole row if no cell stands out, so a table laid out in
+    some unexpected way still yields something readable.
+    """
+    def plain(value: str) -> str:
+        return " ".join(value.split()).casefold()
+
+    skip = {plain(deadline or "")} | {plain(e) for e in executors}
+    candidates = []
+    for part in row_text.split("|"):
+        value = part.split(":", 1)[1] if ":" in part else part
+        value = value.strip()
+        if len(value) >= MIN_TABLE_TASK_CHARS and plain(value) not in skip:
+            candidates.append(value)
+    return max(candidates, key=len) if candidates else row_text
+
+
 def _build_tasks(chunks, answers, document_text, document_date) -> list[Task]:
     tasks: list[Task] = []
     for piece, answer in zip(chunks, answers):
@@ -150,8 +173,17 @@ def _build_tasks(chunks, answers, document_text, document_date) -> list[Task]:
                 continue
             # Section 7.4: the task text *is* the chunk, so the model never
             # regenerates it — fewer output tokens and nothing to hallucinate.
+            task_text = original
+            if piece.kind == "table_row":
+                # A rendered row reads "No: 1 | Topshiriq mazmuni: ... |
+                # Masʼul ijrochi: ... | Muddat: ...". Showing all of that as
+                # the task repeats the deadline and executor columns back at
+                # the user; the description cell alone is the task.
+                task_text = _table_row_task(
+                    original, answer.get("deadline"), answer.get("executors") or []
+                )
             found = [{
-                "task": original,
+                "task": task_text,
                 "deadline": answer.get("deadline"),
                 "executors": answer.get("executors") or [],
             }]
@@ -167,7 +199,9 @@ def _build_tasks(chunks, answers, document_text, document_date) -> list[Task]:
                 # it. Widen to the sentence so the user sees a whole task.
                 task_text = text_found.sentence() or text_found.value
             else:
-                task_text = original.strip()
+                # `found` already carries the text to show: the chunk itself
+                # for a clause, or the description cell for a table row.
+                task_text = (item.get("task") or original).strip()
 
             deadline_found = ground(item.get("deadline"), sources)
             if item.get("deadline") and not deadline_found.ok:
