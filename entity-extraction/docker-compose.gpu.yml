@@ -1,0 +1,14 @@
+# GPU override. Applied on top of docker-compose.yml by the launcher scripts:
+#   docker compose -f docker-compose.yml -f docker-compose.gpu.yml up --build
+#
+# Only Ollama gets the GPU. The app container does OCR and layout analysis on
+# CPU and never needs one.
+services:
+  ollama:
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]

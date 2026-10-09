@@ -1,0 +1,10 @@
+# Runtime dependencies (these go into the Docker image). Plan section 3.
+# Pinned in Phase 9 to the versions the evaluation numbers were produced with.
+fastapi==0.141.1
+uvicorn[standard]==0.52.4
+python-multipart==0.0.32
+pydantic==2.13.4
+httpx==0.28.1
+docling==2.135.0
+pymupdf==1.28.2
+rapidfuzz==3.14.6

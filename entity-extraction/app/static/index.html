@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hujjat tahlili</title>
+<style>
+  :root { --line:#d9dce1; --muted:#5f6672; --bg:#f6f7f9; --accent:#1d4ed8; }
+  * { box-sizing: border-box; }
+  body { margin:0; padding:2rem 1rem 3rem; background:var(--bg); color:#15181d;
+         font:15px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 65rem; margin: 0 auto; }
+  h1 { font-size:1.4rem; margin:0 0 .25rem; }
+  .sub { color:var(--muted); margin:0 0 1.5rem; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:10px;
+          padding:1.25rem; margin-bottom:1.25rem; }
+  .row { display:flex; gap:.75rem; align-items:center; flex-wrap:wrap; }
+  input[type=file] { flex:1 1 18rem; min-width:0; }
+  button { background:var(--accent); color:#fff; border:0; border-radius:7px;
+           padding:.6rem 1.3rem; font-size:1rem; cursor:pointer; }
+  button:disabled { background:#9aa3b2; cursor:default; }
+  #status { margin-top:.85rem; color:var(--muted); min-height:1.3em; }
+  #status.error { color:#b4232c; }
+  dl { display:grid; grid-template-columns: max-content 1fr; gap:.45rem 1.25rem;
+       margin:0; }
+  dt { color:var(--muted); }
+  dd { margin:0; }
+  .none { color:#9aa3b2; font-style:italic; }
+  table { width:100%; border-collapse:collapse; margin-top:.5rem; }
+  th, td { text-align:left; vertical-align:top; padding:.55rem .6rem;
+           border-bottom:1px solid var(--line); }
+  th { font-size:.82rem; text-transform:uppercase; letter-spacing:.03em;
+       color:var(--muted); }
+  td.num { width:2.5rem; color:var(--muted); }
+  .tag { display:inline-block; font-size:.75rem; padding:.1rem .45rem;
+         border:1px solid var(--line); border-radius:4px; color:var(--muted);
+         margin-left:.35rem; }
+  .warn { border-color:#e3b23c; color:#8a6400; }
+  footer { color:var(--muted); font-size:.82rem; margin-top:1.5rem; }
+  [hidden] { display:none !important; }
+  .scroll { overflow-x:auto; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Hujjat tahlili</h1>
+  <p class="sub">PDF hujjatni yuklang — rekvizitlar, topshiriqlar, muddat va ijrochilar ajratib olinadi.</p>
+
+  <div class="card">
+    <form id="form" class="row">
+      <input type="file" id="file" accept="application/pdf,.pdf" required>
+      <button type="submit" id="go">Tahlil qilish</button>
+    </form>
+    <div id="status"></div>
+  </div>
+
+  <section class="card" id="details-card" hidden>
+    <h2 style="font-size:1rem;margin:.1rem 0 .9rem">Hujjat rekvizitlari</h2>
+    <dl id="details"></dl>
+  </section>
+
+  <section class="card" id="tasks-card" hidden>
+    <h2 style="font-size:1rem;margin:.1rem 0 .4rem">Topshiriqlar (<span id="count">0</span>)</h2>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>№</th><th>Topshiriq</th><th>Muddat</th><th>Ijrochi(lar)</th></tr></thead>
+        <tbody id="tasks"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer id="meta" hidden></footer>
+</main>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const DEADLINE_LABEL = { date: "sana", relative: "nisbiy", recurring: "davriy",
+                         ongoing: "doimiy", unknown: "aniqlanmadi" };
+
+function text(node, value) { node.textContent = value; return node; }
+
+function missing(label) {
+  const span = document.createElement("span");
+  span.className = "none";
+  span.textContent = label || "topilmadi";
+  return span;
+}
+
+function detailRow(list, label, value, method) {
+  const dt = document.createElement("dt");
+  dt.textContent = label;
+  const dd = document.createElement("dd");
+  if (value) {
+    dd.append(value);
+    if (method) {
+      const tag = document.createElement("span");
+      tag.className = "tag";
+      tag.textContent = method;
+      dd.append(tag);
+    }
+  } else {
+    dd.append(missing());
+  }
+  list.append(dt, dd);
+}
+
+function renderDetails(d) {
+  const list = $("details");
+  list.replaceChildren();
+  detailRow(list, "Tashkilot", d.organization.value, d.organization.method);
+  detailRow(list, "Hujjat raqami", d.document_number.value, d.document_number.method);
+  const date = d.document_date.value
+    ? d.document_date.value + (d.document_date.raw ? ` (${d.document_date.raw})` : "")
+    : null;
+  detailRow(list, "Sana", date, d.document_date.method);
+  detailRow(list, "Imzolagan", d.signatory.name, d.signatory.method);
+  detailRow(list, "Lavozimi", d.signatory.position, null);
+  $("details-card").hidden = false;
+}
+
+function renderTasks(tasks) {
+  const body = $("tasks");
+  body.replaceChildren();
+  text($("count"), tasks.length);
+
+  if (!tasks.length) {
+    const tr = document.createElement("tr");
+    const td = document.createElement("td");
+    td.colSpan = 4;
+    td.append(missing("Hujjatda topshiriq topilmadi"));
+    tr.append(td);
+    body.append(tr);
+  }
+
+  tasks.forEach((t, i) => {
+    const tr = document.createElement("tr");
+
+    const num = document.createElement("td");
+    num.className = "num";
+    num.textContent = i + 1;
+
+    const task = document.createElement("td");
+    task.textContent = t.task;
+    if (!t.grounded) {
+      const tag = document.createElement("span");
+      tag.className = "tag warn";
+      tag.title = "Ba'zi qiymatlar matnda aniq topilmadi";
+      tag.textContent = "tekshiring";
+      task.append(" ", tag);
+    }
+
+    const deadline = document.createElement("td");
+    if (t.deadline_raw || t.deadline_date) {
+      deadline.append(t.deadline_raw || t.deadline_date);
+      if (t.deadline_date && t.deadline_raw !== t.deadline_date) {
+        const tag = document.createElement("span");
+        tag.className = "tag";
+        tag.textContent = t.deadline_date;
+        deadline.append(" ", tag);
+      }
+      if (t.deadline_type && t.deadline_type !== "date") {
+        const tag = document.createElement("span");
+        tag.className = "tag";
+        tag.textContent = DEADLINE_LABEL[t.deadline_type] || t.deadline_type;
+        deadline.append(" ", tag);
+      }
+    } else {
+      deadline.append(missing("—"));
+    }
+
+    const who = document.createElement("td");
+    if (t.executors && t.executors.length) who.textContent = t.executors.join(", ");
+    else who.append(missing("—"));
+
+    tr.append(num, task, deadline, who);
+    body.append(tr);
+  });
+  $("tasks-card").hidden = false;
+}
+
+function renderMeta(r) {
+  const ms = r.timings_ms || {};
+  $("meta").textContent =
+    `Model: ${r.model} · sahifalar: ${r.source.pages}` +
+    (r.source.scanned_pages ? ` (${r.source.scanned_pages} ta skaner)` : "") +
+    ` · yozuv: ${r.source.script}` +
+    ` · ajratish ${(ms.extract / 1000).toFixed(1)}s, model ${(ms.llm / 1000).toFixed(1)}s,` +
+    ` jami ${(ms.total / 1000).toFixed(1)}s`;
+  $("meta").hidden = false;
+}
+
+$("form").addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const file = $("file").files[0];
+  if (!file) return;
+
+  const status = $("status");
+  status.className = "";
+  text(status, "Tahlil qilinmoqda… (skaner qilingan hujjat bir necha daqiqa olishi mumkin)");
+  $("go").disabled = true;
+  $("details-card").hidden = $("tasks-card").hidden = $("meta").hidden = true;
+
+  const data = new FormData();
+  data.append("file", file);
+
+  try {
+    const response = await fetch("/analyze", { method: "POST", body: data });
+    const payload = await response.json();
+    if (!response.ok) throw new Error(payload.error || payload.detail || response.statusText);
+    renderDetails(payload.details);
+    renderTasks(payload.tasks);
+    renderMeta(payload);
+    text(status, "");
+  } catch (error) {
+    status.className = "error";
+    text(status, "Xatolik: " + error.message);
+  } finally {
+    $("go").disabled = false;
+  }
+});
+
+// Tell the user up front if the model is still loading.
+fetch("/health").then((r) => r.json()).then((h) => {
+  if (h.status !== "ready") {
+    $("status").textContent =
+      `Model tayyorlanmoqda (${h.status}). Birinchi ishga tushirishda model yuklab olinadi.`;
+  }
+}).catch(() => {});
+</script>
+</body>
+</html>

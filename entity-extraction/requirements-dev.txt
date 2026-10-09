@@ -1,0 +1,10 @@
+# Development and evaluation only — NOT installed in the Docker image.
+# Plan section 3.
+-r requirements.txt
+
+pytest
+weasyprint              # HTML -> PDF for synthetic documents
+opencv-python-headless  # scan simulation: rotate, blur, noise
+pillow
+numpy
+lxml                    # parsing lex.uz pages (arrives with docling anyway)

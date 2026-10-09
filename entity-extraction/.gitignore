@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Test suite and evaluation working files
+tests/
+conftest.py
+pytest.ini
+eval/.cache/
+eval/labels/
+eval/data/
+
+# Internal planning notes
+PLAN_TASK.md
+CHECKPOINT.md

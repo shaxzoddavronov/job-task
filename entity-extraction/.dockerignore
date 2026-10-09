@@ -1,0 +1,13 @@
+.git
+.gitignore
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# The evaluation corpus and its cache are large and not needed to serve.
+eval/
+tests/
+*.md
+!README.md
