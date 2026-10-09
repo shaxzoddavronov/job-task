@@ -29,10 +29,8 @@ cd job-task\entity-extraction
 
 In the older `cmd.exe` prompt, plain `start.bat` works too.
 
-Then open <http://localhost:8000> and upload a PDF.
-
-If port 8000 is already taken the launcher picks the next free one and tells
-you which.
+The launcher prints the address to open — usually <http://localhost:8000>, or
+the next free port if that one is taken.
 
 ### Optional settings
 
@@ -56,7 +54,7 @@ and are ready in seconds.
 To see when it is ready, and which model it chose for your hardware:
 
 ```bash
-curl http://localhost:8000/health
+curl http://localhost:8000/health      # or whichever port it printed
 # {"status":"ready","model":"qwen3:4b","tier":"T1","reason":"detected 5100 MB free VRAM"}
 ```
 
@@ -273,14 +271,27 @@ left the labels alone rather than rewrite them to match the output.
 
 ## Speed
 
-| | Extraction (OCR) | Model | Total |
-|---|---:|---:|---:|
-| GPU, 1-page scan | ~10 s | ~1 s | **~11 s** |
-| CPU, 1-page scan | ~8 s | ~13 s | **~20 s** |
-| CPU, 2-page typed | ~8 s | ~40 s | **~48 s** |
+Measured with `qwen3:4b` (tier T0/T1 — what a 6 GB card or a CPU-only machine
+gets), after the first document:
 
-A typed page extracts in well under a second — the ~10 s above is Tesseract
-doing OCR on a scan. On GPU, OCR dominates; on CPU, the model does.
+| | | Extraction | Model | Total |
+|---|---|---:|---:|---:|
+| **GPU** | 1-page typed | 0.6 s | 1.4 s | **2.0 s** |
+| | 1-page scan | 4.2 s | 1.4 s | **5.6 s** |
+| | 2-page typed act | 1.3 s | 4.0 s | **5.3 s** |
+| **CPU** | 1-page typed | 0.6 s | 8.2 s | **8.9 s** |
+| | 1-page scan | 3.5 s | 7.9 s | **11.4 s** |
+| | 2-page typed act | 1.2 s | 34.7 s | **35.9 s** |
+
+A typed page extracts in well under a second; the seconds on a scan are
+Tesseract doing OCR. On GPU the time is mostly extraction, on CPU mostly the
+model — a CPU generates at roughly 20 tokens/s against 170 on a GPU.
+
+**The first document after startup takes about 8 seconds longer**, while the
+layout model loads. Everything after that is as above.
+
+A larger GPU selects a larger model rather than going faster: tier T3 runs
+`qwen3:8b-q8_0`, which is more accurate and roughly 3x slower per call.
 
 The pipeline applies the usual inference optimizations (constrained decoding, a
 cached prompt prefix, small context, capped output, parallel calls, quantized
@@ -343,7 +354,12 @@ python eval/compare_models.py     # model choice -> eval/results/model_compariso
 ```
 
 The test set is generated rather than committed, so the first two commands must
-run before the others.
+run before the others. `run_eval.py`, `bench.py` and `compare_models.py` talk to
+Ollama directly, so point them at a reachable instance:
+
+```bash
+OLLAMA_URL=http://localhost:11434 python eval/run_eval.py
+```
 
 ### Layout
 

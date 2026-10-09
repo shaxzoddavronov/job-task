@@ -92,12 +92,23 @@ cannot show this; it would appear on the 6 GB card as a tier step-down.
 
 ### Per-document cost in practice
 
-Extraction dominates on GPU and the model dominates on CPU:
+Re-measured with `qwen3:4b` after the Docling converter was made reusable —
+it had been rebuilt per document, which cost about 1.8 s every time and, on the
+first document of a run, closer to 8 s:
 
-| | Extraction (OCR) | LLM | Total |
-|---|---:|---:|---:|
-| GPU, 1-page scan | ~10 s | ~1.3 s | ~11.5 s |
-| CPU, 1-page scan | ~7.5 s | ~12.7 s | ~20 s |
-| CPU, 2-page text act | ~8 s | ~40 s | ~48 s |
+| | | Extraction | LLM | Total |
+|---|---|---:|---:|---:|
+| **GPU** | 1-page typed | 0.6 s | 1.4 s | 2.0 s |
+| | 1-page scan | 4.2 s | 1.4 s | 5.6 s |
+| | 2-page typed act | 1.3 s | 4.0 s | 5.3 s |
+| **CPU** | 1-page typed | 0.6 s | 8.2 s | 8.9 s |
+| | 1-page scan | 3.5 s | 7.9 s | 11.4 s |
+| | 2-page typed act | 1.2 s | 34.7 s | 35.9 s |
 
-A text-layer page extracts in well under a second; the ~10 s is Tesseract.
+A typed page extracts in well under a second; the seconds on a scan are
+Tesseract. The first document after startup costs about 8 s more, while the
+layout model loads.
+
+Caching the converter was the single largest latency win in the project outside
+chunking itself, and it was a plain oversight rather than a trade-off — worth
+more than every technique in the table above combined.
