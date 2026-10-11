@@ -211,3 +211,19 @@ def test_tune_reranker_uses_decision_sets_only(tmp_path):
     assert rows and all(set(r) == {"weights", "validation", "realistic_dev"} for r in rows)
     keys = [(-r["realistic_dev"]["top1"], -r["realistic_dev"]["mrr10"]) for r in rows]
     assert keys == sorted(keys)
+
+
+def test_rows_with_missing_models_are_skipped(tmp_path, monkeypatch):
+    from app.core.engine import QAEngine
+    from app.eval import runner
+
+    def needs_model(corpus, settings):
+        raise FileNotFoundError("model not downloaded")
+
+    monkeypatch.setitem(runner.SYSTEMS, "needs model", needs_model)
+    monkeypatch.setitem(runner.SYSTEMS, "engine", QAEngine)
+    _, reports = evaluate(fixture_settings(tmp_path), ["needs model", "engine"])
+    assert [r.name for r in reports] == ["engine"]
+    monkeypatch.setitem(runner.SYSTEMS, "engine", needs_model)
+    with pytest.raises(FileNotFoundError):
+        evaluate(fixture_settings(tmp_path), ["engine"])

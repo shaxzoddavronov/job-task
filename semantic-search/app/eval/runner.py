@@ -270,4 +270,12 @@ def evaluate(settings: Settings, names: list[str] | None = None) -> tuple[EvalCo
     unknown = [n for n in names if n not in SYSTEMS]
     if unknown:
         raise ValueError(f"Unknown systems {unknown}; available: {list(SYSTEMS)}")
-    return ctx, [evaluate_system(ctx, n, SYSTEMS[n]) for n in names]
+    reports = []
+    for name in names:
+        try:
+            reports.append(evaluate_system(ctx, name, SYSTEMS[name]))
+        except FileNotFoundError as e:
+            if name == "engine":  # the production config must be runnable
+                raise
+            log.warning("Skipping %r: %s", name, e)
+    return ctx, reports
