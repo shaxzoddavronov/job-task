@@ -20,6 +20,7 @@ services:
   api:
     build: .
     image: uz-legal-qa:latest
+    pull_policy: build  # built locally, never pulled from a registry
     command: ["api"]
     depends_on:
       db:
@@ -54,7 +55,8 @@ services:
     restart: unless-stopped
 
   bot:
-    image: uz-legal-qa:latest
+    image: uz-legal-qa:latest  # same image as api (built by the api service)
+    pull_policy: never
     command: ["bot"]
     depends_on:
       api:
