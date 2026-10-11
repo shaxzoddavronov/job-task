@@ -29,6 +29,34 @@ class Settings(BaseSettings):
     # Normalization (stripping apostrophes is measured as a Phase 4 ablation)
     normalize_strip_apostrophes: bool = False
 
+    # Template filler phrases from the generated paraphrases (Phase 1 audit, ablation E4)
+    strip_template_fillers: bool = False
+    template_fillers: list[str] = [
+        "haqida ma'lumot bering",
+        "bo'yicha ma'lumot kerak",
+        "haqida ayting",
+        "iltimos ayting",
+        "menga",
+    ]
+
+    # Retrieval
+    use_tfidf: bool = True
+    use_bm25: bool = False  # hurt realistic-dev Top-1 by ~6 points (Phase 4 sweep)
+    use_answer_index: bool = True
+    tfidf_ngram_min: int = 3
+    tfidf_ngram_max: int = 5
+    tfidf_entity_weight: float = 0.25
+    bm25_k1: float = 1.5
+    bm25_b: float = 0.75
+    candidate_pool: int = 100
+
+    # Fusion (weighted RRF); answer-text lists are scaled by answer_index_weight.
+    # Small k and a small answer weight keep the answer index a tie-breaker (Phase 4 sweep).
+    rrf_k: int = 5
+    weight_tfidf: float = 1.0
+    weight_bm25: float = 1.0
+    answer_index_weight: float = 0.1
+
     # Data source
     data_source: Literal["postgres", "file"] = "file"
     database_url: str = "postgresql+psycopg://qa:qa@localhost:5432/qa"
@@ -37,6 +65,7 @@ class Settings(BaseSettings):
     eval_seed: int = 42
     eval_top_k: int = 10
     eval_realistic_path: Path = PROJECT_ROOT / "data" / "eval_realistic.csv"
+    eval_realistic_dev_path: Path = PROJECT_ROOT / "data" / "eval_realistic_dev.csv"
 
     # Decision thresholds (placeholders until Phase 7 calibration)
     answer_threshold: float = 0.5

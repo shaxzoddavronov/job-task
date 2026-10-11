@@ -159,6 +159,9 @@ def test_evaluate_end_to_end(tmp_path):
     pd.DataFrame({"query": ["javob ikki"], "answer_id": [2], "kind": ["paraphrase"]}).to_csv(
         tmp_path / "realistic.csv", index=False
     )
+    pd.DataFrame({"query": ["javob uch"], "answer_id": [3], "kind": ["keyword"]}).to_csv(
+        tmp_path / "realistic_dev.csv", index=False
+    )
     settings = Settings(
         _env_file=None,
         answers_path=tmp_path / "answers.csv",
@@ -166,6 +169,7 @@ def test_evaluate_end_to_end(tmp_path):
         ood_questions_path=tmp_path / "ood.txt",
         gazetteer_path=tmp_path / "gazetteer.yaml",
         eval_realistic_path=tmp_path / "realistic.csv",
+        eval_realistic_dev_path=tmp_path / "realistic_dev.csv",
         reports_dir=tmp_path / "reports",
     )
     ctx, reports = evaluate(settings, ["random"])
@@ -178,9 +182,11 @@ def test_evaluate_end_to_end(tmp_path):
         "index": 10,
         "validation": 5,
         "test": 5,
+        "realistic_dev": 1,
         "realistic": 1,
     }
     assert m["test"]["n"] == 5 and m["ood"]["n"] == 1 and m["realistic"]["n"] == 1
+    assert m["realistic_dev"]["n"] == 1 and "keyword" in m["realistic_dev_by_kind"]
     assert m["test_entity"]["n"] == 5  # every question mentions DXM
     assert m["org_swap"]["n"] == 5  # DXM → IIV
     assert m["law_injection"]["n"] == 5

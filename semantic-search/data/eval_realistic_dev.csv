@@ -1,0 +1,108 @@
+query,answer_id,kind
+"Ismimni boshqa ismga almashtirmoqchiman, buning uchun nima qilaman?",15,paraphrase
+"Oilamiz kambag'al, davlatdan moddiy yordam olsak bo'ladimi?",26,paraphrase
+"Otam vafot etdi, merosni rasmiylashtirish uchun qaysi hujjatlarni yig'ishim kerak?",44,paraphrase
+"Mashinamni boshqa odamga sotmoqchiman, shartnomani qanday tuzamiz?",53,paraphrase
+"Chet el fuqarosiman, O'zbekiston fuqarosi bo'lish uchun nima talab qilinadi?",95,paraphrase
+"Erim vafot etdi, bolalarimga pensiya tayinlanadimi?",132,paraphrase
+Kvartira olishdan oldin uning hujjatlarini qanday tekshirsam bo'ladi?,176,paraphrase
+"Yangi uyga ko'chdim, ro'yxatdagi manzilimni qanday yangilayman?",196,paraphrase
+"Meni sababsiz ishdan haydashdi, kimga shikoyat qilsam bo'ladi?",235,paraphrase
+"Sud qaroriga rozi emasman, yuqori sudga qachongacha shikoyat bera olaman?",262,paraphrase
+Hali qurilib bitmagan uyni sotsa bo'ladimi?,310,paraphrase
+Uydan turib ishlasam mehnat shartnomasi qanday tuziladi?,332,paraphrase
+"Nikohimiz soxta tuzilgan, uni bekor qildirish mumkinmi?",389,paraphrase
+"Qo'shnim yer chegaramni buzib qurilish qildi, qayerga murojaat qilaman?",413,paraphrase
+"Nafaqam bir necha oydan beri kelmayapti, kimga borishim kerak?",443,paraphrase
+"Sobiq turmush o'rtog'im bolani chet elga olib ketib qoldi, nima qilaman?",472,paraphrase
+Ota-onasiz qolgan bolalarga davlat qanday yordam beradi?,240,paraphrase
+yangi mashinani uchyotga qo'yish qanday,24,colloquial
+pasportimni yo'qotib qo'ydim nima qilay,33,colloquial
+16 yoshga to'ldim pasport olish uchun nima kerak,35,colloquial
+pravamning sroki tugadi qanday almashtiraman,54,colloquial
+skuter haydash uchun prava kerakmi,111,colloquial
+rossiya pravasini bizniki bilan almashtirsa bo'ladimi,114,colloquial
+mashinani sotsam nomerini o'zimga olib qolsam bo'ladimi,215,colloquial
+doverennost bilan haydayotgan mashinamni sotsam bo'ladimi,216,colloquial
+bolnitsaga yotish uchun napravleniya qanday olinadi,242,colloquial
+kommunalkadan qarzim borligini qanday bilsam bo'ladi,256,colloquial
+svet schyotchik ko'rsatkichini qayerga yuboraman,355,colloquial
+yuqori qavatdagi qo'shni suv bosdi zararni kim to'laydi,356,colloquial
+mashinani ukamga dareniya qilmoqchiman,500,colloquial
+ishga kirishda voenniy bilet so'rashadimi,458,colloquial
+firma uchun bankda raschyotniy schyot ochish,229,colloquial
+armiyaga necha yoshda chaqirishadi,145,colloquial
+oliy talimga hujjat topshirish qanday boladi,28,typo
+ishonchnomani notariusda qanday rasmiylashtirsa boladi,45,typo
+soliq qarzimni qanday tekshirsam boladi,57,typo
+notarius tarjimani tasdiqlab beradimi,103,typo
+tadbirkorlikni yopish uchun nima qilish kere,122,typo
+bolani birinchi sinifga yozdirish,140,typo
+armiyadan otsrochka kimlarga beriladi,146,typo
+notarial arxivdan eski hujatni qanday topsa boladi,209,typo
+uyni ikkiga bolib alohida hujjat qilish,211,typo
+dekret tatili qanday rasmiylashtiriladi,232,typo
+bola parvarishi tatili necha yilgacha beriladi,233,typo
+sogligim boyicha harbiy xizmatga yaroqsiz deb topilishim mumkinmi,253,typo
+uy egasi propiskaga rozi bolmasa nima qilaman,295,typo
+qarzga pul berganimda tilxatni notariusda tasdiqlatsa boladimi,304,typo
+tugilganlik guvohnomasidagi xato sanani tuzattirish,392,typo
+uyimga arest qoyilibdi nima qilsam boladi,414,typo
+bolani bepul emlatish qayerda boladi,448,typo
+Шикоятимни қаерга юборсам бўлади?,31,cyrillic
+"Боламиз чет элда туғилди, уни қандай рўйхатга олдирамиз?",64,cyrillic
+Чет элга ишлагани қонуний кетиш учун қаерга мурожаат қилиш керак?,65,cyrillic
+"Шифокор ёмон муомала қилди, қаерга шикоят қиламан?",69,cyrillic
+Даромад солиғи бўйича декларацияни қандай топшираман?,116,cyrillic
+Кўп болали оилаларга қандай ёрдам бор?,135,cyrillic
+Фавқулодда ҳолатда қайси рақамга қўнғироқ қилинади?,164,cyrillic
+Чақалоқ туғилгандан кейин қайси ҳужжатларни олиш керак?,166,cyrillic
+Ҳар қандай шартномани нотариусда тасдиқлатиш шартми?,208,cyrillic
+"Ишда жароҳат олдим, нима қилишим керак?",236,cyrillic
+Чет элда ўқиш учун дипломимни қандай тайёрлайман?,249,cyrillic
+Судга даъво беришда давлат божи қанча бўлади?,261,cyrillic
+Мактабни битирганда аттестат қандай берилади?,345,cyrillic
+Пенсияни уйга почта орқали олиб келиб беришадими?,368,cyrillic
+Бола албатта отасининг фамилиясини олиши керакми?,390,cyrillic
+Ҳомиладор аёлларга ишда қандай имтиёзлар бор?,438,cyrillic
+STIR nima va u kimga beriladi,58,abbreviation
+my.soliq.uz shaxsiy kabinetiga ERI bilan kirish,223,abbreviation
+ERI kalitimning muddati tugab qoldi,280,abbreviation
+oilaviy tadbirkorlikni DXMda ro'yxatdan o'tkazish,324,abbreviation
+ID-kartamda JSHSHIR xato yozilgan,382,abbreviation
+MFYdan turmush sharoiti haqida spravka olish,374,abbreviation
+eng yaqin DXM qayerda joylashgan,479,abbreviation
+my.gov.uz da xizmatga kerakli hujjatlar ro'yxati,371,abbreviation
+yagona darcha prinsipi nimani anglatadi,160,abbreviation
+MChJ yuridik manzilini o'zgartirish,226,abbreviation
+MChJ filialini ochish tartibi,430,abbreviation
+soliq organi bilan aktsverka qilish,425,abbreviation
+elektromobilni DXMda ro'yxatga qo'yishda farq bormi,316,abbreviation
+advokatdan norozi bo'lsam Advokatlar palatasiga yozsam bo'ladimi,467,abbreviation
+sud qarori ijrosi,155,keyword
+internet firibgarlik xabar berish,173,keyword
+nogironlar transport imtiyozi,220,keyword
+bepul dorilar ro'yxati,244,keyword
+psixolog yordami ishonch telefoni,246,keyword
+talaba ta'lim krediti,250,keyword
+harbiy hisobdan chiqish yosh,255,keyword
+diplomga apostil,266,keyword
+xorijiy hujjat legalizatsiya,268,keyword
+xalqaro posilka boj,270,keyword
+bir arizada bir nechta xizmat,275,keyword
+vaqtincha propiska bog'cha,296,keyword
+ulushli mulk ro'yxatga olish,311,keyword
+prava olib qo'yilishi,314,keyword
+dehqon xo'jaligi ro'yxatdan o'tkazish,325,keyword
+tibbiy xato shikoyat,344,keyword
+zaxiradagilarni harbiy sborga chaqirish,351,keyword
+sud majlisi sanasi,360,keyword
+chet elga doimiy yashashga ketish hujjatlar,367,keyword
+rad etilgan ariza qayta topshirish,370,keyword
+davlat xizmatlari rus tilida,376,keyword
+yetim bola hujjatlari vasiy,391,keyword
+transport solig'i to'lash,421,keyword
+litsenziya muddati uzaytirish,432,keyword
+chet elda davolanish hujjatlar,449,keyword
+zaxira ofitseri maqomi,457,keyword
+uyni ofisga aylantirish ruxsat,463,keyword

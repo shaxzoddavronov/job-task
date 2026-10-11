@@ -53,6 +53,22 @@ def worst_failures(records: list[QueryRecord], n: int = WORST_N) -> list[QueryRe
     return sorted(wrong, key=lambda r: (r.status != "answer", -r.confidence))[:n]
 
 
+def _kind_table(
+    reports: list[SystemReport], primary: SystemReport, set_name: str, title: str
+) -> list[str]:
+    by_kind = primary.metrics.get(f"{set_name}_by_kind", {})
+    if not by_kind:
+        return []
+    kinds = list(by_kind)
+    return [title, ""] + _table(
+        ["system", *[f"{k} (n={by_kind[k]['n']})" for k in kinds]],
+        [
+            [r.name, *[_fmt(r.metrics[f"{set_name}_by_kind"][k]["top1"]) for k in kinds]]
+            for r in reports
+        ],
+    )
+
+
 def render_markdown(ctx: EvalContext, reports: list[SystemReport], primary: SystemReport) -> str:
     s = ctx.split
     md = [
@@ -66,16 +82,34 @@ def render_markdown(ctx: EvalContext, reports: list[SystemReport], primary: Syst
         "",
         "> The random split is **optimistic**: most paraphrases are template variants of one",
         "> original question, so a held-out question usually has a near-copy in the index.",
-        "> The realistic set (hand-written queries) is the better estimate of real use.",
+        "> Hand-written realistic queries are the better estimate of real use: realistic-dev is",
+        "> used for decisions, the realistic test set (disjoint answers) only for reporting.",
         "",
         "Percentages except latency (ms). Coverage = share answered; Prec@ans = top-1 accuracy",
-        "among answered queries. Tune on validation, report test.",
+        "among answered queries. Decide on validation + realistic-dev, report test sets.",
         "",
-        "## Validation (for decisions)",
+        "## Validation + realistic-dev (for decisions)",
         "",
     ]
     head = ["system", "n", "Top-1", "Top-3", "MRR@10", "Coverage", "Prec@ans", "p50", "p95"]
-    md += _table(head, [_ranking_row(r.name, r.metrics["validation"]) for r in reports])
+    rows = []
+    for r in reports:
+        val, dev = r.metrics["validation"], r.metrics.get("realistic_dev", {})
+        rows.append(
+            [
+                r.name,
+                _fmt(val.get("top1")),
+                _fmt(val.get("mrr10")),
+                _fmt(dev.get("top1")),
+                _fmt(dev.get("top3")),
+                _fmt(dev.get("mrr10")),
+                _fmt(val.get("latency_p95_ms"), pct=False),
+            ]
+        )
+    md += _table(
+        ["system", "val Top-1", "val MRR@10", "dev Top-1", "dev Top-3", "dev MRR@10", "p95"], rows
+    )
+    md += _kind_table(reports, primary, "realistic_dev", "Realistic-dev Top-1 by query kind:")
 
     md += ["## Test (for reporting)", ""]
     head_t = head[:5] + ["Entity Top-1"] + head[5:]
@@ -111,21 +145,9 @@ def render_markdown(ctx: EvalContext, reports: list[SystemReport], primary: Syst
     )
 
     if ctx.realistic:
-        md += ["## Realistic set (hand-written queries, full index)", ""]
+        md += ["## Realistic test set (hand-written queries, full index, reporting only)", ""]
         md += _table(head, [_ranking_row(r.name, r.metrics["realistic"]) for r in reports])
-        kinds = list(primary.metrics.get("realistic_by_kind", {}))
-        if kinds:
-            md += ["Top-1 by query kind:", ""]
-            md += _table(
-                [
-                    "system",
-                    *[f"{k} (n={primary.metrics['realistic_by_kind'][k]['n']})" for k in kinds],
-                ],
-                [
-                    [r.name, *[_fmt(r.metrics["realistic_by_kind"][k]["top1"]) for k in kinds]]
-                    for r in reports
-                ],
-            )
+        md += _kind_table(reports, primary, "realistic", "Top-1 by query kind:")
 
     md += [f"## {WORST_N} worst test failures — `{primary.name}`", ""]
     rows = []
@@ -158,6 +180,7 @@ def write_reports(
             "index": len(s.index),
             "validation": len(s.validation),
             "test": len(s.test),
+            "realistic_dev": len(ctx.realistic_dev),
             "realistic": len(ctx.realistic),
         },
         "thresholds": {

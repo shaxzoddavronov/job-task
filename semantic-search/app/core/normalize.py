@@ -104,3 +104,10 @@ def clean_text(text: str, strip_apostrophes: bool = False) -> str:
 def normalize(text: str, strip_apostrophes: bool = False) -> str:
     """Full normalization without entity tagging (for fuzzy matching and audits)."""
     return clean_text(normalize_script(text), strip_apostrophes)
+
+
+def strip_phrases(text: str, phrases: list[str]) -> str:
+    """Remove whole-word phrases from cleaned text (longest first) and collapse spaces."""
+    for phrase in sorted(phrases, key=len, reverse=True):
+        text = re.sub(rf"(?<![\w']){re.escape(phrase)}(?![\w'])", " ", text)
+    return re.sub(r"\s+", " ", text).strip()

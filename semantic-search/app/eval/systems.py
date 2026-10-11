@@ -1,6 +1,7 @@
 """Systems the evaluation can run. Each factory builds a QASystem from a corpus.
 
-Ablation rows are added here as retrievers land (Phase 4+).
+Ablation rows are QAEngine with settings overrides; `engine` is the production config (the
+current settings), so it should match the best row once defaults are updated.
 """
 
 import random
@@ -8,7 +9,7 @@ from collections.abc import Callable
 
 from app.core.config import Settings
 from app.core.data import Corpus
-from app.core.engine import Candidate, QAResult, QASystem, decide_status
+from app.core.engine import Candidate, QAEngine, QAResult, QASystem, decide_status
 
 
 class RandomSystem:
@@ -34,6 +35,29 @@ class RandomSystem:
 
 SystemFactory = Callable[[Corpus, Settings], QASystem]
 
+
+def engine_with(**overrides) -> SystemFactory:
+    """Factory for a QAEngine whose settings differ from the current ones by `overrides`."""
+
+    def factory(corpus: Corpus, settings: Settings) -> QASystem:
+        return QAEngine(corpus, settings.model_copy(update=overrides))
+
+    return factory
+
+
+# Plan rows 1-4 pin the retrievers and the answer index; everything else follows the settings.
+_PLAN_ROW = {"strip_template_fillers": False, "normalize_strip_apostrophes": False}
+
 SYSTEMS: dict[str, SystemFactory] = {
     "random": RandomSystem,
+    "1 tfidf": engine_with(**_PLAN_ROW, use_tfidf=True, use_bm25=False, use_answer_index=False),
+    "2 bm25": engine_with(**_PLAN_ROW, use_tfidf=False, use_bm25=True, use_answer_index=False),
+    "3 tfidf+bm25": engine_with(**_PLAN_ROW, use_tfidf=True, use_bm25=True, use_answer_index=False),
+    "4 tfidf+bm25+answers": engine_with(
+        **_PLAN_ROW, use_tfidf=True, use_bm25=True, use_answer_index=True
+    ),
+    # E4 and apostrophe stripping, measured on top of the production config
+    "4a engine -fillers": engine_with(strip_template_fillers=True),
+    "4b engine -apostrophes": engine_with(normalize_strip_apostrophes=True),
+    "engine": QAEngine,
 }

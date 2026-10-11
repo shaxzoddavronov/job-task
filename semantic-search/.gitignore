@@ -6,6 +6,7 @@ bot_token.txt
 data/*.xlsx
 data/*.csv
 !data/eval_realistic.csv
+!data/eval_realistic_dev.csv
 data/feedback.jsonl
 # Audit quotes raw rows; keep out of git until data privacy is decided
 reports/data_audit.*
@@ -21,3 +22,4 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 *.egg-info/
+reports/sweep.json

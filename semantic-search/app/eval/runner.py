@@ -13,20 +13,24 @@ Query sets
 - org_swap: test questions whose ORG/TERM entity is replaced by a different entry of the
   same type. Diagnostic only: we report how often the original answer is still given.
 - ood: out-of-domain questions (data/ood_questions.txt); expected status not_found.
-- realistic: hand-written queries (data/eval_realistic.csv), run against a system built on
-  the full corpus because none of these queries come from the data.
+- realistic_dev: hand-written queries (data/eval_realistic_dev.csv) used together with
+  validation for decisions, because validation is saturated by template near-copies.
+- realistic: hand-written test queries (data/eval_realistic.csv) on a disjoint set of answers;
+  reporting only. Both realistic sets run against a system built on the full corpus, because
+  none of these queries come from the data.
 """
 
 import logging
 import random
 import time
 from dataclasses import dataclass, field
+from pathlib import Path
 
 import pandas as pd
 
 from app.core.config import Settings
 from app.core.data import Corpus, FileSource, Question, build_corpus
-from app.core.engine import QASystem
+from app.core.engine import QAEngine, QASystem
 from app.core.entities import EntityExtractor
 from app.core.normalize import normalize_script
 from app.eval.metrics import QueryRecord, status_rates, summarize
@@ -59,6 +63,7 @@ class EvalContext:
     extractor: EntityExtractor
     query_sets: dict[str, list[EvalQuery]]
     realistic: list[EvalQuery]
+    realistic_dev: list[EvalQuery] = field(default_factory=list)
 
     @property
     def index_corpus(self) -> Corpus:
@@ -155,8 +160,7 @@ def load_ood(settings: Settings) -> list[EvalQuery]:
     return [EvalQuery(t.strip(), None) for t in lines if t.strip() and not t.startswith("#")]
 
 
-def load_realistic(settings: Settings, corpus: Corpus) -> list[EvalQuery]:
-    path = settings.eval_realistic_path
+def load_realistic(path: Path, corpus: Corpus) -> list[EvalQuery]:
     if not path.is_file():
         log.warning("%s not found; skipping the realistic set", path)
         return []
@@ -186,7 +190,13 @@ def build_context(settings: Settings) -> EvalContext:
         "ood": load_ood(settings),
     }
     return EvalContext(
-        settings, corpus, split, extractor, query_sets, load_realistic(settings, corpus)
+        settings,
+        corpus,
+        split,
+        extractor,
+        query_sets,
+        realistic=load_realistic(settings.eval_realistic_path, corpus),
+        realistic_dev=load_realistic(settings.eval_realistic_dev_path, corpus),
     )
 
 
@@ -222,15 +232,36 @@ def evaluate_system(ctx: EvalContext, name: str, factory: SystemFactory) -> Syst
         "org_swap": _probe_metrics(records["org_swap"]),
         "ood": status_rates(records["ood"]),
     }
-    if ctx.realistic:
+    full_sets = {"realistic_dev": ctx.realistic_dev, "realistic": ctx.realistic}
+    if any(full_sets.values()):
         full_system = factory(ctx.corpus, ctx.settings)
-        records["realistic"] = run_queries(full_system, ctx.realistic, ctx.extractor, k)
-        metrics["realistic"] = summarize(records["realistic"])
-        kinds = sorted({r.kind for r in records["realistic"] if r.kind})
-        metrics["realistic_by_kind"] = {
-            kind: summarize([r for r in records["realistic"] if r.kind == kind]) for kind in kinds
-        }
+        for set_name, queries in full_sets.items():
+            if queries:
+                records[set_name] = run_queries(full_system, queries, ctx.extractor, k)
+                metrics[set_name] = summarize(records[set_name])
+                metrics[f"{set_name}_by_kind"] = _by_kind(records[set_name])
     return SystemReport(name, build_seconds, metrics, records)
+
+
+def _by_kind(records: list[QueryRecord]) -> dict[str, dict]:
+    kinds = sorted({r.kind for r in records if r.kind})
+    return {kind: summarize([r for r in records if r.kind == kind]) for kind in kinds}
+
+
+def sweep(ctx: EvalContext, grid: list[dict]) -> list[dict]:
+    """Decision metrics (validation + realistic_dev only) for each settings override."""
+    k = ctx.settings.eval_top_k
+    rows = []
+    for overrides in grid:
+        settings = ctx.settings.model_copy(update=overrides)
+        val = run_queries(
+            QAEngine(ctx.index_corpus, settings), ctx.query_sets["validation"], ctx.extractor, k
+        )
+        dev = run_queries(QAEngine(ctx.corpus, settings), ctx.realistic_dev, ctx.extractor, k)
+        rows.append(
+            {"overrides": overrides, "validation": summarize(val), "realistic_dev": summarize(dev)}
+        )
+    return rows
 
 
 def evaluate(settings: Settings, names: list[str] | None = None) -> tuple[EvalContext, list]:
