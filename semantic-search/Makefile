@@ -5,6 +5,7 @@ PY := $(VENV)/bin/python
 BENCH_VENV := .venv-bench
 BENCH_PY := $(BENCH_VENV)/bin/python
 BENCH_VENV_FLAGS ?=
+PORT ?= 8000
 
 .PHONY: install install-bench models lint format test audit gazetteer eval distill benchmark db-up migrate import api bot up down
 
@@ -60,8 +61,8 @@ migrate:
 import:
 	$(PY) -m scripts.import_xlsx
 
-api:
-	$(PY) -m uvicorn app.api.main:app --reload --port 8000
+api:  ## PORT=8010 make api if 8000 is taken
+	$(PY) -m uvicorn app.api.main:app --reload --host 0.0.0.0 --port $(PORT)
 
 bot:
 	$(PY) -m app.bot.main

@@ -8,11 +8,15 @@ Corpus the engine and the evaluation work on.
 import logging
 from dataclasses import dataclass, field, replace
 from pathlib import Path
+from typing import TYPE_CHECKING
 
 import numpy as np
 import pandas as pd
 
 log = logging.getLogger(__name__)
+
+if TYPE_CHECKING:
+    from app.core.config import Settings
 
 ANSWER_COLUMNS = ("id", "category_id", "topic_id", "answer", "status")
 QUESTION_COLUMNS = ("id", "answer_id", "question", "is_active")
@@ -122,3 +126,10 @@ def build_corpus(raw: RawData) -> Corpus:
     if orphans:
         log.warning("Dropped %d active questions whose answer is missing or inactive", orphans)
     return Corpus(by_id, questions)
+
+
+def load_corpus(settings: "Settings") -> Corpus:
+    """Load the searchable corpus from the configured source (DATA_SOURCE)."""
+    if settings.data_source == "file":
+        return build_corpus(FileSource(settings.answers_path, settings.questions_path).load_raw())
+    raise NotImplementedError("DATA_SOURCE=postgres arrives in Phase 9b; use DATA_SOURCE=file")

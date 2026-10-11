@@ -81,6 +81,11 @@ class Settings(BaseSettings):
     # No law numbers in the decision sets, so conflict is a safety setting, not a tuned one.
     rerank_w_entity_conflict: float = 3.0
 
+    # API
+    max_question_chars: int = 500
+    preview_chars: int = 160
+    logs_dir: Path = PROJECT_ROOT / "data" / "logs"  # query logs + feedback until Postgres (9b)
+
     # Data source
     data_source: Literal["postgres", "file"] = "file"
     database_url: str = "postgresql+psycopg://qa:qa@localhost:5432/qa"
