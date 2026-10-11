@@ -104,6 +104,7 @@ class Settings(BaseSettings):
 
     # Bot
     api_url: str = "http://localhost:8000"
+    bot_api_timeout: float = 10.0
     bot_token: str | None = None
     bot_token_file: Path = PROJECT_ROOT / "bot_token.txt"
 
