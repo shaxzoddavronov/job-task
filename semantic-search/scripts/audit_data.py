@@ -11,6 +11,7 @@ are audit heuristics only; scripts/build_gazetteer.py reuses them to suggest gaz
 import json
 import re
 from collections import Counter
+from collections.abc import Iterator
 from itertools import combinations
 
 import numpy as np
@@ -111,7 +112,9 @@ def pct(part: int, total: int) -> str:
     return f"{part} ({100 * part / total:.1f}%)" if total else "0"
 
 
-def near_duplicate_pairs(texts: list[str], threshold: float, chunk: int = 1000):
+def near_duplicate_pairs(
+    texts: list[str], threshold: float, chunk: int = 1000
+) -> Iterator[tuple[int, int, float]]:
     """Yield (i, j, cosine) for i < j with char-TF-IDF cosine >= threshold."""
     if len(texts) < 2:
         return

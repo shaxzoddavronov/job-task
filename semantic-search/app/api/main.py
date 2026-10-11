@@ -6,6 +6,7 @@ Run: `make api` → http://localhost:8000/docs
 import asyncio
 import json
 import logging
+from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
 from dataclasses import dataclass
 
@@ -55,7 +56,7 @@ def create_app(settings: Settings | None = None, repo: Repository | None = None)
     settings = settings or get_settings()
 
     @asynccontextmanager
-    async def lifespan(app: FastAPI):
+    async def lifespan(app: FastAPI) -> AsyncIterator[None]:
         app.state.engine_state = await run_in_threadpool(build_state, settings)
         app.state.repo = repo or build_repository(settings)
         app.state.reload_lock = asyncio.Lock()

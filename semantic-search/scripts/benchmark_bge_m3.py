@@ -17,6 +17,7 @@ import argparse
 import json
 import platform
 import time
+from collections.abc import Callable, Iterator
 from datetime import UTC, datetime
 
 import numpy as np
@@ -120,7 +121,7 @@ class HybridEngine(QAEngine):
 
     device = "cuda"
 
-    def _retriever_specs(self):
+    def _retriever_specs(self) -> Iterator[tuple[str, float, Callable[[], BGERetriever]]]:
         yield from super()._retriever_specs()
         yield "bge", 1.0, lambda: BGERetriever(BGEEncoder(self.device))
 

@@ -109,7 +109,7 @@ def run_calibration() -> None:
         print("No thresholds meet the constraints; relax min_precision / max_ood_answer.")
         return
 
-    def pct(v):
+    def pct(v: float | None) -> str:
         return "–" if v is None else f"{100 * v:.1f}"
 
     head = [

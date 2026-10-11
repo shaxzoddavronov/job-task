@@ -5,6 +5,7 @@ through normalize_script (Latin, case kept) so case-sensitive aliases like `ERI`
 """
 
 import re
+from collections.abc import Callable
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -165,7 +166,7 @@ class EntityExtractor:
             found.append(Entity("LAW", value, f"LAW_{value}", m.group(0)))
             return f" LAW_{value} "
 
-        def numbered(kind: str):
+        def numbered(kind: str) -> Callable[[re.Match], str]:
             def repl(m: re.Match) -> str:
                 value = str(int(m.group(1)))
                 found.append(Entity(kind, value, f"{kind}_{value}", m.group(0)))

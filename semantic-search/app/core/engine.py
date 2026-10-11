@@ -5,6 +5,7 @@ care which system produced it.
 """
 
 import time
+from collections.abc import Callable, Iterator
 from dataclasses import dataclass, field
 from typing import Literal, Protocol
 
@@ -163,7 +164,7 @@ class QAEngine:
             raise ValueError("No retriever enabled: set USE_TFIDF, USE_BM25 and/or USE_STATIC_EMB")
         self.build_seconds = time.perf_counter() - start
 
-    def _retriever_specs(self):
+    def _retriever_specs(self) -> Iterator[tuple[str, float, Callable[[], Retriever]]]:
         s = self.settings
         if s.use_tfidf:
             yield (

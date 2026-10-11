@@ -7,6 +7,7 @@ Upserts by id, skips questions whose answer is missing (Phase 1 rule) and prints
 
 import argparse
 from dataclasses import dataclass
+from datetime import datetime
 
 import pandas as pd
 from sqlalchemy import func, select, text
@@ -34,7 +35,7 @@ def _int(value) -> int | None:
     return None if pd.isna(value) else int(value)
 
 
-def _ts(value):
+def _ts(value) -> datetime | None:
     if value is None or pd.isna(value):
         return None
     return pd.Timestamp(value).to_pydatetime().replace(tzinfo=None)

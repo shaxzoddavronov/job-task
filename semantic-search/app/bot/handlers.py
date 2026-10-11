@@ -2,6 +2,7 @@
 handlers are plain async functions that tests can call with fakes."""
 
 from collections import OrderedDict
+from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
 from itertools import count
 
@@ -45,7 +46,7 @@ class QueryStore:
 
 
 @asynccontextmanager
-async def typing(message: Message):
+async def typing(message: Message) -> AsyncIterator[None]:
     """Show "typing…" while the API works (skipped when there is no bot, e.g. in tests)."""
     if message.bot is None:
         yield
