@@ -2,7 +2,7 @@ import pandas as pd
 import pytest
 
 from app.core.data import ANSWER_COLUMNS, QUESTION_COLUMNS, FileSource
-from scripts.audit_data import LAW_RE, audit, law_key, rough_normalize
+from scripts.audit_data import audit
 
 
 @pytest.fixture
@@ -63,16 +63,6 @@ def test_loader_reads_csv(tmp_path):
 def test_loader_reports_missing_file(tmp_path):
     with pytest.raises(FileNotFoundError):
         FileSource(tmp_path / "a.xlsx", tmp_path / "q.xlsx").load_raw()
-
-
-def test_rough_normalize_unifies_apostrophes():
-    assert rough_normalize("Ma’lumot") == rough_normalize("ma‘lumot") == "ma'lumot"
-
-
-def test_law_key_variants():
-    variants = ["PQ-4567", "pq 4567", "ПҚ-4567", "PQ–4567"]
-    keys = {law_key(m) for t in variants for m in LAW_RE.finditer(t)}
-    assert keys == {"pq-4567"}
 
 
 def test_audit_finds_planted_issues(raw):

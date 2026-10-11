@@ -3,8 +3,9 @@
 Run with `make audit` (or `python -m scripts.audit_data`). Nothing is cleaned here; the
 report is the basis for proposing cleaning rules.
 
-The normalization and entity patterns below are deliberately rough stand-ins used only for
-auditing. The real implementations live in app/core/normalize.py and entities.py (Phase 2).
+Text is normalized and entities are tagged with the same code the engine uses
+(app/core/normalize.py, app/core/entities.py). The org-phrase and abbreviation patterns below
+are audit heuristics only; scripts/build_gazetteer.py reuses them to suggest gazetteer entries.
 """
 
 import json
@@ -18,23 +19,11 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 
 from app.core.config import get_settings
 from app.core.data import FileSource, RawData
+from app.core.entities import EntityExtractor
+from app.core.normalize import APOSTROPHE_VARIANTS, normalize
 
-APOSTROPHES = {
-    "'": "U+0027",
-    "‘": "U+2018",
-    "’": "U+2019",
-    "ʻ": "U+02BB",
-    "ʼ": "U+02BC",
-    "`": "U+0060",
-    "´": "U+00B4",
-}
+APOSTROPHES = {ch: f"U+{ord(ch):04X}" for ch in "'" + APOSTROPHE_VARIANTS}
 CYRILLIC_RE = re.compile(r"[\u0400-\u04FF]")
-LAW_RE = re.compile(
-    r"(?<![\w])(pf|pq|o['‘’ʻʼ`´]?rq|vmq|пф|пқ|пк|ўрқ|урқ|вмқ|вмк)\s*[-–—]?\s*(\d{1,5})(?!\d)",
-    re.IGNORECASE,
-)
-ARTICLE_RE = re.compile(r"(?<!\d)(\d{1,4})\s*[-–—]?\s*(modda|модда)", re.IGNORECASE)
-NUMBER_RE = re.compile(r"(?<!\d)(\d{1,6})\s*[-–—]?\s*(son|сон)(li|ли)?(?![a-zа-я])", re.IGNORECASE)
 ORG_SUFFIXES = (
     "vazirligi",
     "qo'mitasi",
@@ -78,30 +67,6 @@ TEMPLATE_WORDS = set(
 )
 NEAR_DUP_THRESHOLD = 0.9
 MAX_EXAMPLES = 15
-
-
-def rough_normalize(text: str) -> str:
-    text = str(text)
-    for ch in APOSTROPHES:
-        text = text.replace(ch, "'")
-    text = text.lower()
-    text = re.sub(r"[^\w']+", " ", text)
-    return re.sub(r"\s+", " ", text).strip()
-
-
-def law_key(match: re.Match) -> str:
-    prefix = re.sub(r"[^a-zа-яўқғҳ]", "", match.group(1).lower())
-    prefix = {
-        "пф": "pf",
-        "пқ": "pq",
-        "пк": "pq",
-        "ўрқ": "orq",
-        "урқ": "orq",
-        "orq": "orq",
-        "вмқ": "vmq",
-        "вмк": "vmq",
-    }.get(prefix, prefix)
-    return f"{prefix}-{int(match.group(2))}"
 
 
 def abbreviations(text: str) -> list[str]:
@@ -172,7 +137,8 @@ def near_duplicate_pairs(texts: list[str], threshold: float, chunk: int = 1000):
                 yield i, int(c), float(v)
 
 
-def audit(raw: RawData) -> tuple[list[str], dict]:
+def audit(raw: RawData, extractor: EntityExtractor | None = None) -> tuple[list[str], dict]:
+    extractor = extractor or EntityExtractor()
     answers, questions = raw.answers.copy(), raw.questions.copy()
     md: list[str] = ["# Data audit", ""]
     summary: dict = {}
@@ -269,7 +235,7 @@ def audit(raw: RawData) -> tuple[list[str], dict]:
 
     # --- Duplicates and conflicts ----------------------------------------------------------
     md += ["## 4. Duplicates and conflicts (active questions, rough normalization)", ""]
-    active = active.assign(_norm=active["question"].fillna("").map(rough_normalize))
+    active = active.assign(_norm=active["question"].fillna("").map(normalize))
     groups = active.groupby("_norm")["answer_id"].agg(["size", "nunique"])
     exact_dup_rows = int((groups["size"] - 1).clip(lower=0).sum())
     conflicts = groups[groups["nunique"] > 1]
@@ -381,16 +347,23 @@ def audit(raw: RawData) -> tuple[list[str], dict]:
     md += md_table(["apostrophe", "questions", "answers"], apos_rows)
 
     # --- Entities --------------------------------------------------------------------------
-    md += ["## 7. Entities (rough patterns)", ""]
-    q_laws = q_text.map(lambda t: {law_key(m) for m in LAW_RE.finditer(t)})
-    a_laws = a_text.map(lambda t: {law_key(m) for m in LAW_RE.finditer(t)})
-    q_norm_text, a_norm_text = q_text.map(rough_normalize), a_text.map(rough_normalize)
+    md += ["## 7. Entities", ""]
+    q_ents = q_text.map(lambda t: extractor.process(t).entities)
+    a_ents = a_text.map(lambda t: extractor.process(t).entities)
+
+    def of_type(ents: pd.Series, kind: str) -> pd.Series:
+        return ents.map(lambda es: {e.value for e in es if e.type == kind})
+
+    q_laws, a_laws = of_type(q_ents, "LAW"), of_type(a_ents, "LAW")
+    q_norm_text, a_norm_text = q_text.map(normalize), a_text.map(normalize)
     ent_rows, summary["entities"] = [], {}
 
     checks = {
         "law number": (q_laws.map(bool), a_laws.map(bool)),
-        "article (N-modda)": (has(q_text, ARTICLE_RE), has(a_text, ARTICLE_RE)),
-        "N-son": (has(q_text, NUMBER_RE), has(a_text, NUMBER_RE)),
+        "article (N-modda)": (of_type(q_ents, "ART").map(bool), of_type(a_ents, "ART").map(bool)),
+        "N-son": (of_type(q_ents, "NUM").map(bool), of_type(a_ents, "NUM").map(bool)),
+        "gazetteer ORG": (of_type(q_ents, "ORG").map(bool), of_type(a_ents, "ORG").map(bool)),
+        "gazetteer TERM": (of_type(q_ents, "TERM").map(bool), of_type(a_ents, "TERM").map(bool)),
         "org phrase (suffix)": (has(q_norm_text, ORG_RE), has(a_norm_text, ORG_RE)),
         "all-caps abbreviation": (
             q_text.map(abbreviations).map(bool),
@@ -490,7 +463,7 @@ def audit(raw: RawData) -> tuple[list[str], dict]:
 def main() -> None:
     settings = get_settings()
     raw = FileSource(settings.answers_path, settings.questions_path).load_raw()
-    md, summary = audit(raw)
+    md, summary = audit(raw, EntityExtractor.from_settings(settings))
     settings.reports_dir.mkdir(parents=True, exist_ok=True)
     (settings.reports_dir / "data_audit.md").write_text("\n".join(md), encoding="utf-8")
     (settings.reports_dir / "data_audit.json").write_text(

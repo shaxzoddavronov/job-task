@@ -1,0 +1,143 @@
+# Organization (ORG) and document/concept (TERM) aliases → canonical tokens ORG_<id> / TERM_<id>.
+# Curated by hand; candidates come from `make gazetteer` (reports/gazetteer_candidates.yaml).
+#
+# - Aliases match case-insensitively, longest first, with optional Uzbek suffixes (DXMga, DXM-ga,
+#   DXM ga, markaziga). Input is transliterated first, so Cyrillic aliases are unnecessary.
+# - `case_sensitive` aliases must match exactly; use it when the lowercase form is an ordinary word
+#   (ERI vs "eri" = "her husband").
+# - Add an entry only when several surface forms mean the same thing (abbreviation ↔ long form,
+#   colloquial or Russian names users type). Single generic words (sud, bank) stay out.
+
+# --- Organizations -------------------------------------------------------------------------
+
+- id: dxm
+  type: ORG
+  aliases: [Davlat xizmatlari markazi, DXM, Davlat xizmatlari markazlari]
+
+- id: dxa
+  type: ORG
+  aliases: [Davlat xizmatlari agentligi, DXA]
+
+- id: fhdyo
+  type: ORG
+  aliases:
+    - FHDYO
+    - Fuqarolik holati dalolatnomalarini yozish
+    - FHDYO bo'limi
+    - ZAGS
+
+- id: iiv
+  type: ORG
+  aliases: [IIV, Ichki ishlar vazirligi, Ichki ishlar organi, Ichki ishlar organlari, IIB, MVD]
+
+- id: migratsiya
+  type: ORG
+  aliases:
+    - Migratsiya va fuqarolikni rasmiylashtirish bo'limi
+    - Migratsiya va fuqarolikni rasmiylashtirish
+    - Migratsiya bo'limi
+    - Migratsiya organlari
+    - OVIR
+
+- id: yhxx
+  type: ORG
+  aliases: [YHXX, Yo'l harakati xavfsizligi xizmati, YHXB, Yo'l harakati xavfsizligi boshqarmasi, GAI]
+
+- id: adliya
+  type: ORG
+  aliases: [Adliya vazirligi, Adliya organlari, Adliya bo'limi]
+
+- id: soliq
+  type: ORG
+  aliases: [Davlat soliq qo'mitasi, Soliq qo'mitasi, Soliq organi, Soliq organlari, Soliq inspeksiyasi, DSQ]
+
+- id: kadastr_agentligi
+  type: ORG
+  aliases: [Kadastr agentligi, Davlat kadastrlar palatasi, Kadastr palatasi]
+
+- id: mehnat_inspeksiyasi
+  type: ORG
+  aliases: [Mehnat inspeksiyasi, Davlat mehnat inspeksiyasi]
+
+- id: bandlik_markazi
+  type: ORG
+  aliases: [Bandlikka ko'maklashish markazi, Bandlikka ko'maklashish markazlari, Bandlik markazi]
+
+- id: pensiya_jamgarmasi
+  type: ORG
+  aliases: [Pensiya jamg'armasi, Budjetdan tashqari pensiya jamg'armasi]
+
+- id: ijtimoiy_himoya
+  type: ORG
+  aliases: [Ijtimoiy himoya organlari, Ijtimoiy himoya milliy agentligi, Ijtimoiy himoya bo'limi]
+
+- id: mfy
+  type: ORG
+  aliases: [Mahalla fuqarolar yig'ini, MFY, Mahalla]
+
+- id: advokatlar_palatasi
+  type: ORG
+  aliases: [Advokatlar palatasi]
+
+# --- Documents, identifiers, portals, concepts ------------------------------------------------
+
+- id: id_karta
+  type: TERM
+  aliases: [ID-karta, Biometrik ID-karta]
+
+- id: eri
+  type: TERM
+  aliases: [Elektron raqamli imzo, E-imzo]
+  case_sensitive: [ERI]
+
+- id: jshshir
+  type: TERM
+  aliases:
+    - JSHSHIR
+    - Jismoniy shaxsning shaxsiy identifikatsiya raqami
+    - Shaxsiy identifikatsiya raqami
+    - PINFL
+
+- id: stir
+  type: TERM
+  aliases: [STIR, Soliq to'lovchining identifikatsiya raqami, INN]
+
+- id: yatt
+  type: TERM
+  aliases: [YaTT, Yakka tartibdagi tadbirkor, Yakka tartibdagi tadbirkorlik]
+
+- id: mchj
+  type: TERM
+  aliases: [MChJ, Mas'uliyati cheklangan jamiyat, OOO]
+
+- id: bhm
+  type: TERM
+  aliases: [BHM, Bazaviy hisoblash miqdori]
+
+- id: tmek
+  type: TERM
+  aliases: [TMEK, Tibbiy mehnat ekspert komissiyasi, VTEK]
+
+- id: idp
+  type: TERM
+  aliases: [IDP, Xalqaro haydovchilik guvohnomasi]
+
+- id: imei
+  type: TERM
+  aliases: [IMEI]
+
+- id: uzkad
+  type: TERM
+  aliases: [UZKAD, Ko'chmas mulk huquqlarining Yagona davlat reyestri]
+
+- id: mygov
+  type: TERM
+  aliases: [my.gov.uz, my gov uz, mygov, Yagona interaktiv davlat xizmatlari portali, YIDXP]
+
+- id: soliq_uz
+  type: TERM
+  aliases: [my.soliq.uz, soliq.uz]
+
+- id: e_notarius
+  type: TERM
+  aliases: [e-notarius, Elektron notarius]

@@ -2,7 +2,7 @@ PYTHON ?= python3.11
 VENV := .venv
 PY := $(VENV)/bin/python
 
-.PHONY: install install-bench lint format test audit eval distill benchmark db-up migrate import api bot up down
+.PHONY: install install-bench lint format test audit gazetteer eval distill benchmark db-up migrate import api bot up down
 
 $(PY):
 	$(PYTHON) -m venv $(VENV)
@@ -27,6 +27,9 @@ test:
 
 audit:
 	$(PY) -m scripts.audit_data
+
+gazetteer:  ## candidates only; data/gazetteer.yaml is curated by hand
+	$(PY) -m scripts.build_gazetteer
 
 eval:
 	$(PY) -m scripts.evaluate

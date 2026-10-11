@@ -26,6 +26,9 @@ class Settings(BaseSettings):
     models_dir: Path = PROJECT_ROOT / "models"
     reports_dir: Path = PROJECT_ROOT / "reports"
 
+    # Normalization (stripping apostrophes is measured as a Phase 4 ablation)
+    normalize_strip_apostrophes: bool = False
+
     # Data source
     data_source: Literal["postgres", "file"] = "file"
     database_url: str = "postgresql+psycopg://qa:qa@localhost:5432/qa"
