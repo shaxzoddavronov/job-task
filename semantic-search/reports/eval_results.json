@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-11T07:47:01+00:00",
+  "generated_at": "2026-10-11T09:54:45+00:00",
   "seed": 42,
   "dataset": {
     "answers": 505,
@@ -29,8 +29,8 @@
         "suggest_rate": 0.0019801980198019802,
         "suggest_hit_at3": 0.0,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 0.013215001672506332,
-        "latency_p95_ms": 0.01670555211603641
+        "latency_p50_ms": 0.012170057743787766,
+        "latency_p95_ms": 0.01535085029900074
       },
       "test": {
         "n": 505,
@@ -42,8 +42,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 0.011769821867346764,
-        "latency_p95_ms": 0.013853842392563818
+        "latency_p50_ms": 0.012528849765658379,
+        "latency_p95_ms": 0.050053745508193956
       },
       "test_entity": {
         "n": 56,
@@ -55,8 +55,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 0.012441887520253658,
-        "latency_p95_ms": 0.013871991541236639
+        "latency_p50_ms": 0.012957025319337845,
+        "latency_p95_ms": 0.024517299607396126
       },
       "law_injection": {
         "n": 505,
@@ -91,8 +91,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 0.012532109394669533,
-        "latency_p95_ms": 0.015433854423463343
+        "latency_p50_ms": 0.012899981811642647,
+        "latency_p95_ms": 0.023754942230880205
       },
       "realistic_dev_by_kind": {
         "abbreviation": {
@@ -105,8 +105,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.013091950677335262,
-          "latency_p95_ms": 0.023538712412118905
+          "latency_p50_ms": 0.013460521586239338,
+          "latency_p95_ms": 0.10751107474789015
         },
         "colloquial": {
           "n": 16,
@@ -118,8 +118,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.011931057088077068,
-          "latency_p95_ms": 0.02143927849829197
+          "latency_p50_ms": 0.01234305091202259,
+          "latency_p95_ms": 0.022752501536160707
         },
         "cyrillic": {
           "n": 16,
@@ -131,8 +131,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.013596960343420506,
-          "latency_p95_ms": 0.015053548850119114
+          "latency_p50_ms": 0.013631070032715797,
+          "latency_p95_ms": 0.01627224264666438
         },
         "keyword": {
           "n": 27,
@@ -144,8 +144,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.01184898428618908,
-          "latency_p95_ms": 0.013859989121556282
+          "latency_p50_ms": 0.011733034625649452,
+          "latency_p95_ms": 0.01872491557151079
         },
         "paraphrase": {
           "n": 17,
@@ -157,8 +157,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.013426877558231354,
-          "latency_p95_ms": 0.020747445523738858
+          "latency_p50_ms": 0.013553071767091751,
+          "latency_p95_ms": 0.02925810404121875
         },
         "typo": {
           "n": 17,
@@ -170,8 +170,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.011350028216838837,
-          "latency_p95_ms": 0.013265712186694145
+          "latency_p50_ms": 0.011698110029101372,
+          "latency_p95_ms": 0.013663107529282568
         }
       },
       "realistic": {
@@ -184,8 +184,8 @@
         "suggest_rate": 0.009345794392523364,
         "suggest_hit_at3": 0.0,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 0.01345016062259674,
-        "latency_p95_ms": 0.02451203763484954
+        "latency_p50_ms": 0.013243872672319412,
+        "latency_p95_ms": 0.02357249613851308
       },
       "realistic_by_kind": {
         "abbreviation": {
@@ -198,8 +198,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.013765529729425907,
-          "latency_p95_ms": 11.085003649350245
+          "latency_p50_ms": 0.013157376088202,
+          "latency_p95_ms": 0.014957250095903873
         },
         "colloquial": {
           "n": 16,
@@ -211,8 +211,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.011436641216278076,
-          "latency_p95_ms": 0.06069301161915064
+          "latency_p50_ms": 0.0206648837774992,
+          "latency_p95_ms": 16.923507151659578
         },
         "cyrillic": {
           "n": 16,
@@ -224,8 +224,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.01438602339476347,
-          "latency_p95_ms": 0.015918398275971413
+          "latency_p50_ms": 0.01431955024600029,
+          "latency_p95_ms": 0.0167494872584939
         },
         "keyword": {
           "n": 27,
@@ -237,8 +237,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.0189109705388546,
-          "latency_p95_ms": 0.02244706265628338
+          "latency_p50_ms": 0.012008938938379288,
+          "latency_p95_ms": 0.01562668476253748
         },
         "paraphrase": {
           "n": 17,
@@ -250,8 +250,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.013407086953520775,
-          "latency_p95_ms": 0.017986120656132695
+          "latency_p50_ms": 0.013730023056268692,
+          "latency_p95_ms": 0.01918524503707885
         },
         "typo": {
           "n": 17,
@@ -263,13 +263,13 @@
           "suggest_rate": 0.058823529411764705,
           "suggest_hit_at3": 0.0,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.012875068932771683,
-          "latency_p95_ms": 0.015434669330716133
+          "latency_p50_ms": 0.013525830581784248,
+          "latency_p95_ms": 0.016911095008254048
         }
       }
     },
     "1 tfidf": {
-      "build_seconds": 0.225,
+      "build_seconds": 0.217,
       "validation": {
         "n": 505,
         "top1": 0.9920792079207921,
@@ -280,8 +280,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 2.1502990275621414,
-        "latency_p95_ms": 2.7431315742433067
+        "latency_p50_ms": 2.404030878096819,
+        "latency_p95_ms": 3.1666527967900033
       },
       "test": {
         "n": 505,
@@ -293,8 +293,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 2.4689389392733574,
-        "latency_p95_ms": 3.0958271585404864
+        "latency_p50_ms": 2.21651210449636,
+        "latency_p95_ms": 2.793402597308159
       },
       "test_entity": {
         "n": 56,
@@ -306,8 +306,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.023721044883132,
-        "latency_p95_ms": 3.649808291811496
+        "latency_p50_ms": 2.774661988951266,
+        "latency_p95_ms": 3.0115536646917462
       },
       "law_injection": {
         "n": 505,
@@ -342,8 +342,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 2.453796798363328,
-        "latency_p95_ms": 2.984629990532994
+        "latency_p50_ms": 2.3902920074760914,
+        "latency_p95_ms": 2.8538470389321446
       },
       "realistic_dev_by_kind": {
         "abbreviation": {
@@ -356,8 +356,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.9474240727722645,
-          "latency_p95_ms": 3.386615589261055
+          "latency_p50_ms": 2.838003449141979,
+          "latency_p95_ms": 2.9206835315562785
         },
         "colloquial": {
           "n": 16,
@@ -369,8 +369,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.4316139752045274,
-          "latency_p95_ms": 2.598949649836868
+          "latency_p50_ms": 2.3642050800845027,
+          "latency_p95_ms": 2.4704482639208436
         },
         "cyrillic": {
           "n": 16,
@@ -382,8 +382,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.5461853947490454,
-          "latency_p95_ms": 2.7812078478746116
+          "latency_p50_ms": 2.4451029021292925,
+          "latency_p95_ms": 2.5701322592794895
         },
         "keyword": {
           "n": 27,
@@ -395,8 +395,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.347902860492468,
-          "latency_p95_ms": 2.5853718165308237
+          "latency_p50_ms": 2.147173974663019,
+          "latency_p95_ms": 2.280204906128347
         },
         "paraphrase": {
           "n": 17,
@@ -408,8 +408,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.4871749337762594,
-          "latency_p95_ms": 2.6759018190205097
+          "latency_p50_ms": 2.5197218637913465,
+          "latency_p95_ms": 2.7451307978481054
         },
         "typo": {
           "n": 17,
@@ -421,8 +421,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.3602789733558893,
-          "latency_p95_ms": 2.673620358109474
+          "latency_p50_ms": 2.344626933336258,
+          "latency_p95_ms": 2.4788128212094307
         }
       },
       "realistic": {
@@ -435,8 +435,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 2.517844084650278,
-        "latency_p95_ms": 2.93226595968008
+        "latency_p50_ms": 2.3555851075798273,
+        "latency_p95_ms": 2.906232536770403
       },
       "realistic_by_kind": {
         "abbreviation": {
@@ -449,8 +449,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.8408195357769728,
-          "latency_p95_ms": 2.9891286278143525
+          "latency_p50_ms": 2.805971074849367,
+          "latency_p95_ms": 2.9936145059764385
         },
         "colloquial": {
           "n": 16,
@@ -462,8 +462,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.3455583723261952,
-          "latency_p95_ms": 2.594252466224134
+          "latency_p50_ms": 2.3284105118364096,
+          "latency_p95_ms": 2.500911185052246
         },
         "cyrillic": {
           "n": 16,
@@ -475,8 +475,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.486973535269499,
-          "latency_p95_ms": 2.941297774668783
+          "latency_p50_ms": 2.4279411882162094,
+          "latency_p95_ms": 2.9292600229382515
         },
         "keyword": {
           "n": 27,
@@ -488,8 +488,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.560314955189824,
-          "latency_p95_ms": 2.76686477009207
+          "latency_p50_ms": 2.121418947353959,
+          "latency_p95_ms": 2.2646454628556967
         },
         "paraphrase": {
           "n": 17,
@@ -501,8 +501,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.5440119206905365,
-          "latency_p95_ms": 2.795718563720584
+          "latency_p50_ms": 2.4990029633045197,
+          "latency_p95_ms": 2.6955269277095795
         },
         "typo": {
           "n": 17,
@@ -514,13 +514,13 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.490430837497115,
-          "latency_p95_ms": 2.9031262267380953
+          "latency_p50_ms": 2.3820751812309027,
+          "latency_p95_ms": 2.5042181834578514
         }
       }
     },
     "2 bm25": {
-      "build_seconds": 0.132,
+      "build_seconds": 0.123,
       "validation": {
         "n": 505,
         "top1": 0.9900990099009901,
@@ -531,8 +531,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 0.4397542215883732,
-        "latency_p95_ms": 0.5180113483220339
+        "latency_p50_ms": 0.4138750955462456,
+        "latency_p95_ms": 0.49506486393511284
       },
       "test": {
         "n": 505,
@@ -544,8 +544,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 0.4341099411249161,
-        "latency_p95_ms": 0.5122681614011526
+        "latency_p50_ms": 0.41839596815407276,
+        "latency_p95_ms": 0.49306466244161123
       },
       "test_entity": {
         "n": 56,
@@ -557,8 +557,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 0.4554145270958543,
-        "latency_p95_ms": 0.516556145157665
+        "latency_p50_ms": 0.44367800001055,
+        "latency_p95_ms": 0.5038437084294856
       },
       "law_injection": {
         "n": 505,
@@ -593,8 +593,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.009345794392523364,
-        "latency_p50_ms": 0.42574014514684677,
-        "latency_p95_ms": 0.523182819597423
+        "latency_p50_ms": 0.42955786921083927,
+        "latency_p95_ms": 0.5622085416689514
       },
       "realistic_dev_by_kind": {
         "abbreviation": {
@@ -607,8 +607,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.41120697278529406,
-          "latency_p95_ms": 0.47107412246987224
+          "latency_p50_ms": 0.4173924680799246,
+          "latency_p95_ms": 0.4766231752000749
         },
         "colloquial": {
           "n": 16,
@@ -620,8 +620,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0625,
-          "latency_p50_ms": 0.41991297621279955,
-          "latency_p95_ms": 0.4607040318660438
+          "latency_p50_ms": 0.5127061158418655,
+          "latency_p95_ms": 0.5533579969778657
         },
         "cyrillic": {
           "n": 16,
@@ -633,8 +633,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.4875906743109226,
-          "latency_p95_ms": 0.5517879035323858
+          "latency_p50_ms": 0.46083261258900166,
+          "latency_p95_ms": 0.5132988444529474
         },
         "keyword": {
           "n": 27,
@@ -646,8 +646,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.30346703715622425,
-          "latency_p95_ms": 0.43771767523139715
+          "latency_p50_ms": 0.27296505868434906,
+          "latency_p95_ms": 0.403130566701293
         },
         "paraphrase": {
           "n": 17,
@@ -659,8 +659,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.480312155559659,
-          "latency_p95_ms": 0.5454130470752716
+          "latency_p50_ms": 0.47106784768402576,
+          "latency_p95_ms": 0.6497554481029509
         },
         "typo": {
           "n": 17,
@@ -672,8 +672,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.430976040661335,
-          "latency_p95_ms": 0.4732906352728605
+          "latency_p50_ms": 0.4186511505395174,
+          "latency_p95_ms": 0.5302927456796169
         }
       },
       "realistic": {
@@ -686,8 +686,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 0.42787007987499237,
-        "latency_p95_ms": 0.5398789886385202
+        "latency_p50_ms": 0.42395410127937794,
+        "latency_p95_ms": 0.49244952388107766
       },
       "realistic_by_kind": {
         "abbreviation": {
@@ -700,8 +700,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.4308869829401374,
-          "latency_p95_ms": 0.4855683306232095
+          "latency_p50_ms": 0.4291725344955921,
+          "latency_p95_ms": 0.46992332208901644
         },
         "colloquial": {
           "n": 16,
@@ -713,8 +713,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.3935244167223573,
-          "latency_p95_ms": 0.45380223309621215
+          "latency_p50_ms": 0.39307400584220886,
+          "latency_p95_ms": 0.4534986801445484
         },
         "cyrillic": {
           "n": 16,
@@ -726,8 +726,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.47886185348033905,
-          "latency_p95_ms": 0.5423910333774984
+          "latency_p50_ms": 0.46400248538702726,
+          "latency_p95_ms": 0.49761199625208974
         },
         "keyword": {
           "n": 27,
@@ -739,8 +739,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.3577910829335451,
-          "latency_p95_ms": 0.410857773385942
+          "latency_p50_ms": 0.3594011068344116,
+          "latency_p95_ms": 0.4144600825384259
         },
         "paraphrase": {
           "n": 17,
@@ -752,8 +752,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.5048350431025028,
-          "latency_p95_ms": 0.5551772192120552
+          "latency_p50_ms": 0.4677900578826666,
+          "latency_p95_ms": 0.5367853213101625
         },
         "typo": {
           "n": 17,
@@ -765,13 +765,13 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.39626401849091053,
-          "latency_p95_ms": 0.46012625098228455
+          "latency_p50_ms": 0.3937268629670143,
+          "latency_p95_ms": 0.4677941557019949
         }
       }
     },
     "3 tfidf+bm25": {
-      "build_seconds": 0.235,
+      "build_seconds": 0.224,
       "validation": {
         "n": 505,
         "top1": 0.9881188118811881,
@@ -782,8 +782,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 2.34813685528934,
-        "latency_p95_ms": 2.93081891722977
+        "latency_p50_ms": 2.219699090346694,
+        "latency_p95_ms": 2.763041015714407
       },
       "test": {
         "n": 505,
@@ -795,8 +795,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 2.3540579713881016,
-        "latency_p95_ms": 2.9439127072691917
+        "latency_p50_ms": 2.206912962719798,
+        "latency_p95_ms": 2.710881596431136
       },
       "test_entity": {
         "n": 56,
@@ -808,8 +808,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 2.8804135508835316,
-        "latency_p95_ms": 3.3257054165005684
+        "latency_p50_ms": 2.670264453627169,
+        "latency_p95_ms": 2.9154630028642714
       },
       "law_injection": {
         "n": 505,
@@ -844,8 +844,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 2.7354229241609573,
-        "latency_p95_ms": 3.559597674757242
+        "latency_p50_ms": 2.577801002189517,
+        "latency_p95_ms": 3.332916088402271
       },
       "realistic_dev_by_kind": {
         "abbreviation": {
@@ -858,8 +858,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.5436670295894146,
-          "latency_p95_ms": 3.7424774607643485
+          "latency_p50_ms": 2.9768304666504264,
+          "latency_p95_ms": 3.0672999448142946
         },
         "colloquial": {
           "n": 16,
@@ -871,8 +871,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.6065860874950886,
-          "latency_p95_ms": 2.9679833096452057
+          "latency_p50_ms": 2.8046254301443696,
+          "latency_p95_ms": 3.0290859867818654
         },
         "cyrillic": {
           "n": 16,
@@ -884,8 +884,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.653960953466594,
-          "latency_p95_ms": 2.9289298690855503
+          "latency_p50_ms": 2.576371072791517,
+          "latency_p95_ms": 2.765044861007482
         },
         "keyword": {
           "n": 27,
@@ -897,8 +897,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.724565099924803,
-          "latency_p95_ms": 2.888971846550703
+          "latency_p50_ms": 2.2583010140806437,
+          "latency_p95_ms": 2.3873002268373966
         },
         "paraphrase": {
           "n": 17,
@@ -910,8 +910,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.738460898399353,
-          "latency_p95_ms": 2.8814456425607204
+          "latency_p50_ms": 3.285682061687112,
+          "latency_p95_ms": 3.491838462650776
         },
         "typo": {
           "n": 17,
@@ -923,8 +923,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.7489028871059418,
-          "latency_p95_ms": 3.0147843528538942
+          "latency_p50_ms": 2.4936411064118147,
+          "latency_p95_ms": 2.6600240729749203
         }
       },
       "realistic": {
@@ -937,8 +937,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 2.5263240095227957,
-        "latency_p95_ms": 3.140755486674607
+        "latency_p50_ms": 2.4956981651484966,
+        "latency_p95_ms": 3.08880724478513
       },
       "realistic_by_kind": {
         "abbreviation": {
@@ -951,8 +951,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.0327284475788474,
-          "latency_p95_ms": 3.2628576271235943
+          "latency_p50_ms": 2.9784644721075892,
+          "latency_p95_ms": 3.16426515346393
         },
         "colloquial": {
           "n": 16,
@@ -964,8 +964,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.4791270261630416,
-          "latency_p95_ms": 2.6649360079318285
+          "latency_p50_ms": 2.4212703574448824,
+          "latency_p95_ms": 2.951723407022655
         },
         "cyrillic": {
           "n": 16,
@@ -977,8 +977,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.596915466710925,
-          "latency_p95_ms": 3.051451756618917
+          "latency_p50_ms": 2.567037008702755,
+          "latency_p95_ms": 3.0316170887090266
         },
         "keyword": {
           "n": 27,
@@ -990,8 +990,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.2604491095989943,
-          "latency_p95_ms": 2.4476000107824802
+          "latency_p50_ms": 2.2664021234959364,
+          "latency_p95_ms": 2.386330091394484
         },
         "paraphrase": {
           "n": 17,
@@ -1003,8 +1003,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.6890039443969727,
-          "latency_p95_ms": 3.138648020103574
+          "latency_p50_ms": 2.6264560874551535,
+          "latency_p95_ms": 2.764670457690954
         },
         "typo": {
           "n": 17,
@@ -1016,13 +1016,13 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.51965899951756,
-          "latency_p95_ms": 2.768316911533475
+          "latency_p50_ms": 2.6085409335792065,
+          "latency_p95_ms": 2.7905498165637255
         }
       }
     },
     "4 tfidf+bm25+answers": {
-      "build_seconds": 0.297,
+      "build_seconds": 0.291,
       "validation": {
         "n": 505,
         "top1": 0.994059405940594,
@@ -1033,8 +1033,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.86255094781518,
-        "latency_p95_ms": 4.849150963127611
+        "latency_p50_ms": 3.6396400537341833,
+        "latency_p95_ms": 4.699596855789422
       },
       "test": {
         "n": 505,
@@ -1046,8 +1046,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.819759003818035,
-        "latency_p95_ms": 4.736006306484342
+        "latency_p50_ms": 3.65222105756402,
+        "latency_p95_ms": 4.679473303258419
       },
       "test_entity": {
         "n": 56,
@@ -1059,8 +1059,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 4.690992413088679,
-        "latency_p95_ms": 5.393762141466141
+        "latency_p50_ms": 4.621695028617978,
+        "latency_p95_ms": 5.3656219388358295
       },
       "law_injection": {
         "n": 505,
@@ -1095,8 +1095,8 @@
         "suggest_rate": 0.018691588785046728,
         "suggest_hit_at3": 0.0,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.9390481542795897,
-        "latency_p95_ms": 5.299530713818965
+        "latency_p50_ms": 3.924471093341708,
+        "latency_p95_ms": 4.841066151857376
       },
       "realistic_dev_by_kind": {
         "abbreviation": {
@@ -1109,8 +1109,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 5.118523025885224,
-          "latency_p95_ms": 5.767511855810881
+          "latency_p50_ms": 4.8255459405481815,
+          "latency_p95_ms": 4.997559275943786
         },
         "colloquial": {
           "n": 16,
@@ -1122,8 +1122,8 @@
           "suggest_rate": 0.125,
           "suggest_hit_at3": 0.0,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.8365345681086183,
-          "latency_p95_ms": 4.613351891748607
+          "latency_p50_ms": 3.8097399519756436,
+          "latency_p95_ms": 4.112725146114826
         },
         "cyrillic": {
           "n": 16,
@@ -1135,8 +1135,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.344807588495314,
-          "latency_p95_ms": 4.817986686248332
+          "latency_p50_ms": 4.021065542474389,
+          "latency_p95_ms": 4.172818968072534
         },
         "keyword": {
           "n": 27,
@@ -1148,8 +1148,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.68799502030015,
-          "latency_p95_ms": 4.039866174571216
+          "latency_p50_ms": 3.5299460869282484,
+          "latency_p95_ms": 3.70709509588778
         },
         "paraphrase": {
           "n": 17,
@@ -1161,8 +1161,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.203785909339786,
-          "latency_p95_ms": 4.625330492854118
+          "latency_p50_ms": 4.07389597967267,
+          "latency_p95_ms": 4.580007307231426
         },
         "typo": {
           "n": 17,
@@ -1174,8 +1174,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.8788509555161,
-          "latency_p95_ms": 4.1365886107087135
+          "latency_p50_ms": 3.8966780994087458,
+          "latency_p95_ms": 4.50657675974071
         }
       },
       "realistic": {
@@ -1188,8 +1188,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.975347150117159,
-        "latency_p95_ms": 5.108717060647905
+        "latency_p50_ms": 3.820674028247595,
+        "latency_p95_ms": 4.9382798140868545
       },
       "realistic_by_kind": {
         "abbreviation": {
@@ -1202,8 +1202,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.930331488139927,
-          "latency_p95_ms": 5.343856860417873
+          "latency_p50_ms": 4.798539564944804,
+          "latency_p95_ms": 4.983558796811849
         },
         "colloquial": {
           "n": 16,
@@ -1215,8 +1215,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.8424114463850856,
-          "latency_p95_ms": 4.165801277849823
+          "latency_p50_ms": 3.7736869417130947,
+          "latency_p95_ms": 3.954707004595548
         },
         "cyrillic": {
           "n": 16,
@@ -1228,8 +1228,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.040898056700826,
-          "latency_p95_ms": 4.979841003660113
+          "latency_p50_ms": 3.9418835658580065,
+          "latency_p95_ms": 5.111304577440023
         },
         "keyword": {
           "n": 27,
@@ -1241,8 +1241,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.5999079700559378,
-          "latency_p95_ms": 4.176674038171768
+          "latency_p50_ms": 3.5265821497887373,
+          "latency_p95_ms": 3.6824075505137444
         },
         "paraphrase": {
           "n": 17,
@@ -1254,8 +1254,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.207886988297105,
-          "latency_p95_ms": 4.958213865756988
+          "latency_p50_ms": 4.099824000149965,
+          "latency_p95_ms": 5.691564874723552
         },
         "typo": {
           "n": 17,
@@ -1267,13 +1267,13 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.17793495580554,
-          "latency_p95_ms": 4.728560522198677
+          "latency_p50_ms": 3.821703838184476,
+          "latency_p95_ms": 4.030914651229978
         }
       }
     },
     "4* phase-4 engine": {
-      "build_seconds": 0.28,
+      "build_seconds": 0.263,
       "validation": {
         "n": 505,
         "top1": 0.9920792079207921,
@@ -1284,8 +1284,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.5877160262316465,
-        "latency_p95_ms": 4.692025016993283
+        "latency_p50_ms": 3.364193020388484,
+        "latency_p95_ms": 4.3418701738119125
       },
       "test": {
         "n": 505,
@@ -1297,8 +1297,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.4051609691232443,
-        "latency_p95_ms": 4.383559245616198
+        "latency_p50_ms": 3.32014006562531,
+        "latency_p95_ms": 4.281143471598624
       },
       "test_entity": {
         "n": 56,
@@ -1310,8 +1310,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 4.349740454927087,
-        "latency_p95_ms": 4.770243656821549
+        "latency_p50_ms": 4.251693491823971,
+        "latency_p95_ms": 4.5208006631582975
       },
       "law_injection": {
         "n": 505,
@@ -1346,8 +1346,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.697445848956704,
-        "latency_p95_ms": 4.770812671631575
+        "latency_p50_ms": 3.663182957097888,
+        "latency_p95_ms": 4.57164510153234
       },
       "realistic_dev_by_kind": {
         "abbreviation": {
@@ -1360,8 +1360,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.640914150513709,
-          "latency_p95_ms": 5.201496661175042
+          "latency_p50_ms": 4.535760497674346,
+          "latency_p95_ms": 4.636223125271499
         },
         "colloquial": {
           "n": 16,
@@ -1373,8 +1373,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.6580394953489304,
-          "latency_p95_ms": 3.8638085243292153
+          "latency_p50_ms": 4.1237849509343505,
+          "latency_p95_ms": 4.816680506337434
         },
         "cyrillic": {
           "n": 16,
@@ -1386,8 +1386,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.905293997377157,
-          "latency_p95_ms": 6.894148129504174
+          "latency_p50_ms": 3.684796509332955,
+          "latency_p95_ms": 4.466772195883095
         },
         "keyword": {
           "n": 27,
@@ -1399,8 +1399,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.3365110866725445,
-          "latency_p95_ms": 3.6607890389859676
+          "latency_p50_ms": 3.332157852128148,
+          "latency_p95_ms": 3.5395574290305376
         },
         "paraphrase": {
           "n": 17,
@@ -1412,8 +1412,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.9677999448031187,
-          "latency_p95_ms": 4.554923297837377
+          "latency_p50_ms": 3.750561038032174,
+          "latency_p95_ms": 3.9172954857349396
         },
         "typo": {
           "n": 17,
@@ -1425,8 +1425,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.703407011926174,
-          "latency_p95_ms": 4.338919185101986
+          "latency_p50_ms": 3.6633240524679422,
+          "latency_p95_ms": 4.35722847469151
         }
       },
       "realistic": {
@@ -1439,8 +1439,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.726382041350007,
-        "latency_p95_ms": 4.803442559204993
+        "latency_p50_ms": 3.613522043451667,
+        "latency_p95_ms": 5.341458064503967
       },
       "realistic_by_kind": {
         "abbreviation": {
@@ -1453,8 +1453,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.456544411368668,
-          "latency_p95_ms": 5.201145238243043
+          "latency_p50_ms": 5.170252057723701,
+          "latency_p95_ms": 5.695823405403644
         },
         "colloquial": {
           "n": 16,
@@ -1466,8 +1466,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.7521474296227098,
-          "latency_p95_ms": 4.088180023245513
+          "latency_p50_ms": 3.5458735655993223,
+          "latency_p95_ms": 3.756756254006177
         },
         "cyrillic": {
           "n": 16,
@@ -1479,8 +1479,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.73736210167408,
-          "latency_p95_ms": 4.741600540000945
+          "latency_p50_ms": 4.343237960711122,
+          "latency_p95_ms": 5.43956394540146
         },
         "keyword": {
           "n": 27,
@@ -1492,8 +1492,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.4496141597628593,
-          "latency_p95_ms": 4.014119831845164
+          "latency_p50_ms": 3.378668101504445,
+          "latency_p95_ms": 3.57721836771816
         },
         "paraphrase": {
           "n": 17,
@@ -1505,8 +1505,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.8551681209355593,
-          "latency_p95_ms": 4.476861422881484
+          "latency_p50_ms": 3.7395840045064688,
+          "latency_p95_ms": 4.006119212135673
         },
         "typo": {
           "n": 17,
@@ -1518,13 +1518,13 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.673694096505642,
-          "latency_p95_ms": 4.264734219759703
+          "latency_p50_ms": 3.6114901304244995,
+          "latency_p95_ms": 3.8619957864284515
         }
       }
     },
     "4a phase-4 -fillers": {
-      "build_seconds": 0.322,
+      "build_seconds": 0.297,
       "validation": {
         "n": 505,
         "top1": 0.996039603960396,
@@ -1535,8 +1535,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.2724530901759863,
-        "latency_p95_ms": 4.301793593913316
+        "latency_p50_ms": 3.1467850785702467,
+        "latency_p95_ms": 4.096053261309861
       },
       "test": {
         "n": 505,
@@ -1548,8 +1548,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.2393510919064283,
-        "latency_p95_ms": 4.324960475787518
+        "latency_p50_ms": 3.157692961394787,
+        "latency_p95_ms": 4.107785923406482
       },
       "test_entity": {
         "n": 56,
@@ -1561,8 +1561,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 4.2674613650888205,
-        "latency_p95_ms": 4.896541649941355
+        "latency_p50_ms": 4.0744326543062925,
+        "latency_p95_ms": 5.0623036804609
       },
       "law_injection": {
         "n": 505,
@@ -1597,8 +1597,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.506953828036785,
-        "latency_p95_ms": 4.354211222380399
+        "latency_p50_ms": 3.436855971813202,
+        "latency_p95_ms": 4.386914405040443
       },
       "realistic_dev_by_kind": {
         "abbreviation": {
@@ -1611,8 +1611,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.3192439479753375,
-          "latency_p95_ms": 4.589760140515864
+          "latency_p50_ms": 4.379500984214246,
+          "latency_p95_ms": 4.506814922206104
         },
         "colloquial": {
           "n": 16,
@@ -1624,8 +1624,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.413190017454326,
-          "latency_p95_ms": 3.54196410626173
+          "latency_p50_ms": 3.383768955245614,
+          "latency_p95_ms": 3.5513921175152063
         },
         "cyrillic": {
           "n": 16,
@@ -1637,8 +1637,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.4964500227943063,
-          "latency_p95_ms": 3.780706669203937
+          "latency_p50_ms": 3.474983503110707,
+          "latency_p95_ms": 3.6160500603727996
         },
         "keyword": {
           "n": 27,
@@ -1650,8 +1650,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.2528529409319162,
-          "latency_p95_ms": 3.6006815498694777
+          "latency_p50_ms": 3.1798009295016527,
+          "latency_p95_ms": 3.3560828771442175
         },
         "paraphrase": {
           "n": 17,
@@ -1663,8 +1663,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.663536161184311,
-          "latency_p95_ms": 3.934053098782897
+          "latency_p50_ms": 3.5684381145983934,
+          "latency_p95_ms": 3.70665374211967
         },
         "typo": {
           "n": 17,
@@ -1676,8 +1676,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.5207869950681925,
-          "latency_p95_ms": 3.776392713189125
+          "latency_p50_ms": 3.436855971813202,
+          "latency_p95_ms": 3.578118234872818
         }
       },
       "realistic": {
@@ -1690,8 +1690,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.618998918682337,
-        "latency_p95_ms": 4.507284611463547
+        "latency_p50_ms": 3.414933802559972,
+        "latency_p95_ms": 4.4385134940966955
       },
       "realistic_by_kind": {
         "abbreviation": {
@@ -1704,8 +1704,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.4655404053628445,
-          "latency_p95_ms": 5.172990832943469
+          "latency_p50_ms": 4.329248447902501,
+          "latency_p95_ms": 4.557625378947705
         },
         "colloquial": {
           "n": 16,
@@ -1717,8 +1717,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.5778300371021032,
-          "latency_p95_ms": 4.058606398757547
+          "latency_p50_ms": 3.3757914789021015,
+          "latency_p95_ms": 3.5707869101315737
         },
         "cyrillic": {
           "n": 16,
@@ -1730,8 +1730,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.6756735062226653,
-          "latency_p95_ms": 4.836529493331909
+          "latency_p50_ms": 3.505163942463696,
+          "latency_p95_ms": 4.557224514428526
         },
         "keyword": {
           "n": 27,
@@ -1743,8 +1743,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.3975020051002502,
-          "latency_p95_ms": 3.7858292926102877
+          "latency_p50_ms": 3.207212081179023,
+          "latency_p95_ms": 3.3397169783711433
         },
         "paraphrase": {
           "n": 17,
@@ -1756,8 +1756,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.613752080127597,
-          "latency_p95_ms": 3.976133139804005
+          "latency_p50_ms": 3.562693018466234,
+          "latency_p95_ms": 3.822136810049414
         },
         "typo": {
           "n": 17,
@@ -1769,13 +1769,13 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.730732947587967,
-          "latency_p95_ms": 4.212237102910876
+          "latency_p50_ms": 3.427780931815505,
+          "latency_p95_ms": 3.6230847239494324
         }
       }
     },
     "4b phase-4 -apostrophes": {
-      "build_seconds": 0.276,
+      "build_seconds": 0.327,
       "validation": {
         "n": 505,
         "top1": 0.9920792079207921,
@@ -1786,8 +1786,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.5771799739450216,
-        "latency_p95_ms": 4.663106566295027
+        "latency_p50_ms": 3.32410610280931,
+        "latency_p95_ms": 4.344748193398117
       },
       "test": {
         "n": 505,
@@ -1799,8 +1799,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.450365038588643,
-        "latency_p95_ms": 4.668448166921734
+        "latency_p50_ms": 3.2923060934990644,
+        "latency_p95_ms": 4.253513691946864
       },
       "test_entity": {
         "n": 56,
@@ -1812,8 +1812,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 4.633996984921396,
-        "latency_p95_ms": 5.446648341603577
+        "latency_p50_ms": 4.237435525283217,
+        "latency_p95_ms": 4.538374720141292
       },
       "law_injection": {
         "n": 505,
@@ -1848,8 +1848,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.752710996195674,
-        "latency_p95_ms": 5.207272642292082
+        "latency_p50_ms": 3.5907761193811893,
+        "latency_p95_ms": 4.530211118981242
       },
       "realistic_dev_by_kind": {
         "abbreviation": {
@@ -1862,8 +1862,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 5.196082522161305,
-          "latency_p95_ms": 5.426983663346618
+          "latency_p50_ms": 4.481059964746237,
+          "latency_p95_ms": 4.625059955287725
         },
         "colloquial": {
           "n": 16,
@@ -1875,8 +1875,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.515321994200349,
-          "latency_p95_ms": 3.6998994182795286
+          "latency_p50_ms": 3.5404174122959375,
+          "latency_p95_ms": 3.930164617486298
         },
         "cyrillic": {
           "n": 16,
@@ -1888,8 +1888,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.7853489629924297,
-          "latency_p95_ms": 4.163723031524569
+          "latency_p50_ms": 3.6371875321492553,
+          "latency_p95_ms": 3.8235316751524806
         },
         "keyword": {
           "n": 27,
@@ -1901,8 +1901,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.7519820034503937,
-          "latency_p95_ms": 3.9928799029439688
+          "latency_p50_ms": 3.2965599093586206,
+          "latency_p95_ms": 3.479647310450673
         },
         "paraphrase": {
           "n": 17,
@@ -1914,8 +1914,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.230533028021455,
-          "latency_p95_ms": 4.716713260859251
+          "latency_p50_ms": 3.7047378718852997,
+          "latency_p95_ms": 3.8619321770966053
         },
         "typo": {
           "n": 17,
@@ -1927,8 +1927,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.7056810688227415,
-          "latency_p95_ms": 3.9729560259729624
+          "latency_p50_ms": 3.5907761193811893,
+          "latency_p95_ms": 4.49614399112761
         }
       },
       "realistic": {
@@ -1941,8 +1941,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.8256351836025715,
-        "latency_p95_ms": 4.673146479763091
+        "latency_p50_ms": 3.5964238923043013,
+        "latency_p95_ms": 4.587774793617427
       },
       "realistic_by_kind": {
         "abbreviation": {
@@ -1955,8 +1955,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.478446091525257,
-          "latency_p95_ms": 5.324329901486635
+          "latency_p50_ms": 4.4457134790718555,
+          "latency_p95_ms": 4.738339455798268
         },
         "colloquial": {
           "n": 16,
@@ -1968,8 +1968,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.565392456948757,
-          "latency_p95_ms": 3.954811254516244
+          "latency_p50_ms": 3.4794030943885446,
+          "latency_p95_ms": 3.717611252795905
         },
         "cyrillic": {
           "n": 16,
@@ -1981,8 +1981,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.906124969944358,
-          "latency_p95_ms": 4.699253651779145
+          "latency_p50_ms": 3.6120015429332852,
+          "latency_p95_ms": 4.656984703615308
         },
         "keyword": {
           "n": 27,
@@ -1994,8 +1994,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.8270021323114634,
-          "latency_p95_ms": 4.184476938098669
+          "latency_p50_ms": 3.347446210682392,
+          "latency_p95_ms": 3.960969881154597
         },
         "paraphrase": {
           "n": 17,
@@ -2007,8 +2007,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.84518806822598,
-          "latency_p95_ms": 4.444975079968572
+          "latency_p50_ms": 3.6714780144393444,
+          "latency_p95_ms": 3.973316680639982
         },
         "typo": {
           "n": 17,
@@ -2020,13 +2020,13 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.713729092851281,
-          "latency_p95_ms": 4.126978199928999
+          "latency_p50_ms": 3.5633218940347433,
+          "latency_p95_ms": 3.764208685606718
         }
       }
     },
     "5 +rerank": {
-      "build_seconds": 0.314,
+      "build_seconds": 0.276,
       "validation": {
         "n": 505,
         "top1": 0.9920792079207921,
@@ -2037,8 +2037,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.6013079807162285,
-        "latency_p95_ms": 4.666103469207883
+        "latency_p50_ms": 3.4444089978933334,
+        "latency_p95_ms": 4.487887490540742
       },
       "test": {
         "n": 505,
@@ -2050,8 +2050,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.5947619471699,
-        "latency_p95_ms": 4.609873937442897
+        "latency_p50_ms": 3.4700180403888226,
+        "latency_p95_ms": 4.417269676923752
       },
       "test_entity": {
         "n": 56,
@@ -2063,8 +2063,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 4.549580509774387,
-        "latency_p95_ms": 5.269789195153862
+        "latency_p50_ms": 4.368551541119814,
+        "latency_p95_ms": 4.769655119162053
       },
       "law_injection": {
         "n": 505,
@@ -2099,8 +2099,8 @@
         "suggest_rate": 0.09345794392523364,
         "suggest_hit_at3": 0.3,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.912102896720171,
-        "latency_p95_ms": 5.265172873623669
+        "latency_p50_ms": 3.7337199319154024,
+        "latency_p95_ms": 4.692483972758055
       },
       "realistic_dev_by_kind": {
         "abbreviation": {
@@ -2113,8 +2113,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 5.250158021226525,
-          "latency_p95_ms": 5.462451349012554
+          "latency_p50_ms": 4.650228540413082,
+          "latency_p95_ms": 4.753092641476542
         },
         "colloquial": {
           "n": 16,
@@ -2126,8 +2126,8 @@
           "suggest_rate": 0.375,
           "suggest_hit_at3": 0.3333333333333333,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.7660389207303524,
-          "latency_p95_ms": 3.9706675452180207
+          "latency_p50_ms": 3.6527279298752546,
+          "latency_p95_ms": 3.866764483973384
         },
         "cyrillic": {
           "n": 16,
@@ -2139,8 +2139,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.9232330163940787,
-          "latency_p95_ms": 4.39399853348732
+          "latency_p50_ms": 3.7766244495287538,
+          "latency_p95_ms": 3.9043895667418838
         },
         "keyword": {
           "n": 27,
@@ -2152,8 +2152,8 @@
           "suggest_rate": 0.037037037037037035,
           "suggest_hit_at3": 1.0,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.8776721339672804,
-          "latency_p95_ms": 4.25446464214474
+          "latency_p50_ms": 3.4216290805488825,
+          "latency_p95_ms": 4.002833622507751
         },
         "paraphrase": {
           "n": 17,
@@ -2165,8 +2165,8 @@
           "suggest_rate": 0.11764705882352941,
           "suggest_hit_at3": 0.0,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.970103105530143,
-          "latency_p95_ms": 4.463788215070963
+          "latency_p50_ms": 3.8586491718888283,
+          "latency_p95_ms": 4.0529974270612
         },
         "typo": {
           "n": 17,
@@ -2178,8 +2178,8 @@
           "suggest_rate": 0.058823529411764705,
           "suggest_hit_at3": 0.0,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.763867076486349,
-          "latency_p95_ms": 4.078600648790598
+          "latency_p50_ms": 3.6559870932251215,
+          "latency_p95_ms": 3.8405884988605976
         }
       },
       "realistic": {
@@ -2192,8 +2192,8 @@
         "suggest_rate": 0.11214953271028037,
         "suggest_hit_at3": 0.5,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 4.164715996012092,
-        "latency_p95_ms": 5.402133078314361
+        "latency_p50_ms": 3.710896009579301,
+        "latency_p95_ms": 4.742611525580286
       },
       "realistic_by_kind": {
         "abbreviation": {
@@ -2206,8 +2206,8 @@
           "suggest_rate": 0.07142857142857142,
           "suggest_hit_at3": 0.0,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.854503436945379,
-          "latency_p95_ms": 5.704127543140203
+          "latency_p50_ms": 4.621252999641001,
+          "latency_p95_ms": 4.906793008558452
         },
         "colloquial": {
           "n": 16,
@@ -2219,8 +2219,8 @@
           "suggest_rate": 0.4375,
           "suggest_hit_at3": 0.5714285714285714,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.9467059541493654,
-          "latency_p95_ms": 4.369850445073098
+          "latency_p50_ms": 3.5976654617115855,
+          "latency_p95_ms": 3.8570884498767555
         },
         "cyrillic": {
           "n": 16,
@@ -2232,8 +2232,8 @@
           "suggest_rate": 0.0625,
           "suggest_hit_at3": 1.0,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.658628022298217,
-          "latency_p95_ms": 5.977062915917486
+          "latency_p50_ms": 3.7913144333288074,
+          "latency_p95_ms": 4.815789754502475
         },
         "keyword": {
           "n": 27,
@@ -2245,8 +2245,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.081138875335455,
-          "latency_p95_ms": 4.298219364136457
+          "latency_p50_ms": 3.4368999768048525,
+          "latency_p95_ms": 4.186112433671951
         },
         "paraphrase": {
           "n": 17,
@@ -2258,8 +2258,8 @@
           "suggest_rate": 0.11764705882352941,
           "suggest_hit_at3": 0.5,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.9854589849710464,
-          "latency_p95_ms": 4.687801422551273
+          "latency_p50_ms": 3.8360089529305696,
+          "latency_p95_ms": 4.11432865075767
         },
         "typo": {
           "n": 17,
@@ -2271,13 +2271,13 @@
           "suggest_rate": 0.058823529411764705,
           "suggest_hit_at3": 0.0,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.164638929069042,
-          "latency_p95_ms": 4.787546768784523
+          "latency_p50_ms": 3.7131360732018948,
+          "latency_p95_ms": 3.9496797136962414
         }
       }
     },
     "5a +rerank -entity": {
-      "build_seconds": 0.292,
+      "build_seconds": 0.395,
       "validation": {
         "n": 505,
         "top1": 0.9920792079207921,
@@ -2288,8 +2288,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.603077959269285,
-        "latency_p95_ms": 4.6710785478353465
+        "latency_p50_ms": 3.4396329429000616,
+        "latency_p95_ms": 4.470276366919279
       },
       "test": {
         "n": 505,
@@ -2301,8 +2301,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.6249258555471897,
-        "latency_p95_ms": 4.595143161714077
+        "latency_p50_ms": 3.42474109493196,
+        "latency_p95_ms": 4.373487550765275
       },
       "test_entity": {
         "n": 56,
@@ -2314,8 +2314,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 4.55009751021862,
-        "latency_p95_ms": 5.277529009617865
+        "latency_p50_ms": 4.3563866056501865,
+        "latency_p95_ms": 4.6365203452296555
       },
       "law_injection": {
         "n": 505,
@@ -2350,8 +2350,8 @@
         "suggest_rate": 0.09345794392523364,
         "suggest_hit_at3": 0.3,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 4.000244894996285,
-        "latency_p95_ms": 4.801130597479641
+        "latency_p50_ms": 3.852525958791375,
+        "latency_p95_ms": 4.792093741707504
       },
       "realistic_dev_by_kind": {
         "abbreviation": {
@@ -2364,8 +2364,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.697360913269222,
-          "latency_p95_ms": 5.0457362667657435
+          "latency_p50_ms": 4.763033473864198,
+          "latency_p95_ms": 5.379086988978088
         },
         "colloquial": {
           "n": 16,
@@ -2377,8 +2377,8 @@
           "suggest_rate": 0.375,
           "suggest_hit_at3": 0.3333333333333333,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.0709859458729625,
-          "latency_p95_ms": 4.525036609265953
+          "latency_p50_ms": 3.6717664916068316,
+          "latency_p95_ms": 3.850127977784723
         },
         "cyrillic": {
           "n": 16,
@@ -2390,8 +2390,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.9119765860959888,
-          "latency_p95_ms": 4.571515892166644
+          "latency_p50_ms": 4.485585377551615,
+          "latency_p95_ms": 4.785364435520023
         },
         "keyword": {
           "n": 27,
@@ -2403,8 +2403,8 @@
           "suggest_rate": 0.037037037037037035,
           "suggest_hit_at3": 1.0,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.490778151899576,
-          "latency_p95_ms": 3.940943907946348
+          "latency_p50_ms": 3.50324809551239,
+          "latency_p95_ms": 4.274913668632507
         },
         "paraphrase": {
           "n": 17,
@@ -2416,8 +2416,8 @@
           "suggest_rate": 0.11764705882352941,
           "suggest_hit_at3": 0.0,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.561172099784017,
-          "latency_p95_ms": 4.829287948086858
+          "latency_p50_ms": 3.882566001266241,
+          "latency_p95_ms": 3.9924445562064648
         },
         "typo": {
           "n": 17,
@@ -2429,8 +2429,8 @@
           "suggest_rate": 0.058823529411764705,
           "suggest_hit_at3": 0.0,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.971084952354431,
-          "latency_p95_ms": 4.292555712163448
+          "latency_p50_ms": 3.8513129111379385,
+          "latency_p95_ms": 4.2535435408353806
         }
       },
       "realistic": {
@@ -2443,8 +2443,8 @@
         "suggest_rate": 0.12149532710280374,
         "suggest_hit_at3": 0.46153846153846156,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.7283580750226974,
-        "latency_p95_ms": 5.051178904250264
+        "latency_p50_ms": 3.6956530530005693,
+        "latency_p95_ms": 4.76737015414983
       },
       "realistic_by_kind": {
         "abbreviation": {
@@ -2457,8 +2457,8 @@
           "suggest_rate": 0.14285714285714285,
           "suggest_hit_at3": 0.0,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.905760986730456,
-          "latency_p95_ms": 5.670181207824498
+          "latency_p50_ms": 4.6483289916068316,
+          "latency_p95_ms": 4.902837541885674
         },
         "colloquial": {
           "n": 16,
@@ -2470,8 +2470,8 @@
           "suggest_rate": 0.4375,
           "suggest_hit_at3": 0.5714285714285714,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.726228605955839,
-          "latency_p95_ms": 4.050373041536659
+          "latency_p50_ms": 3.642280586063862,
+          "latency_p95_ms": 3.815803793258965
         },
         "cyrillic": {
           "n": 16,
@@ -2483,8 +2483,8 @@
           "suggest_rate": 0.0625,
           "suggest_hit_at3": 1.0,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.9580960292369127,
-          "latency_p95_ms": 4.831620550248772
+          "latency_p50_ms": 3.8094065384939313,
+          "latency_p95_ms": 4.834146529901773
         },
         "keyword": {
           "n": 27,
@@ -2496,8 +2496,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.4917769953608513,
-          "latency_p95_ms": 3.6688101245090365
+          "latency_p50_ms": 3.4407631028443575,
+          "latency_p95_ms": 3.5742697305977345
         },
         "paraphrase": {
           "n": 17,
@@ -2509,8 +2509,8 @@
           "suggest_rate": 0.11764705882352941,
           "suggest_hit_at3": 0.5,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.980914130806923,
-          "latency_p95_ms": 4.586239624768496
+          "latency_p50_ms": 3.868408966809511,
+          "latency_p95_ms": 4.191742511466145
         },
         "typo": {
           "n": 17,
@@ -2522,13 +2522,13 @@
           "suggest_rate": 0.058823529411764705,
           "suggest_hit_at3": 0.0,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.724690992385149,
-          "latency_p95_ms": 4.2221794836223125
+          "latency_p50_ms": 3.760602092370391,
+          "latency_p95_ms": 4.362287558615208
         }
       }
     },
     "6 +rerank +synonyms": {
-      "build_seconds": 0.327,
+      "build_seconds": 0.283,
       "validation": {
         "n": 505,
         "top1": 0.9920792079207921,
@@ -2539,8 +2539,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.632421838119626,
-        "latency_p95_ms": 4.624833306297659
+        "latency_p50_ms": 3.4753521904349327,
+        "latency_p95_ms": 4.458615463227034
       },
       "test": {
         "n": 505,
@@ -2552,8 +2552,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.9577640127390623,
-        "latency_p95_ms": 5.111428210511804
+        "latency_p50_ms": 3.5021048970520496,
+        "latency_p95_ms": 4.494278319180011
       },
       "test_entity": {
         "n": 56,
@@ -2565,8 +2565,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 4.729529027827084,
-        "latency_p95_ms": 6.348797760438174
+        "latency_p50_ms": 4.439904470928013,
+        "latency_p95_ms": 5.2189374109730124
       },
       "law_injection": {
         "n": 505,
@@ -2601,8 +2601,8 @@
         "suggest_rate": 0.04672897196261682,
         "suggest_hit_at3": 0.4,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.9589758962392807,
-        "latency_p95_ms": 5.048368615098298
+        "latency_p50_ms": 3.758724080398679,
+        "latency_p95_ms": 4.673900222405791
       },
       "realistic_dev_by_kind": {
         "abbreviation": {
@@ -2615,8 +2615,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 5.009418469853699,
-          "latency_p95_ms": 5.460286699235439
+          "latency_p50_ms": 4.6657194616273046,
+          "latency_p95_ms": 4.863703076262027
         },
         "colloquial": {
           "n": 16,
@@ -2628,8 +2628,8 @@
           "suggest_rate": 0.0625,
           "suggest_hit_at3": 1.0,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.937919973395765,
-          "latency_p95_ms": 4.740720090921968
+          "latency_p50_ms": 3.7502445047721267,
+          "latency_p95_ms": 4.080564831383526
         },
         "cyrillic": {
           "n": 16,
@@ -2641,8 +2641,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.450849373824894,
-          "latency_p95_ms": 4.7886118409223855
+          "latency_p50_ms": 3.871392924338579,
+          "latency_p95_ms": 4.021989880129695
         },
         "keyword": {
           "n": 27,
@@ -2654,8 +2654,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.625508164986968,
-          "latency_p95_ms": 3.9162099361419678
+          "latency_p50_ms": 3.4611651208251715,
+          "latency_p95_ms": 3.6380173871293664
         },
         "paraphrase": {
           "n": 17,
@@ -2667,8 +2667,8 @@
           "suggest_rate": 0.17647058823529413,
           "suggest_hit_at3": 0.3333333333333333,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.004650982096791,
-          "latency_p95_ms": 4.4088884722441435
+          "latency_p50_ms": 3.9296899922192097,
+          "latency_p95_ms": 4.117726301774383
         },
         "typo": {
           "n": 17,
@@ -2680,8 +2680,8 @@
           "suggest_rate": 0.058823529411764705,
           "suggest_hit_at3": 0.0,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.9589758962392807,
-          "latency_p95_ms": 4.42814058624208
+          "latency_p50_ms": 3.750449977815151,
+          "latency_p95_ms": 3.854656545445323
         }
       },
       "realistic": {
@@ -2694,8 +2694,8 @@
         "suggest_rate": 0.06542056074766354,
         "suggest_hit_at3": 0.2857142857142857,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.9206459186971188,
-        "latency_p95_ms": 5.023266980424522
+        "latency_p50_ms": 3.7477221339941025,
+        "latency_p95_ms": 4.8046199372038245
       },
       "realistic_by_kind": {
         "abbreviation": {
@@ -2708,8 +2708,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.772205953486264,
-          "latency_p95_ms": 5.541928042657673
+          "latency_p50_ms": 4.611521027982235,
+          "latency_p95_ms": 4.9293405609205365
         },
         "colloquial": {
           "n": 16,
@@ -2721,8 +2721,8 @@
           "suggest_rate": 0.125,
           "suggest_hit_at3": 0.0,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.85623995680362,
-          "latency_p95_ms": 4.308633564505726
+          "latency_p50_ms": 3.7795649841427803,
+          "latency_p95_ms": 4.068791924510151
         },
         "cyrillic": {
           "n": 16,
@@ -2734,8 +2734,8 @@
           "suggest_rate": 0.0625,
           "suggest_hit_at3": 1.0,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.9270789129659534,
-          "latency_p95_ms": 4.953615018166602
+          "latency_p50_ms": 3.8035623729228973,
+          "latency_p95_ms": 4.846422059927136
         },
         "keyword": {
           "n": 27,
@@ -2747,8 +2747,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.5591600462794304,
-          "latency_p95_ms": 4.258771589957178
+          "latency_p50_ms": 3.4544290974736214,
+          "latency_p95_ms": 3.7292427849024534
         },
         "paraphrase": {
           "n": 17,
@@ -2760,8 +2760,8 @@
           "suggest_rate": 0.17647058823529413,
           "suggest_hit_at3": 0.3333333333333333,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.9359808433800936,
-          "latency_p95_ms": 4.620627034455538
+          "latency_p50_ms": 3.9353729225695133,
+          "latency_p95_ms": 7.256447197869418
         },
         "typo": {
           "n": 17,
@@ -2773,13 +2773,13 @@
           "suggest_rate": 0.058823529411764705,
           "suggest_hit_at3": 0.0,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.9075009990483522,
-          "latency_p95_ms": 4.508918663486838
+          "latency_p50_ms": 3.706148825585842,
+          "latency_p95_ms": 3.9512038230895996
         }
       }
     },
     "6b +rerank +synonyms +bm25": {
-      "build_seconds": 0.335,
+      "build_seconds": 0.399,
       "validation": {
         "n": 505,
         "top1": 0.9920792079207921,
@@ -2790,8 +2790,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 4.0099481120705605,
-        "latency_p95_ms": 5.15415221452713
+        "latency_p50_ms": 3.75746819190681,
+        "latency_p95_ms": 4.785745404660701
       },
       "test": {
         "n": 505,
@@ -2803,8 +2803,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.952532075345516,
-        "latency_p95_ms": 4.947916185483336
+        "latency_p50_ms": 3.7991891149431467,
+        "latency_p95_ms": 4.775869660079479
       },
       "test_entity": {
         "n": 56,
@@ -2816,8 +2816,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 4.862586967647076,
-        "latency_p95_ms": 5.6843123165890574
+        "latency_p50_ms": 4.722226993180811,
+        "latency_p95_ms": 5.095946427900344
       },
       "law_injection": {
         "n": 505,
@@ -2852,8 +2852,8 @@
         "suggest_rate": 0.08411214953271028,
         "suggest_hit_at3": 0.2222222222222222,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 4.187063779681921,
-        "latency_p95_ms": 5.3902258863672605
+        "latency_p50_ms": 4.000355955213308,
+        "latency_p95_ms": 4.907767102122306
       },
       "realistic_dev_by_kind": {
         "abbreviation": {
@@ -2866,8 +2866,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 5.029628053307533,
-          "latency_p95_ms": 5.752199457492679
+          "latency_p50_ms": 4.8690419644117355,
+          "latency_p95_ms": 5.10735975112766
         },
         "colloquial": {
           "n": 16,
@@ -2879,8 +2879,8 @@
           "suggest_rate": 0.0625,
           "suggest_hit_at3": 0.0,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.6128235990181565,
-          "latency_p95_ms": 5.338605027645826
+          "latency_p50_ms": 4.002668079920113,
+          "latency_p95_ms": 4.321434476878494
         },
         "cyrillic": {
           "n": 16,
@@ -2892,8 +2892,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.184279008768499,
-          "latency_p95_ms": 4.509120248258114
+          "latency_p50_ms": 4.056993988342583,
+          "latency_p95_ms": 4.250717873219401
         },
         "keyword": {
           "n": 27,
@@ -2905,8 +2905,8 @@
           "suggest_rate": 0.037037037037037035,
           "suggest_hit_at3": 0.0,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.7084149662405252,
-          "latency_p95_ms": 4.08559120260179
+          "latency_p50_ms": 3.6579370498657227,
+          "latency_p95_ms": 3.8854069774970412
         },
         "paraphrase": {
           "n": 17,
@@ -2918,8 +2918,8 @@
           "suggest_rate": 0.35294117647058826,
           "suggest_hit_at3": 0.3333333333333333,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 5.153964040800929,
-          "latency_p95_ms": 5.466432450339198
+          "latency_p50_ms": 4.119910998269916,
+          "latency_p95_ms": 4.3581732083112
         },
         "typo": {
           "n": 17,
@@ -2931,8 +2931,8 @@
           "suggest_rate": 0.058823529411764705,
           "suggest_hit_at3": 0.0,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.100233083590865,
-          "latency_p95_ms": 4.299127450212836
+          "latency_p50_ms": 3.9364430122077465,
+          "latency_p95_ms": 4.1067766956985
         }
       },
       "realistic": {
@@ -2945,8 +2945,8 @@
         "suggest_rate": 0.102803738317757,
         "suggest_hit_at3": 0.45454545454545453,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 4.376129014417529,
-        "latency_p95_ms": 5.387385399080813
+        "latency_p50_ms": 4.20523202046752,
+        "latency_p95_ms": 5.11821734253317
       },
       "realistic_by_kind": {
         "abbreviation": {
@@ -2959,8 +2959,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.992501926608384,
-          "latency_p95_ms": 5.522285867482424
+          "latency_p50_ms": 4.9600215861573815,
+          "latency_p95_ms": 5.286764004267752
         },
         "colloquial": {
           "n": 16,
@@ -2972,8 +2972,8 @@
           "suggest_rate": 0.25,
           "suggest_hit_at3": 0.25,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.1776205180212855,
-          "latency_p95_ms": 4.918787511996925
+          "latency_p50_ms": 4.376433091238141,
+          "latency_p95_ms": 5.138350767083466
         },
         "cyrillic": {
           "n": 16,
@@ -2985,8 +2985,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.452109453268349,
-          "latency_p95_ms": 5.491138552315533
+          "latency_p50_ms": 4.2089850176125765,
+          "latency_p95_ms": 5.470297008287162
         },
         "keyword": {
           "n": 27,
@@ -2998,8 +2998,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.65074397996068,
-          "latency_p95_ms": 4.734833259135485
+          "latency_p50_ms": 3.783554770052433,
+          "latency_p95_ms": 4.341805120930076
         },
         "paraphrase": {
           "n": 17,
@@ -3011,8 +3011,8 @@
           "suggest_rate": 0.35294117647058826,
           "suggest_hit_at3": 0.5,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.32397099211812,
-          "latency_p95_ms": 5.191375873982906
+          "latency_p50_ms": 4.140706034377217,
+          "latency_p95_ms": 4.488140530884266
         },
         "typo": {
           "n": 17,
@@ -3024,51 +3024,51 @@
           "suggest_rate": 0.058823529411764705,
           "suggest_hit_at3": 1.0,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.727235063910484,
-          "latency_p95_ms": 5.09692570194602
+          "latency_p50_ms": 4.596162820234895,
+          "latency_p95_ms": 4.99394522048533
         }
       }
     },
-    "engine": {
-      "build_seconds": 0.383,
+    "7a +model2vec pretrained": {
+      "build_seconds": 3.184,
       "validation": {
         "n": 505,
-        "top1": 0.9920792079207921,
+        "top1": 0.996039603960396,
         "top3": 1.0,
-        "mrr10": 0.995049504950495,
+        "mrr10": 0.9976897689768977,
         "coverage": 1.0,
-        "precision_at_answer": 0.9920792079207921,
+        "precision_at_answer": 0.996039603960396,
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.9390139281749725,
-        "latency_p95_ms": 5.128031969070435
+        "latency_p50_ms": 5.490932846441865,
+        "latency_p95_ms": 8.773495210334659
       },
       "test": {
         "n": 505,
-        "top1": 0.9881188118811881,
-        "top3": 0.998019801980198,
-        "mrr10": 0.9935643564356436,
+        "top1": 0.996039603960396,
+        "top3": 1.0,
+        "mrr10": 0.998019801980198,
         "coverage": 1.0,
-        "precision_at_answer": 0.9881188118811881,
+        "precision_at_answer": 0.996039603960396,
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.7413788959383965,
-        "latency_p95_ms": 4.744825279340148
+        "latency_p50_ms": 5.238357000052929,
+        "latency_p95_ms": 6.490008486434816
       },
       "test_entity": {
         "n": 56,
-        "top1": 0.9642857142857143,
-        "top3": 0.9821428571428571,
-        "mrr10": 0.9776785714285714,
+        "top1": 1.0,
+        "top3": 1.0,
+        "mrr10": 1.0,
         "coverage": 1.0,
-        "precision_at_answer": 0.9642857142857143,
+        "precision_at_answer": 1.0,
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 4.686889122240245,
-        "latency_p95_ms": 5.712091049645096
+        "latency_p50_ms": 6.402400089427829,
+        "latency_p95_ms": 7.206268084701151
       },
       "law_injection": {
         "n": 505,
@@ -3085,26 +3085,26 @@
         "answer_rate": 1.0,
         "suggest_rate": 0.0,
         "not_found_rate": 0.0,
-        "kept_original_answer_rate": 0.875
+        "kept_original_answer_rate": 0.7678571428571429
       },
       "ood": {
         "n": 23,
-        "answer_rate": 0.30434782608695654,
-        "suggest_rate": 0.6956521739130435,
+        "answer_rate": 0.5652173913043478,
+        "suggest_rate": 0.43478260869565216,
         "not_found_rate": 0.0
       },
       "realistic_dev": {
         "n": 107,
-        "top1": 0.7663551401869159,
-        "top3": 0.897196261682243,
-        "mrr10": 0.8393413440142412,
-        "coverage": 0.9532710280373832,
-        "precision_at_answer": 0.7941176470588235,
-        "suggest_rate": 0.04672897196261682,
-        "suggest_hit_at3": 0.4,
+        "top1": 0.822429906542056,
+        "top3": 0.9158878504672897,
+        "mrr10": 0.8706386292834891,
+        "coverage": 0.9906542056074766,
+        "precision_at_answer": 0.8301886792452831,
+        "suggest_rate": 0.009345794392523364,
+        "suggest_hit_at3": 0.0,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 4.017353989183903,
-        "latency_p95_ms": 4.984044120647013
+        "latency_p50_ms": 7.764759007841349,
+        "latency_p95_ms": 9.361516986973584
       },
       "realistic_dev_by_kind": {
         "abbreviation": {
@@ -3117,166 +3117,668 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.965949454344809,
-          "latency_p95_ms": 5.482354876585305
+          "latency_p50_ms": 9.305670508183539,
+          "latency_p95_ms": 9.706272627227008
         },
         "colloquial": {
           "n": 16,
           "top1": 0.8125,
-          "top3": 0.875,
-          "mrr10": 0.871875,
-          "coverage": 0.9375,
-          "precision_at_answer": 0.8,
-          "suggest_rate": 0.0625,
-          "suggest_hit_at3": 1.0,
-          "not_found_rate": 0.0,
-          "latency_p50_ms": 4.255681880749762,
-          "latency_p95_ms": 4.631596268154681
-        },
-        "cyrillic": {
-          "n": 16,
-          "top1": 0.75,
-          "top3": 1.0,
-          "mrr10": 0.8645833333333333,
+          "top3": 0.9375,
+          "mrr10": 0.8854166666666667,
           "coverage": 1.0,
-          "precision_at_answer": 0.75,
+          "precision_at_answer": 0.8125,
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.9293640293180943,
-          "latency_p95_ms": 4.26144344964996
+          "latency_p50_ms": 7.723791524767876,
+          "latency_p95_ms": 8.2552112871781
+        },
+        "cyrillic": {
+          "n": 16,
+          "top1": 0.8125,
+          "top3": 1.0,
+          "mrr10": 0.8958333333333333,
+          "coverage": 1.0,
+          "precision_at_answer": 0.8125,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 7.821337436325848,
+          "latency_p95_ms": 8.140143472701311
         },
         "keyword": {
           "n": 27,
           "top1": 0.9629629629629629,
-          "top3": 0.9629629629629629,
-          "mrr10": 0.9722222222222222,
+          "top3": 1.0,
+          "mrr10": 0.9814814814814815,
           "coverage": 1.0,
           "precision_at_answer": 0.9629629629629629,
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.7573270965367556,
-          "latency_p95_ms": 4.168472555465996
+          "latency_p50_ms": 7.159522036090493,
+          "latency_p95_ms": 7.4601612985134125
+        },
+        "paraphrase": {
+          "n": 17,
+          "top1": 0.47058823529411764,
+          "top3": 0.5882352941176471,
+          "mrr10": 0.5387254901960784,
+          "coverage": 0.9411764705882353,
+          "precision_at_answer": 0.5,
+          "suggest_rate": 0.058823529411764705,
+          "suggest_hit_at3": 0.0,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 7.947864942252636,
+          "latency_p95_ms": 8.350550662726164
+        },
+        "typo": {
+          "n": 17,
+          "top1": 0.8823529411764706,
+          "top3": 0.9411764705882353,
+          "mrr10": 0.9117647058823529,
+          "coverage": 1.0,
+          "precision_at_answer": 0.8823529411764706,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 7.786178961396217,
+          "latency_p95_ms": 7.924052467569709
+        }
+      },
+      "realistic": {
+        "n": 107,
+        "top1": 0.6728971962616822,
+        "top3": 0.822429906542056,
+        "mrr10": 0.7535046728971962,
+        "coverage": 1.0,
+        "precision_at_answer": 0.6728971962616822,
+        "suggest_rate": 0.0,
+        "suggest_hit_at3": null,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 7.73200299590826,
+        "latency_p95_ms": 9.551799856126308
+      },
+      "realistic_by_kind": {
+        "abbreviation": {
+          "n": 14,
+          "top1": 0.5714285714285714,
+          "top3": 0.7857142857142857,
+          "mrr10": 0.7083333333333333,
+          "coverage": 1.0,
+          "precision_at_answer": 0.5714285714285714,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 9.319342556409538,
+          "latency_p95_ms": 9.96498866006732
+        },
+        "colloquial": {
+          "n": 16,
+          "top1": 0.5,
+          "top3": 0.75,
+          "mrr10": 0.6322916666666667,
+          "coverage": 1.0,
+          "precision_at_answer": 0.5,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 7.751968107186258,
+          "latency_p95_ms": 8.294026949442923
+        },
+        "cyrillic": {
+          "n": 16,
+          "top1": 0.875,
+          "top3": 0.9375,
+          "mrr10": 0.8958333333333333,
+          "coverage": 1.0,
+          "precision_at_answer": 0.875,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 7.781643536873162,
+          "latency_p95_ms": 9.679146285634488
+        },
+        "keyword": {
+          "n": 27,
+          "top1": 0.8518518518518519,
+          "top3": 0.9259259259259259,
+          "mrr10": 0.8975308641975309,
+          "coverage": 1.0,
+          "precision_at_answer": 0.8518518518518519,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 7.157986983656883,
+          "latency_p95_ms": 7.826373353600502
         },
         "paraphrase": {
           "n": 17,
           "top1": 0.23529411764705882,
-          "top3": 0.6470588235294118,
-          "mrr10": 0.4456582633053221,
-          "coverage": 0.8235294117647058,
-          "precision_at_answer": 0.2857142857142857,
-          "suggest_rate": 0.17647058823529413,
-          "suggest_hit_at3": 0.3333333333333333,
+          "top3": 0.5294117647058824,
+          "mrr10": 0.3818627450980392,
+          "coverage": 1.0,
+          "precision_at_answer": 0.23529411764705882,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.089204128831625,
-          "latency_p95_ms": 4.593701381236315
+          "latency_p50_ms": 8.00334196537733,
+          "latency_p95_ms": 8.405206771567464
+        },
+        "typo": {
+          "n": 17,
+          "top1": 0.8823529411764706,
+          "top3": 0.9411764705882353,
+          "mrr10": 0.9137254901960784,
+          "coverage": 1.0,
+          "precision_at_answer": 0.8823529411764706,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 7.723361952230334,
+          "latency_p95_ms": 8.138673566281796
+        }
+      }
+    },
+    "7b +model2vec distilled bge-m3": {
+      "build_seconds": 1.712,
+      "validation": {
+        "n": 505,
+        "top1": 0.9861386138613861,
+        "top3": 1.0,
+        "mrr10": 0.9927392739273927,
+        "coverage": 1.0,
+        "precision_at_answer": 0.9861386138613861,
+        "suggest_rate": 0.0,
+        "suggest_hit_at3": null,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 7.132566999644041,
+        "latency_p95_ms": 9.677297715097666
+      },
+      "test": {
+        "n": 505,
+        "top1": 0.9900990099009901,
+        "top3": 1.0,
+        "mrr10": 0.995049504950495,
+        "coverage": 1.0,
+        "precision_at_answer": 0.9900990099009901,
+        "suggest_rate": 0.0,
+        "suggest_hit_at3": null,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 6.987679982557893,
+        "latency_p95_ms": 8.400674257427454
+      },
+      "test_entity": {
+        "n": 56,
+        "top1": 0.9821428571428571,
+        "top3": 1.0,
+        "mrr10": 0.9910714285714286,
+        "coverage": 1.0,
+        "precision_at_answer": 0.9821428571428571,
+        "suggest_rate": 0.0,
+        "suggest_hit_at3": null,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 7.980413502082229,
+        "latency_p95_ms": 8.877341053448617
+      },
+      "law_injection": {
+        "n": 505,
+        "answer_rate": 0.0,
+        "suggest_rate": 0.0,
+        "not_found_rate": 1.0,
+        "kept_original_answer_rate": 0.0
+      },
+      "law_swap": {
+        "n": 0
+      },
+      "org_swap": {
+        "n": 56,
+        "answer_rate": 1.0,
+        "suggest_rate": 0.0,
+        "not_found_rate": 0.0,
+        "kept_original_answer_rate": 0.8214285714285714
+      },
+      "ood": {
+        "n": 23,
+        "answer_rate": 0.391304347826087,
+        "suggest_rate": 0.6086956521739131,
+        "not_found_rate": 0.0
+      },
+      "realistic_dev": {
+        "n": 107,
+        "top1": 0.8130841121495327,
+        "top3": 0.8785046728971962,
+        "mrr10": 0.8547099836819463,
+        "coverage": 0.9626168224299065,
+        "precision_at_answer": 0.8349514563106796,
+        "suggest_rate": 0.037383177570093455,
+        "suggest_hit_at3": 0.25,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 9.070987114682794,
+        "latency_p95_ms": 10.311547154560685
+      },
+      "realistic_dev_by_kind": {
+        "abbreviation": {
+          "n": 14,
+          "top1": 0.9285714285714286,
+          "top3": 1.0,
+          "mrr10": 0.9642857142857143,
+          "coverage": 1.0,
+          "precision_at_answer": 0.9285714285714286,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 10.27394039556384,
+          "latency_p95_ms": 10.4946285369806
+        },
+        "colloquial": {
+          "n": 16,
+          "top1": 0.8125,
+          "top3": 0.875,
+          "mrr10": 0.859375,
+          "coverage": 0.9375,
+          "precision_at_answer": 0.8,
+          "suggest_rate": 0.0625,
+          "suggest_hit_at3": 1.0,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 9.21234639827162,
+          "latency_p95_ms": 9.544253698550165
+        },
+        "cyrillic": {
+          "n": 16,
+          "top1": 0.8125,
+          "top3": 0.875,
+          "mrr10": 0.84375,
+          "coverage": 1.0,
+          "precision_at_answer": 0.8125,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 9.176770457997918,
+          "latency_p95_ms": 9.46714193560183
+        },
+        "keyword": {
+          "n": 27,
+          "top1": 0.9259259259259259,
+          "top3": 0.9629629629629629,
+          "mrr10": 0.9537037037037037,
+          "coverage": 0.9629629629629629,
+          "precision_at_answer": 0.9615384615384616,
+          "suggest_rate": 0.037037037037037035,
+          "suggest_hit_at3": 0.0,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 8.707697037607431,
+          "latency_p95_ms": 8.92927534878254
+        },
+        "paraphrase": {
+          "n": 17,
+          "top1": 0.5294117647058824,
+          "top3": 0.6470588235294118,
+          "mrr10": 0.6031746031746031,
+          "coverage": 0.8823529411764706,
+          "precision_at_answer": 0.6,
+          "suggest_rate": 0.11764705882352941,
+          "suggest_hit_at3": 0.0,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 8.574508130550385,
+          "latency_p95_ms": 8.98329266346991
         },
         "typo": {
           "n": 17,
           "top1": 0.8235294117647058,
           "top3": 0.8823529411764706,
           "mrr10": 0.8647058823529411,
-          "coverage": 0.9411764705882353,
-          "precision_at_answer": 0.875,
-          "suggest_rate": 0.058823529411764705,
-          "suggest_hit_at3": 0.0,
+          "coverage": 1.0,
+          "precision_at_answer": 0.8235294117647058,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.9552589878439903,
-          "latency_p95_ms": 4.510865919291973
+          "latency_p50_ms": 9.251894196495414,
+          "latency_p95_ms": 9.528250992298126
         }
       },
       "realistic": {
         "n": 107,
-        "top1": 0.6355140186915887,
-        "top3": 0.7757009345794392,
-        "mrr10": 0.7309301290609701,
-        "coverage": 0.9345794392523364,
-        "precision_at_answer": 0.67,
-        "suggest_rate": 0.06542056074766354,
-        "suggest_hit_at3": 0.2857142857142857,
+        "top1": 0.7102803738317757,
+        "top3": 0.8411214953271028,
+        "mrr10": 0.7823171636255748,
+        "coverage": 0.9532710280373832,
+        "precision_at_answer": 0.7352941176470589,
+        "suggest_rate": 0.04672897196261682,
+        "suggest_hit_at3": 0.8,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.944999072700739,
-        "latency_p95_ms": 4.832920944318175
+        "latency_p50_ms": 9.188322117552161,
+        "latency_p95_ms": 10.46048835851252
       },
       "realistic_by_kind": {
         "abbreviation": {
           "n": 14,
-          "top1": 0.5,
-          "top3": 0.7142857142857143,
-          "mrr10": 0.6696428571428571,
+          "top1": 0.5714285714285714,
+          "top3": 0.7857142857142857,
+          "mrr10": 0.6666666666666666,
           "coverage": 1.0,
-          "precision_at_answer": 0.5,
+          "precision_at_answer": 0.5714285714285714,
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.722475539892912,
-          "latency_p95_ms": 5.714936775621027
+          "latency_p50_ms": 10.259439004585147,
+          "latency_p95_ms": 10.594277922064066
         },
         "colloquial": {
           "n": 16,
-          "top1": 0.4375,
-          "top3": 0.6875,
-          "mrr10": 0.59375,
-          "coverage": 0.875,
-          "precision_at_answer": 0.5,
-          "suggest_rate": 0.125,
-          "suggest_hit_at3": 0.0,
+          "top1": 0.6875,
+          "top3": 0.875,
+          "mrr10": 0.7901785714285714,
+          "coverage": 0.9375,
+          "precision_at_answer": 0.7333333333333333,
+          "suggest_rate": 0.0625,
+          "suggest_hit_at3": 1.0,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.167169565334916,
-          "latency_p95_ms": 4.607167036738247
+          "latency_p50_ms": 9.253494557924569,
+          "latency_p95_ms": 9.655049594584852
         },
         "cyrillic": {
           "n": 16,
           "top1": 0.75,
-          "top3": 0.875,
-          "mrr10": 0.8177083333333333,
-          "coverage": 0.9375,
-          "precision_at_answer": 0.8,
-          "suggest_rate": 0.0625,
-          "suggest_hit_at3": 1.0,
+          "top3": 0.8125,
+          "mrr10": 0.809375,
+          "coverage": 1.0,
+          "precision_at_answer": 0.75,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.915516543202102,
-          "latency_p95_ms": 5.018641066271812
+          "latency_p50_ms": 9.203548892401159,
+          "latency_p95_ms": 10.514323541428894
         },
         "keyword": {
           "n": 27,
           "top1": 0.8888888888888888,
-          "top3": 0.9259259259259259,
-          "mrr10": 0.9179012345679012,
+          "top3": 0.9629629629629629,
+          "mrr10": 0.9290123456790123,
           "coverage": 1.0,
           "precision_at_answer": 0.8888888888888888,
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.508260939270258,
-          "latency_p95_ms": 4.08109410200268
+          "latency_p50_ms": 8.730533067137003,
+          "latency_p95_ms": 9.498072252608836
+        },
+        "paraphrase": {
+          "n": 17,
+          "top1": 0.35294117647058826,
+          "top3": 0.5294117647058824,
+          "mrr10": 0.47245564892623715,
+          "coverage": 0.8235294117647058,
+          "precision_at_answer": 0.35714285714285715,
+          "suggest_rate": 0.17647058823529413,
+          "suggest_hit_at3": 0.6666666666666666,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 9.476748062297702,
+          "latency_p95_ms": 10.375641053542493
+        },
+        "typo": {
+          "n": 17,
+          "top1": 0.8823529411764706,
+          "top3": 1.0,
+          "mrr10": 0.9215686274509803,
+          "coverage": 0.9411764705882353,
+          "precision_at_answer": 0.9375,
+          "suggest_rate": 0.058823529411764705,
+          "suggest_hit_at3": 1.0,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 9.129313984885812,
+          "latency_p95_ms": 9.379999013617635
+        }
+      }
+    },
+    "engine": {
+      "build_seconds": 3.578,
+      "validation": {
+        "n": 505,
+        "top1": 0.996039603960396,
+        "top3": 1.0,
+        "mrr10": 0.9976897689768977,
+        "coverage": 1.0,
+        "precision_at_answer": 0.996039603960396,
+        "suggest_rate": 0.0,
+        "suggest_hit_at3": null,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 7.202738896012306,
+        "latency_p95_ms": 9.041531151160598
+      },
+      "test": {
+        "n": 505,
+        "top1": 0.996039603960396,
+        "top3": 1.0,
+        "mrr10": 0.998019801980198,
+        "coverage": 1.0,
+        "precision_at_answer": 0.996039603960396,
+        "suggest_rate": 0.0,
+        "suggest_hit_at3": null,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 5.145132075995207,
+        "latency_p95_ms": 6.313823210075497
+      },
+      "test_entity": {
+        "n": 56,
+        "top1": 1.0,
+        "top3": 1.0,
+        "mrr10": 1.0,
+        "coverage": 1.0,
+        "precision_at_answer": 1.0,
+        "suggest_rate": 0.0,
+        "suggest_hit_at3": null,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 6.265464937314391,
+        "latency_p95_ms": 6.7324533592909575
+      },
+      "law_injection": {
+        "n": 505,
+        "answer_rate": 0.0,
+        "suggest_rate": 0.0,
+        "not_found_rate": 1.0,
+        "kept_original_answer_rate": 0.0
+      },
+      "law_swap": {
+        "n": 0
+      },
+      "org_swap": {
+        "n": 56,
+        "answer_rate": 1.0,
+        "suggest_rate": 0.0,
+        "not_found_rate": 0.0,
+        "kept_original_answer_rate": 0.7678571428571429
+      },
+      "ood": {
+        "n": 23,
+        "answer_rate": 0.5652173913043478,
+        "suggest_rate": 0.43478260869565216,
+        "not_found_rate": 0.0
+      },
+      "realistic_dev": {
+        "n": 107,
+        "top1": 0.822429906542056,
+        "top3": 0.9158878504672897,
+        "mrr10": 0.8706386292834891,
+        "coverage": 0.9906542056074766,
+        "precision_at_answer": 0.8301886792452831,
+        "suggest_rate": 0.009345794392523364,
+        "suggest_hit_at3": 0.0,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 5.485083907842636,
+        "latency_p95_ms": 6.6343098878860465
+      },
+      "realistic_dev_by_kind": {
+        "abbreviation": {
+          "n": 14,
+          "top1": 0.9285714285714286,
+          "top3": 1.0,
+          "mrr10": 0.9642857142857143,
+          "coverage": 1.0,
+          "precision_at_answer": 0.9285714285714286,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 6.5605269046500325,
+          "latency_p95_ms": 6.877047254238278
+        },
+        "colloquial": {
+          "n": 16,
+          "top1": 0.8125,
+          "top3": 0.9375,
+          "mrr10": 0.8854166666666667,
+          "coverage": 1.0,
+          "precision_at_answer": 0.8125,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 5.603190045803785,
+          "latency_p95_ms": 6.333751603960991
+        },
+        "cyrillic": {
+          "n": 16,
+          "top1": 0.8125,
+          "top3": 1.0,
+          "mrr10": 0.8958333333333333,
+          "coverage": 1.0,
+          "precision_at_answer": 0.8125,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 5.504354485310614,
+          "latency_p95_ms": 5.841237027198076
+        },
+        "keyword": {
+          "n": 27,
+          "top1": 0.9629629629629629,
+          "top3": 1.0,
+          "mrr10": 0.9814814814814815,
+          "coverage": 1.0,
+          "precision_at_answer": 0.9629629629629629,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 5.001353798434138,
+          "latency_p95_ms": 5.292806890793145
+        },
+        "paraphrase": {
+          "n": 17,
+          "top1": 0.47058823529411764,
+          "top3": 0.5882352941176471,
+          "mrr10": 0.5387254901960784,
+          "coverage": 0.9411764705882353,
+          "precision_at_answer": 0.5,
+          "suggest_rate": 0.058823529411764705,
+          "suggest_hit_at3": 0.0,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 5.74400695040822,
+          "latency_p95_ms": 6.2832428608089685
+        },
+        "typo": {
+          "n": 17,
+          "top1": 0.8823529411764706,
+          "top3": 0.9411764705882353,
+          "mrr10": 0.9117647058823529,
+          "coverage": 1.0,
+          "precision_at_answer": 0.8823529411764706,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 5.468985997140408,
+          "latency_p95_ms": 5.741957761347294
+        }
+      },
+      "realistic": {
+        "n": 107,
+        "top1": 0.6728971962616822,
+        "top3": 0.822429906542056,
+        "mrr10": 0.7535046728971962,
+        "coverage": 1.0,
+        "precision_at_answer": 0.6728971962616822,
+        "suggest_rate": 0.0,
+        "suggest_hit_at3": null,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 5.476752994582057,
+        "latency_p95_ms": 6.77282502874732
+      },
+      "realistic_by_kind": {
+        "abbreviation": {
+          "n": 14,
+          "top1": 0.5714285714285714,
+          "top3": 0.7857142857142857,
+          "mrr10": 0.7083333333333333,
+          "coverage": 1.0,
+          "precision_at_answer": 0.5714285714285714,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 6.600877386517823,
+          "latency_p95_ms": 10.260091035161166
+        },
+        "colloquial": {
+          "n": 16,
+          "top1": 0.5,
+          "top3": 0.75,
+          "mrr10": 0.6322916666666667,
+          "coverage": 1.0,
+          "precision_at_answer": 0.5,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 5.535563919693232,
+          "latency_p95_ms": 6.062112515792251
+        },
+        "cyrillic": {
+          "n": 16,
+          "top1": 0.875,
+          "top3": 0.9375,
+          "mrr10": 0.8958333333333333,
+          "coverage": 1.0,
+          "precision_at_answer": 0.875,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 5.503093008883297,
+          "latency_p95_ms": 6.84991100570187
+        },
+        "keyword": {
+          "n": 27,
+          "top1": 0.8518518518518519,
+          "top3": 0.9259259259259259,
+          "mrr10": 0.8975308641975309,
+          "coverage": 1.0,
+          "precision_at_answer": 0.8518518518518519,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 4.993380047380924,
+          "latency_p95_ms": 5.506687145680189
         },
         "paraphrase": {
           "n": 17,
           "top1": 0.23529411764705882,
-          "top3": 0.4117647058823529,
-          "mrr10": 0.3706582633053221,
-          "coverage": 0.8235294117647058,
-          "precision_at_answer": 0.21428571428571427,
-          "suggest_rate": 0.17647058823529413,
-          "suggest_hit_at3": 0.3333333333333333,
+          "top3": 0.5294117647058824,
+          "mrr10": 0.3818627450980392,
+          "coverage": 1.0,
+          "precision_at_answer": 0.23529411764705882,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.100062884390354,
-          "latency_p95_ms": 4.801769414916635
+          "latency_p50_ms": 5.717281950637698,
+          "latency_p95_ms": 6.041215825825929
         },
         "typo": {
           "n": 17,
-          "top1": 0.8235294117647058,
+          "top1": 0.8823529411764706,
           "top3": 0.9411764705882353,
-          "mrr10": 0.8921568627450981,
-          "coverage": 0.9411764705882353,
-          "precision_at_answer": 0.875,
-          "suggest_rate": 0.058823529411764705,
-          "suggest_hit_at3": 0.0,
+          "mrr10": 0.9137254901960784,
+          "coverage": 1.0,
+          "precision_at_answer": 0.8823529411764706,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.950969083234668,
-          "latency_p95_ms": 4.353876458480954
+          "latency_p50_ms": 5.4711890406906605,
+          "latency_p95_ms": 5.744428932666779
         }
       }
     }

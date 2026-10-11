@@ -26,6 +26,7 @@ from app.core.ranker import (
 )
 from app.core.retrievers.base import Retriever
 from app.core.retrievers.bm25 import BM25Retriever
+from app.core.retrievers.static_emb import StaticEmbeddingRetriever
 from app.core.retrievers.tfidf_char import CharTfidfRetriever
 from app.core.synonyms import QueryExpander
 
@@ -159,7 +160,7 @@ class QAEngine:
                     _Channel(f"{kind}:{set_name}", retriever, doc_answer_ids, weight * set_weight)
                 )
         if not self.channels:
-            raise ValueError("No retriever enabled: set USE_TFIDF and/or USE_BM25")
+            raise ValueError("No retriever enabled: set USE_TFIDF, USE_BM25 and/or USE_STATIC_EMB")
         self.build_seconds = time.perf_counter() - start
 
     def _retriever_specs(self):
@@ -174,6 +175,8 @@ class QAEngine:
             )
         if s.use_bm25:
             yield "bm25", s.weight_bm25, lambda: BM25Retriever(s.bm25_k1, s.bm25_b)
+        if s.use_static_emb:
+            yield "emb", s.weight_static, lambda: StaticEmbeddingRetriever(s.static_model_path)
 
     def _preprocess(self, text: str) -> TaggedText:
         tagged = self.extractor.process(text)
@@ -211,6 +214,7 @@ class QAEngine:
         sim_scale = 1.0 + s.tfidf_entity_weight
         tfidf_q = channel_hits.get("tfidf:questions", {})
         tfidf_a = channel_hits.get("tfidf:answers", {})
+        emb_q = channel_hits.get("emb:questions", {})
         query_tokens = tagged.tokens
         categories = [self.corpus.answers[a].category_id for a, _ in top]
         category_flags = category_agreement(categories)
@@ -225,6 +229,7 @@ class QAEngine:
                         "rrf": fused_score / scale,
                         "sim_q": min(tfidf_q.get(answer_id, (0, 0.0))[1] / sim_scale, 1.0),
                         "sim_a": min(tfidf_a.get(answer_id, (0, 0.0))[1] / sim_scale, 1.0),
+                        "sim_e": max(emb_q.get(answer_id, (0, 0.0))[1], 0.0),
                         "fuzzy": max(
                             (fuzz.token_set_ratio(tagged.text, q) for q in questions), default=0.0
                         )

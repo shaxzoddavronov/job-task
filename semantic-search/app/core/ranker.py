@@ -14,7 +14,16 @@ import numpy as np
 from app.core.config import Settings
 
 # Order matters: score_matrix and the tuner index features by position.
-POSITIVE_FEATURES = ("rrf", "sim_q", "sim_a", "fuzzy", "entity_match", "entity_match_q", "category")
+POSITIVE_FEATURES = (
+    "rrf",
+    "sim_q",
+    "sim_a",
+    "sim_e",
+    "fuzzy",
+    "entity_match",
+    "entity_match_q",
+    "category",
+)
 FEATURES = (*POSITIVE_FEATURES, "entity_conflict")
 _ENTITY_IDX = FEATURES.index("entity_match")
 _CONFLICT_IDX = FEATURES.index("entity_conflict")

@@ -173,6 +173,7 @@ def fixture_settings(tmp_path) -> Settings:
         eval_realistic_path=tmp_path / "realistic.csv",
         eval_realistic_dev_path=tmp_path / "realistic_dev.csv",
         synonyms_path=tmp_path / "no_synonyms.yaml",
+        use_static_emb=False,
         reports_dir=tmp_path / "reports",
     )
 

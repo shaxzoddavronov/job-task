@@ -1,6 +1,7 @@
 import numpy as np
 import pytest
 
+from app.core.config import Settings
 from app.core.retrievers.base import top_k
 from app.core.retrievers.bm25 import BM25Retriever
 from app.core.retrievers.tfidf_char import CharTfidfRetriever
@@ -61,3 +62,22 @@ def test_tfidf_without_entities_in_corpus():
 def test_top_k_drops_zero_scores_and_sorts():
     assert top_k(np.array([0.0, 0.5, 0.2, 0.0]), 3) == [(1, 0.5), (2, 0.2)]
     assert top_k(np.array([]), 3) == []
+
+
+def test_entity_tokens_become_words_for_embeddings():
+    from app.core.retrievers.static_emb import readable
+
+    assert readable("TERM_id_karta va ORG_dxm LAW_pq_4567") == "id karta va dxm pq 4567"
+
+
+@pytest.mark.skipif(
+    not Settings(_env_file=None).static_model_path.exists(),
+    reason="static embedding model not downloaded (make models)",
+)
+def test_static_embedding_retriever():
+    from app.core.retrievers.static_emb import StaticEmbeddingRetriever
+
+    r = StaticEmbeddingRetriever(Settings(_env_file=None).static_model_path)
+    r.fit(DOCS)
+    assert r.search("haydovchilik guvohnomasini olish", k=2)[0][0] == 1
+    assert r.search("", k=2) == []

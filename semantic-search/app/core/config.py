@@ -42,6 +42,8 @@ class Settings(BaseSettings):
     # Retrieval
     use_tfidf: bool = True
     use_bm25: bool = False  # hurt realistic-dev Top-1 by ~6 points (Phase 4 sweep)
+    use_static_emb: bool = True  # Model2Vec channel: +3.8 realistic-dev Top-1 (Phase 6 sweep)
+    static_model_path: Path = PROJECT_ROOT / "models" / "potion-multilingual-128M"
     use_answer_index: bool = True
     tfidf_ngram_min: int = 3
     tfidf_ngram_max: int = 5
@@ -55,21 +57,25 @@ class Settings(BaseSettings):
     rrf_k: int = 5
     weight_tfidf: float = 1.0
     weight_bm25: float = 1.0
+    weight_static: float = 1.0
     answer_index_weight: float = 0.1
 
     # Query expansion with data/synonyms.yaml (all retrieval channels)
     use_synonyms: bool = True  # +4.7 realistic-dev Top-1 with the re-ranker (Phase 5 sweep)
 
     # Entity-aware linear re-ranker over the top fused candidates (Phase 5, tuned on
-    # validation + realistic-dev with `scripts.evaluate --tune-reranker`).
+    # validation + realistic-dev with `scripts.evaluate --tune-reranker`; re-tuned in Phase 6).
     use_reranker: bool = True
     rerank_top_n: int = 20
-    rerank_w_rrf: float = 0.5
-    rerank_w_sim_q: float = 2.0
+    rerank_w_rrf: float = 2.0
+    rerank_w_sim_q: float = 0.5
     rerank_w_sim_a: float = 0.0
+    rerank_w_sim_e: float = 0.0
     rerank_w_fuzzy: float = 2.0
     rerank_w_entity_match: float = 0.5
-    rerank_w_entity_match_q: float = 0.0  # measured: 0.25-0.5 cost one realistic-dev query
+    # Phase 6: entity_match / entity_match_q at 0.5 each tie with either alone on the decision
+    # sets; both kept so an entity found only in an answer still lifts it (plan requirement).
+    rerank_w_entity_match_q: float = 0.5
     rerank_w_category: float = 0.5
     # No law numbers in the decision sets, so conflict is a safety setting, not a tuned one.
     rerank_w_entity_conflict: float = 3.0

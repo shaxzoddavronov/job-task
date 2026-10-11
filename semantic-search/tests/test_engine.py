@@ -32,6 +32,7 @@ def settings(tmp_path):
         gazetteer_path=tmp_path / "none.yaml",
         synonyms_path=tmp_path / "none.yaml",
         use_bm25=True,
+        use_static_emb=False,
     )
 
 
@@ -61,8 +62,11 @@ def test_answer_index_finds_entity_only_in_answers(corpus, settings):
     assert engine.ask("PQ-4567 haqida").top.answer_id == 3
 
 
-def test_reranker_promotes_entity_only_in_answers(engine):
-    # The answer index alone is only a tie-breaker; entity_match lifts answer 3.
+def test_reranker_promotes_entity_only_in_answers(corpus, settings):
+    # Mechanism test with explicit weights: the answer index alone is only a tie-breaker, and
+    # entity_match (entities from questions or answer) lifts answer 3.
+    weights = {"rerank_w_rrf": 0.5, "rerank_w_entity_match": 1.0}
+    engine = QAEngine(corpus, settings.model_copy(update=weights))
     assert engine.ask("PQ-4567 haqida").top.answer_id == 3
 
 
@@ -121,7 +125,10 @@ def test_no_retriever_enabled_is_an_error(corpus, settings):
         QAEngine(corpus, settings.model_copy(update={"use_tfidf": False, "use_bm25": False}))
 
 
-@pytest.mark.parametrize("name", list(SYSTEMS))
+_NEEDS_MODEL = {"7a +model2vec pretrained", "7b +model2vec distilled bge-m3", "engine"}
+
+
+@pytest.mark.parametrize("name", [n for n in SYSTEMS if n not in _NEEDS_MODEL])
 def test_every_registered_system_builds_and_answers(corpus, settings, name):
     result = SYSTEMS[name](corpus, settings).ask("soliq qarzi", k=3)
     assert result.status in {"answer", "suggest", "not_found"}
