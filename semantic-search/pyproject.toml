@@ -17,6 +17,10 @@ select = ["E", "F", "W", "I", "B", "UP", "SIM"]
 # SIM905: "a b c".split() is the clearest way to write Uzbek word lists.
 ignore = ["SIM905"]
 
+[tool.ruff.lint.isort]
+# The local alembic/ folder holds migrations; the package of the same name is third-party.
+known-third-party = ["alembic"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["."]

@@ -128,8 +128,25 @@ def build_corpus(raw: RawData) -> Corpus:
     return Corpus(by_id, questions)
 
 
+class PostgresSource:
+    """Loads answers and questions from PostgreSQL with the same columns as the files, so
+    build_corpus applies exactly the same cleaning to either source."""
+
+    def __init__(self, database_url: str) -> None:
+        self.database_url = database_url
+
+    def load_raw(self) -> RawData:
+        from app.db.session import get_engine  # DB code stays out of file-only runs
+
+        engine = get_engine(self.database_url)
+        with engine.connect() as conn:
+            answers = pd.read_sql("SELECT * FROM answers ORDER BY id", conn)
+            questions = pd.read_sql("SELECT * FROM questions ORDER BY id", conn)
+        return RawData(answers=answers, questions=questions)
+
+
 def load_corpus(settings: "Settings") -> Corpus:
     """Load the searchable corpus from the configured source (DATA_SOURCE)."""
-    if settings.data_source == "file":
-        return build_corpus(FileSource(settings.answers_path, settings.questions_path).load_raw())
-    raise NotImplementedError("DATA_SOURCE=postgres arrives in Phase 9b; use DATA_SOURCE=file")
+    if settings.data_source == "postgres":
+        return build_corpus(PostgresSource(settings.database_url).load_raw())
+    return build_corpus(FileSource(settings.answers_path, settings.questions_path).load_raw())

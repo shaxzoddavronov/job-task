@@ -206,3 +206,11 @@ def test_query_log_failure_does_not_break_ask(settings):
 
     with TestClient(create_app(settings, repo=BrokenRepo())) as c:
         assert ask(c, "soliq qarzi").status_code == 200
+
+
+def test_repository_follows_data_source(settings):
+    from app.db.repository import JsonlRepository, PostgresRepository, build_repository
+
+    assert isinstance(build_repository(settings), JsonlRepository)
+    pg = settings.model_copy(update={"data_source": "postgres"})
+    assert isinstance(build_repository(pg), PostgresRepository)  # lazy: no connection yet

@@ -28,7 +28,7 @@ from app.core.config import Settings, get_settings
 from app.core.data import load_corpus
 from app.core.engine import QAEngine
 from app.core.normalize import normalize
-from app.db.repository import Feedback, JsonlRepository, QueryLog, Repository
+from app.db.repository import Feedback, QueryLog, Repository, build_repository
 
 log = logging.getLogger("app.api")
 
@@ -57,7 +57,7 @@ def create_app(settings: Settings | None = None, repo: Repository | None = None)
     @asynccontextmanager
     async def lifespan(app: FastAPI):
         app.state.engine_state = await run_in_threadpool(build_state, settings)
-        app.state.repo = repo or JsonlRepository(settings.logs_dir)
+        app.state.repo = repo or build_repository(settings)
         app.state.reload_lock = asyncio.Lock()
         s = app.state.engine_state
         log.info(

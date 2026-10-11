@@ -88,7 +88,8 @@ class Settings(BaseSettings):
 
     # Data source
     data_source: Literal["postgres", "file"] = "file"
-    database_url: str = "postgresql+psycopg://qa:qa@localhost:5432/qa"
+    # Local default = the compose `db` service on host port 5440 (Docker uses db:5432)
+    database_url: str = "postgresql+psycopg://qa:qa@localhost:5440/qa"
 
     # Evaluation
     eval_seed: int = 42

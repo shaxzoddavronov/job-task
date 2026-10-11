@@ -7,7 +7,7 @@ BENCH_PY := $(BENCH_VENV)/bin/python
 BENCH_VENV_FLAGS ?=
 PORT ?= 8000
 
-.PHONY: install install-bench models lint format test audit gazetteer eval distill benchmark db-up migrate import api bot up down
+.PHONY: install install-bench models lint format test test-db audit gazetteer eval distill benchmark db-up migrate import api bot up down
 
 $(PY):
 	$(PYTHON) -m venv $(VENV)
@@ -37,6 +37,9 @@ format:
 test:
 	$(PY) -m pytest
 
+test-db:  ## DB tests against the compose db (own database qa_test)
+	TEST_DATABASE_URL=$${TEST_DATABASE_URL:-postgresql+psycopg://qa:qa@localhost:5440/qa_test} $(PY) -m pytest -m db
+
 audit:
 	$(PY) -m scripts.audit_data
 
@@ -52,14 +55,17 @@ distill:
 benchmark:
 	$(BENCH_PY) -m scripts.benchmark_bge_m3
 
-db-up:
-	docker compose up -d db
+db-up:  ## PostgreSQL 16 on localhost:$${POSTGRES_PORT:-5440}
+	docker compose up -d --wait db
 
 migrate:
 	$(PY) -m alembic upgrade head
 
 import:
 	$(PY) -m scripts.import_xlsx
+
+import-if-empty:
+	$(PY) -m scripts.import_xlsx --if-empty
 
 api:  ## PORT=8010 make api if 8000 is taken
 	$(PY) -m uvicorn app.api.main:app --reload --host 0.0.0.0 --port $(PORT)

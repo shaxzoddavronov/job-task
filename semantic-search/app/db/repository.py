@@ -1,8 +1,8 @@
 """Storage for query logs and feedback (never used for search).
 
-`Repository` is the interface the API depends on. `JsonlRepository` writes JSON lines to
-data/logs/ until PostgreSQL arrives (Phase 9b); the records mirror the planned tables so the
-Postgres implementation can replace it without touching the API.
+`Repository` is the interface the API depends on. `PostgresRepository` writes to the
+`query_logs` / `feedback` tables (DATA_SOURCE=postgres); `JsonlRepository` writes JSON lines to
+data/logs/ for file-only runs. `build_repository` picks one from the settings.
 """
 
 import json
@@ -11,7 +11,10 @@ from collections import Counter
 from dataclasses import asdict, dataclass, field
 from datetime import UTC, datetime
 from pathlib import Path
-from typing import Protocol
+from typing import TYPE_CHECKING, Protocol
+
+if TYPE_CHECKING:
+    from app.core.config import Settings
 
 
 def _now() -> str:
@@ -96,3 +99,73 @@ class JsonlRepository:
                 "helpful": sum(1 for r in feedback if r["helpful"]),
             },
         }
+
+
+class PostgresRepository:
+    def __init__(self, database_url: str) -> None:
+        from app.db.session import session_factory
+
+        self._sessions = session_factory(database_url)
+
+    def log_query(self, entry: QueryLog) -> None:
+        from app.db import models
+
+        record = {k: v for k, v in asdict(entry).items() if k != "created_at"}
+        with self._sessions.begin() as session:
+            session.add(models.QueryLog(**record))
+
+    def save_feedback(self, entry: Feedback) -> int:
+        from app.db import models
+
+        record = {k: v for k, v in asdict(entry).items() if k != "created_at"}
+        with self._sessions.begin() as session:
+            row = models.Feedback(**record)
+            session.add(row)
+            session.flush()
+            return row.id
+
+    def usage_stats(self) -> dict:
+        from sqlalchemy import func, select
+
+        from app.db.models import Feedback as FeedbackRow
+        from app.db.models import QueryLog as QueryLogRow
+
+        with self._sessions() as session:
+            total, avg_latency = session.execute(
+                select(func.count(QueryLogRow.id), func.avg(QueryLogRow.latency_ms))
+            ).one()
+            by_status = dict(
+                session.execute(
+                    select(QueryLogRow.status, func.count()).group_by(QueryLogRow.status)
+                ).all()
+            )
+            top = session.execute(
+                select(QueryLogRow.normalized_query, func.count().label("n"))
+                .group_by(QueryLogRow.normalized_query)
+                .order_by(func.count().desc(), QueryLogRow.normalized_query)
+                .limit(10)
+            ).all()
+            fb_total, fb_helpful = session.execute(
+                select(
+                    func.count(FeedbackRow.id),
+                    func.count(FeedbackRow.id).filter(FeedbackRow.helpful.is_(True)),
+                )
+            ).one()
+        return {
+            "total_queries": total,
+            "status_rates": {
+                s: by_status.get(s, 0) / total for s in ("answer", "suggest", "not_found")
+            }
+            if total
+            else {},
+            "avg_latency_ms": float(avg_latency) if avg_latency is not None else None,
+            "top_questions": [{"question": q, "count": n} for q, n in top],
+            "feedback": {"total": fb_total, "helpful": fb_helpful},
+        }
+
+
+def build_repository(settings: "Settings") -> Repository:
+    """Postgres when the data lives there, JSON lines for file-only runs."""
+    if settings.data_source == "postgres":
+        return PostgresRepository(settings.database_url)
+    return JsonlRepository(settings.logs_dir)
