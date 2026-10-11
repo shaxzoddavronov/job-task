@@ -4,7 +4,10 @@ bot_token.txt
 
 # Private data
 data/*.xlsx
+data/*.csv
 data/feedback.jsonl
+# Audit quotes raw rows; keep out of git until data privacy is decided
+reports/data_audit.*
 
 # Python
 __pycache__/

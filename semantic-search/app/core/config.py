@@ -18,8 +18,8 @@ class Settings(BaseSettings):
 
     # Paths
     data_dir: Path = PROJECT_ROOT / "data"
-    answers_path: Path = PROJECT_ROOT / "data" / "answers.xlsx"
-    questions_path: Path = PROJECT_ROOT / "data" / "questions.xlsx"
+    answers_path: Path = PROJECT_ROOT / "data" / "answers.csv"
+    questions_path: Path = PROJECT_ROOT / "data" / "questions.csv"
     gazetteer_path: Path = PROJECT_ROOT / "data" / "gazetteer.yaml"
     synonyms_path: Path = PROJECT_ROOT / "data" / "synonyms.yaml"
     ood_questions_path: Path = PROJECT_ROOT / "data" / "ood_questions.txt"
@@ -27,7 +27,7 @@ class Settings(BaseSettings):
     reports_dir: Path = PROJECT_ROOT / "reports"
 
     # Data source
-    data_source: Literal["postgres", "xlsx"] = "xlsx"
+    data_source: Literal["postgres", "file"] = "file"
     database_url: str = "postgresql+psycopg://qa:qa@localhost:5432/qa"
 
     # Evaluation

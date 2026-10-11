@@ -4,7 +4,7 @@ from app.core.config import Settings
 def test_defaults_load():
     settings = Settings(_env_file=None)
     assert settings.eval_seed == 42
-    assert settings.data_source in {"postgres", "xlsx"}
+    assert settings.data_source in {"postgres", "file"}
 
 
 def test_bot_token_prefers_env(tmp_path):
