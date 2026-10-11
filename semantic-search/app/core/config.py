@@ -35,10 +35,13 @@ class Settings(BaseSettings):
 
     # Evaluation
     eval_seed: int = 42
+    eval_top_k: int = 10
+    eval_realistic_path: Path = PROJECT_ROOT / "data" / "eval_realistic.csv"
 
     # Decision thresholds (placeholders until Phase 7 calibration)
     answer_threshold: float = 0.5
     suggest_threshold: float = 0.2
+    answer_min_margin: float = 0.0
 
     # Bot
     api_url: str = "http://localhost:8000"

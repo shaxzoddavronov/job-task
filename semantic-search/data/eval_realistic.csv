@@ -1,0 +1,108 @@
+query,answer_id,kind
+ID-karta necha yilga amal qiladi?,5,paraphrase
+Boshqa shaharda vaqtincha yashasam qayerda ro'yxatdan o'tishim kerak?,19,paraphrase
+"Xorijlik bilan turmush qurmoqchiman, nikohni qanday ro'yxatdan o'tkazamiz?",38,paraphrase
+Sotib olgan kvartiramni o'z nomimga qanday rasmiylashtiraman?,48,paraphrase
+Firma ochish uchun qancha pul to'lanadi va necha kunda bo'ladi?,60,paraphrase
+Farzandlarim uchun davlatdan pul yordami olsa bo'ladimi?,67,paraphrase
+Chet elda olgan diplomimni O'zbekistonda tan oldirmoqchiman,71,paraphrase
+"Otamdan qolgan merosni olmasdan akamga qoldirmoqchiman, nima qilish kerak?",102,paraphrase
+Uy va yer uchun soliq qancha bo'ladi va qanday to'lanadi?,117,paraphrase
+Ishga kirganda ish beruvchi bilan qanday shartnoma tuziladi?,123,paraphrase
+"Ish stajim yo'q, qarilikda menga pensiya beriladimi?",130,paraphrase
+"Universitetda o'qiyman, yotoqxonadan joy qanday olaman?",143,paraphrase
+"Advokatga pulim yo'q, tekin yuridik yordam olsa bo'ladimi?",154,paraphrase
+"Soliqni ko'p to'lab yuboribman, pulimni qaytarib olsam bo'ladimi?",225,paraphrase
+Ishdan ketayotganda ishlatmagan otpuskam uchun pul to'lanadimi?,329,paraphrase
+"Uyning bir qismi akamniki, uyni uning roziligisiz sotsam bo'ladimi?",406,paraphrase
+"Meni aldab pulimni olishdi, zararni qanday undiraman?",469,paraphrase
+prava olish uchun nima qilish kerak,23,colloquial
+mashinaga nomer qanday olinadi,55,colloquial
+pravaga ekzamen qanday topshiriladi,112,colloquial
+"schyotchikni almashtirmoqchiman, kimga boraman",150,colloquial
+bolnitsadan spravka qanday olaman,137,colloquial
+eski mashinani uchyotdan chiqarish qanday,177,colloquial
+"kvartirada ijarada turaman, pasportni qayerda almashtiraman",186,colloquial
+svetga limit oshirish uchun qayerga borish kerak,259,colloquial
+"kvartirani arendaga beraman, nalog to'lash kerakmi",358,colloquial
+posilkamni trek kod orqali qanday kuzataman,80,colloquial
+gaz va svet bo'yicha jaloba qayerga yoziladi,79,colloquial
+rossiya pravasi bilan bu yerda mashina haysam bo'ladimi,366,colloquial
+"svet puli noto'g'ri kelibdi, kimga shikoyat qilaman",462,colloquial
+"boshqa poliklinikaga o'tdim, kartamni qanday ko'chiraman",340,colloquial
+pravaga C kategoriya qo'shmoqchiman,219,colloquial
+mashinamni sotsam nalog to'layman mi,321,colloquial
+notarial hujjatim yoqoldi dublikat qanday olinadi,46,typo
+uyga qoyilgan taqiqni qanday olib tashlasa boladi,51,typo
+bolani bogchaga navbatga qoyish,70,typo
+bolaga bobosining ismidan familya qoysa boladimi,92,typo
+ipoteka shartnomasini qanday rasmiylashtirish mumkn,101,typo
+kochmas mulk malumotidagi xatoni tuzatish,106,typo
+nazariy imtixonda nechta savolga togri javob berish kere,113,typo
+nogironlik pensiyasini qanday tayinlashadi,131,typo
+mamuriy jarimaga etiroz bildirish,156,typo
+pora soragan xodim haqida qayerga xabar beraman,163,typo
+onlayn kassani royxatga qoyish,230,typo
+voyaga yetmagan bola nomiga uy olish uchun nima kere,305,typo
+ish beruvchi shartnomani ozi bir tomonlama ozgartira oladimi,330,typo
+sud qarorini nushasini qayerdan olaman,362,typo
+yer uchastkasini maqsadini ozgartirsa boladimi,412,typo
+ozim ishdan ketmoqchiman necha kun oldin aytishim kerak,435,typo
+murojatimga kelgan javobdan norozi man qayta korib chiqishsa boladimi,484,typo
+Давлат хизматларидан онлайн қандай фойдаланса бўлади?,29,cyrillic
+Кредит тарихимни қаердан текширсам бўлади?,77,cyrillic
+Яшаш жойимни ўзгартирсам ID-картани алмаштиришим керакми?,86,cyrillic
+Қурилиши тугаган уйни фойдаланишга қандай топширилади?,108,cyrillic
+Лицензия олиш учун қаерга мурожаат қилинади?,121,cyrillic
+Имтиёзли дори-дармонни қандай оламан?,139,cyrillic
+Ҳарбий рўйхатга олиш гувоҳномаси қачон берилади?,148,cyrillic
+"Қарзим кўп, банкрот бўлсам нима қилишим керак?",171,cyrillic
+Талабалар ҳарбий хизматга қандай боради?,252,cyrillic
+ID-карта олишда давлат божидан озод қилинадиганлар борми?,283,cyrillic
+Никоҳдан ўтганлигим ҳақида маълумотнома қандай оламан?,300,cyrillic
+Чет эл фуқароси бу ерда даволанса бўладими?,341,cyrillic
+Ҳарбий хизматдан қочса қандай жавобгарлик бор?,353,cyrillic
+Янги қурилган уйни кадастрга қандай киритаман?,415,cyrillic
+Касалхонада даволаниш пулликми ёки бепулми?,446,cyrillic
+Турмуш қургандан кейин эримнинг фамилиясини олсам бўладими?,496,cyrillic
+MChJ ochish uchun nima kerak,59,abbreviation
+ERI kalitini qayerdan olaman,73,abbreviation
+chet eldan olib kelgan mashinani DXMda ro'yxatdan o'tkazish,218,abbreviation
+TMEKdan nogironlik guruhini qanday olaman,237,abbreviation
+avtoraqam yo'qolsa DXMga borsam bo'ladimi,318,abbreviation
+YaTT faoliyatini vaqtincha to'xtatsa bo'ladimi,319,abbreviation
+IDP olish uchun qayerga murojaat qilaman,420,abbreviation
+MyGov ilovasiga ERI orqali kirish,488,abbreviation
+ID-karta chipini qayerda o'qitsa bo'ladi,183,abbreviation
+Mobil ID ni telefonga qanday ulayman,273,abbreviation
+my.gov.uz da xizmatga qanday baho beraman,372,abbreviation
+sudlanmaganlik spravkasiga apostil qo'yish,364,abbreviation
+repatriantlar uchun fuqarolik olishda yengillik bormi,298,abbreviation
+chet ellik ishchi propiskada turishi shartmi,400,abbreviation
+korrupsiya xabar berish,163,keyword
+mashina garovda emasligini tekshirish,217,keyword
+sudda advokat majburiymi,263,keyword
+chet eldan pul o'tkazmasi soliq,320,keyword
+ijtimoiy yordam daromad baholash,339,keyword
+majburiy tibbiy ko'rik qayerda,342,keyword
+kontrakt harbiy xizmat,352,keyword
+sud buyrug'i undirish,359,keyword
+bolaga bank karta ochish,380,keyword
+notarial tarjima hujjatlar,408,keyword
+mashinani chet elga olib chiqish,422,keyword
+chet el daromadi deklaratsiya,424,keyword
+soliqni bo'lib to'lash,427,keyword
+brend ro'yxatdan o'tkazish,431,keyword
+bola parvarishi nafaqa,441,keyword
+mehnat faxriysi maqomi,444,keyword
+maktabga tayyorlik,450,keyword
+chet eldan kelgan bola maktab,452,keyword
+sirtqiga o'tish,454,keyword
+mediatsiya nima,468,keyword
+chet el ishonchnomasi,470,keyword
+chet elda vafot etgan hujjatlar,471,keyword
+pochta yetkazish muddati,474,keyword
+rad etish sababi ko'rsatilmasa shikoyat,490,keyword
+dublikat qancha kunda beriladi,493,keyword
+ko'p qavatli uy boshqaruvi muammolari,152,keyword
+mashinani vaqtincha hisobdan chiqarish,417,keyword

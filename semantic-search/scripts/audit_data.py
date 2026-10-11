@@ -18,7 +18,7 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 from app.core.config import get_settings
-from app.core.data import FileSource, RawData
+from app.core.data import FileSource, RawData, as_bool
 from app.core.entities import EntityExtractor
 from app.core.normalize import APOSTROPHE_VARIANTS, normalize
 
@@ -75,19 +75,6 @@ def abbreviations(text: str) -> list[str]:
 
 def has(series: pd.Series, pattern: re.Pattern) -> pd.Series:
     return series.map(lambda t: bool(pattern.search(t)))
-
-
-def as_bool(value) -> bool | None:
-    if pd.isna(value):
-        return None
-    if isinstance(value, bool | np.bool_):
-        return bool(value)
-    text = str(value).strip().lower()
-    if text in {"1", "1.0", "true", "t", "yes", "y", "ha", "active"}:
-        return True
-    if text in {"0", "0.0", "false", "f", "no", "n", "yo'q", "inactive"}:
-        return False
-    return None
 
 
 def describe_lengths(series: pd.Series) -> dict:

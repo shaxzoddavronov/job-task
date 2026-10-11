@@ -1,0 +1,24 @@
+# Out-of-domain questions: the system should answer "not_found" for all of these.
+Bugun ob-havo qanday?
+Ertaga Toshkentda yomg'ir yog'adimi?
+Futbol natijalari qanday bo'ldi?
+Paxtakor kecha kim bilan o'ynadi?
+Eng mazali osh retsepti qanday?
+Palov qanday pishiriladi?
+Dollar kursi bugun qancha?
+Bitcoin narxi qancha?
+Yangi iPhone qachon chiqadi?
+Eng yaxshi kino qaysi?
+Ingliz tilini tez o'rganish uchun nima qilish kerak?
+Kompyuterim sekin ishlayapti, nima qilay?
+Qanday qilib vazn yo'qotish mumkin?
+Samarqandda qaysi mehmonxonalar arzon?
+Toshkentdan Buxoroga poyezd soat nechada?
+Menga she'r yozib ber
+Python dasturlash tilida sikl qanday yoziladi?
+Telegramda kanal qanday ochiladi?
+Mushukim ovqat yemayapti, nima qilsam bo'ladi?
+Eng baland tog' qaysi?
+Kim yaxshi qo'shiq aytadi?
+Сегодня какая погода?
+Шахмат қоидалари қандай?
