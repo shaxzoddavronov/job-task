@@ -45,8 +45,10 @@ def engine_with(**overrides) -> SystemFactory:
     return factory
 
 
-# Plan rows 1-4 pin the retrievers and the answer index; everything else follows the settings.
-_PLAN_ROW = {"strip_template_fillers": False, "normalize_strip_apostrophes": False}
+# Phase 4 rows pin the first stage only (no re-ranker, no synonyms) so their numbers stay put.
+_PHASE4 = {"use_reranker": False, "use_synonyms": False}
+_PLAN_ROW = _PHASE4 | {"strip_template_fillers": False, "normalize_strip_apostrophes": False}
+_PHASE4_ENGINE = _PHASE4 | {"use_tfidf": True, "use_bm25": False, "use_answer_index": True}
 
 SYSTEMS: dict[str, SystemFactory] = {
     "random": RandomSystem,
@@ -56,8 +58,17 @@ SYSTEMS: dict[str, SystemFactory] = {
     "4 tfidf+bm25+answers": engine_with(
         **_PLAN_ROW, use_tfidf=True, use_bm25=True, use_answer_index=True
     ),
-    # E4 and apostrophe stripping, measured on top of the production config
-    "4a engine -fillers": engine_with(strip_template_fillers=True),
-    "4b engine -apostrophes": engine_with(normalize_strip_apostrophes=True),
+    "4* phase-4 engine": engine_with(**_PHASE4_ENGINE),
+    "4a phase-4 -fillers": engine_with(**_PHASE4_ENGINE, strip_template_fillers=True),
+    "4b phase-4 -apostrophes": engine_with(**_PHASE4_ENGINE, normalize_strip_apostrophes=True),
+    "5 +rerank": engine_with(use_reranker=True, use_synonyms=False),
+    "5a +rerank -entity": engine_with(
+        use_reranker=True,
+        use_synonyms=False,
+        rerank_w_entity_match=0.0,
+        rerank_w_entity_conflict=0.0,
+    ),
+    "6 +rerank +synonyms": engine_with(use_reranker=True, use_synonyms=True),
+    "6b +rerank +synonyms +bm25": engine_with(use_reranker=True, use_synonyms=True, use_bm25=True),
     "engine": QAEngine,
 }

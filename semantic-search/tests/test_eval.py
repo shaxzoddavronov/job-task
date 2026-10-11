@@ -8,8 +8,9 @@ from app.core.data import Question, RawData, build_corpus
 from app.core.engine import Candidate, decide_status
 from app.eval.metrics import QueryRecord, mrr, summarize, top_k_accuracy
 from app.eval.report import worst_failures, write_reports
-from app.eval.runner import evaluate, law_injection_queries
+from app.eval.runner import build_context, evaluate, law_injection_queries
 from app.eval.split import split_questions
+from app.eval.tuning import tune_reranker
 
 
 def make_questions(counts: dict[int, int]) -> list[Question]:
@@ -131,7 +132,8 @@ def test_law_injection_uses_absent_laws():
 # --- End to end --------------------------------------------------------------------------
 
 
-def test_evaluate_end_to_end(tmp_path):
+def fixture_settings(tmp_path) -> Settings:
+    """Five answers with four DXM questions each, plus every auxiliary eval file."""
     answers = pd.DataFrame(
         {
             "id": range(1, 6),
@@ -162,7 +164,7 @@ def test_evaluate_end_to_end(tmp_path):
     pd.DataFrame({"query": ["javob uch"], "answer_id": [3], "kind": ["keyword"]}).to_csv(
         tmp_path / "realistic_dev.csv", index=False
     )
-    settings = Settings(
+    return Settings(
         _env_file=None,
         answers_path=tmp_path / "answers.csv",
         questions_path=tmp_path / "questions.csv",
@@ -170,8 +172,13 @@ def test_evaluate_end_to_end(tmp_path):
         gazetteer_path=tmp_path / "gazetteer.yaml",
         eval_realistic_path=tmp_path / "realistic.csv",
         eval_realistic_dev_path=tmp_path / "realistic_dev.csv",
+        synonyms_path=tmp_path / "no_synonyms.yaml",
         reports_dir=tmp_path / "reports",
     )
+
+
+def test_evaluate_end_to_end(tmp_path):
+    settings = fixture_settings(tmp_path)
     ctx, reports = evaluate(settings, ["random"])
     results = write_reports(ctx, reports, reports[0], settings.reports_dir)
 
@@ -194,3 +201,12 @@ def test_evaluate_end_to_end(tmp_path):
     assert saved["primary"] == "random"
     assert "worst test failures" in (settings.reports_dir / "eval_results.md").read_text()
     assert (settings.reports_dir / "eval_predictions.jsonl").stat().st_size > 0
+
+
+def test_tune_reranker_uses_decision_sets_only(tmp_path):
+    ctx = build_context(fixture_settings(tmp_path))
+    baseline, rows = tune_reranker(ctx, {"rrf": [1.0], "fuzzy": [0.0, 1.0]})
+    assert set(baseline) == {"validation", "realistic_dev"}
+    assert rows and all(set(r) == {"weights", "validation", "realistic_dev"} for r in rows)
+    keys = [(-r["realistic_dev"]["top1"], -r["realistic_dev"]["mrr10"]) for r in rows]
+    assert keys == sorted(keys)

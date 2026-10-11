@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-11T07:26:53+00:00",
+  "generated_at": "2026-10-11T07:47:01+00:00",
   "seed": 42,
   "dataset": {
     "answers": 505,
@@ -29,8 +29,8 @@
         "suggest_rate": 0.0019801980198019802,
         "suggest_hit_at3": 0.0,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 0.01196097582578659,
-        "latency_p95_ms": 0.014701904729008673
+        "latency_p50_ms": 0.013215001672506332,
+        "latency_p95_ms": 0.01670555211603641
       },
       "test": {
         "n": 505,
@@ -42,8 +42,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 0.012077158316969872,
-        "latency_p95_ms": 0.014569470658898354
+        "latency_p50_ms": 0.011769821867346764,
+        "latency_p95_ms": 0.013853842392563818
       },
       "test_entity": {
         "n": 56,
@@ -55,8 +55,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 0.012775999493896961,
-        "latency_p95_ms": 0.014432764146476984
+        "latency_p50_ms": 0.012441887520253658,
+        "latency_p95_ms": 0.013871991541236639
       },
       "law_injection": {
         "n": 505,
@@ -91,8 +91,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 0.013015000149607658,
-        "latency_p95_ms": 0.01622566487640142
+        "latency_p50_ms": 0.012532109394669533,
+        "latency_p95_ms": 0.015433854423463343
       },
       "realistic_dev_by_kind": {
         "abbreviation": {
@@ -105,8 +105,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.013156561180949211,
-          "latency_p95_ms": 0.02322702202945947
+          "latency_p50_ms": 0.013091950677335262,
+          "latency_p95_ms": 0.023538712412118905
         },
         "colloquial": {
           "n": 16,
@@ -118,8 +118,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.0120081240311265,
-          "latency_p95_ms": 0.02399913500994444
+          "latency_p50_ms": 0.011931057088077068,
+          "latency_p95_ms": 0.02143927849829197
         },
         "cyrillic": {
           "n": 16,
@@ -131,8 +131,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.013445038348436356,
-          "latency_p95_ms": 0.014572986401617527
+          "latency_p50_ms": 0.013596960343420506,
+          "latency_p95_ms": 0.015053548850119114
         },
         "keyword": {
           "n": 27,
@@ -144,8 +144,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.011424999684095383,
-          "latency_p95_ms": 0.014279340393841267
+          "latency_p50_ms": 0.01184898428618908,
+          "latency_p95_ms": 0.013859989121556282
         },
         "paraphrase": {
           "n": 17,
@@ -157,8 +157,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.014004064723849297,
-          "latency_p95_ms": 0.021199323236942277
+          "latency_p50_ms": 0.013426877558231354,
+          "latency_p95_ms": 0.020747445523738858
         },
         "typo": {
           "n": 17,
@@ -170,8 +170,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.011536991223692894,
-          "latency_p95_ms": 0.014394521713256836
+          "latency_p50_ms": 0.011350028216838837,
+          "latency_p95_ms": 0.013265712186694145
         }
       },
       "realistic": {
@@ -184,8 +184,8 @@
         "suggest_rate": 0.009345794392523364,
         "suggest_hit_at3": 0.0,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 0.012564938515424728,
-        "latency_p95_ms": 0.015546311624348158
+        "latency_p50_ms": 0.01345016062259674,
+        "latency_p95_ms": 0.02451203763484954
       },
       "realistic_by_kind": {
         "abbreviation": {
@@ -198,8 +198,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.012897886335849762,
-          "latency_p95_ms": 0.022432545665651553
+          "latency_p50_ms": 0.013765529729425907,
+          "latency_p95_ms": 11.085003649350245
         },
         "colloquial": {
           "n": 16,
@@ -211,8 +211,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.011775526218116283,
-          "latency_p95_ms": 0.022502208594232798
+          "latency_p50_ms": 0.011436641216278076,
+          "latency_p95_ms": 0.06069301161915064
         },
         "cyrillic": {
           "n": 16,
@@ -224,8 +224,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.013576471246778965,
-          "latency_p95_ms": 0.016490172129124403
+          "latency_p50_ms": 0.01438602339476347,
+          "latency_p95_ms": 0.015918398275971413
         },
         "keyword": {
           "n": 27,
@@ -237,8 +237,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.012092990800738335,
-          "latency_p95_ms": 0.014324928633868694
+          "latency_p50_ms": 0.0189109705388546,
+          "latency_p95_ms": 0.02244706265628338
         },
         "paraphrase": {
           "n": 17,
@@ -250,8 +250,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.012564938515424728,
-          "latency_p95_ms": 0.018821656703948968
+          "latency_p50_ms": 0.013407086953520775,
+          "latency_p95_ms": 0.017986120656132695
         },
         "typo": {
           "n": 17,
@@ -263,8 +263,8 @@
           "suggest_rate": 0.058823529411764705,
           "suggest_hit_at3": 0.0,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.011680880561470985,
-          "latency_p95_ms": 0.014004390686750412
+          "latency_p50_ms": 0.012875068932771683,
+          "latency_p95_ms": 0.015434669330716133
         }
       }
     },
@@ -280,8 +280,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 1.8838511314243078,
-        "latency_p95_ms": 2.482932247221469
+        "latency_p50_ms": 2.1502990275621414,
+        "latency_p95_ms": 2.7431315742433067
       },
       "test": {
         "n": 505,
@@ -293,8 +293,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 1.9725770689547062,
-        "latency_p95_ms": 2.503889286890626
+        "latency_p50_ms": 2.4689389392733574,
+        "latency_p95_ms": 3.0958271585404864
       },
       "test_entity": {
         "n": 56,
@@ -306,15 +306,15 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 2.3349589901044965,
-        "latency_p95_ms": 2.8518042527139187
+        "latency_p50_ms": 3.023721044883132,
+        "latency_p95_ms": 3.649808291811496
       },
       "law_injection": {
         "n": 505,
-        "answer_rate": 1.0,
+        "answer_rate": 0.0,
         "suggest_rate": 0.0,
-        "not_found_rate": 0.0,
-        "kept_original_answer_rate": 0.9920792079207921
+        "not_found_rate": 1.0,
+        "kept_original_answer_rate": 0.0
       },
       "law_swap": {
         "n": 0
@@ -342,8 +342,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 2.142057055607438,
-        "latency_p95_ms": 2.707420801743864
+        "latency_p50_ms": 2.453796798363328,
+        "latency_p95_ms": 2.984629990532994
       },
       "realistic_dev_by_kind": {
         "abbreviation": {
@@ -356,8 +356,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.621975028887391,
-          "latency_p95_ms": 2.8246985282748938
+          "latency_p50_ms": 2.9474240727722645,
+          "latency_p95_ms": 3.386615589261055
         },
         "colloquial": {
           "n": 16,
@@ -369,8 +369,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.0581954158842564,
-          "latency_p95_ms": 2.166459511499852
+          "latency_p50_ms": 2.4316139752045274,
+          "latency_p95_ms": 2.598949649836868
         },
         "cyrillic": {
           "n": 16,
@@ -382,8 +382,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.2313721710816026,
-          "latency_p95_ms": 2.473228028975427
+          "latency_p50_ms": 2.5461853947490454,
+          "latency_p95_ms": 2.7812078478746116
         },
         "keyword": {
           "n": 27,
@@ -395,8 +395,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 1.90234393812716,
-          "latency_p95_ms": 2.2567048436030746
+          "latency_p50_ms": 2.347902860492468,
+          "latency_p95_ms": 2.5853718165308237
         },
         "paraphrase": {
           "n": 17,
@@ -408,8 +408,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.1755979396402836,
-          "latency_p95_ms": 2.357626101002097
+          "latency_p50_ms": 2.4871749337762594,
+          "latency_p95_ms": 2.6759018190205097
         },
         "typo": {
           "n": 17,
@@ -421,8 +421,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.0824179518967867,
-          "latency_p95_ms": 2.3481623735278845
+          "latency_p50_ms": 2.3602789733558893,
+          "latency_p95_ms": 2.673620358109474
         }
       },
       "realistic": {
@@ -435,8 +435,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 2.1068209316581488,
-        "latency_p95_ms": 2.77523803524673
+        "latency_p50_ms": 2.517844084650278,
+        "latency_p95_ms": 2.93226595968008
       },
       "realistic_by_kind": {
         "abbreviation": {
@@ -449,8 +449,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.65282834880054,
-          "latency_p95_ms": 2.9110659030266106
+          "latency_p50_ms": 2.8408195357769728,
+          "latency_p95_ms": 2.9891286278143525
         },
         "colloquial": {
           "n": 16,
@@ -462,8 +462,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.107926644384861,
-          "latency_p95_ms": 2.321430773008615
+          "latency_p50_ms": 2.3455583723261952,
+          "latency_p95_ms": 2.594252466224134
         },
         "cyrillic": {
           "n": 16,
@@ -475,8 +475,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.1905264584347606,
-          "latency_p95_ms": 2.653484174516052
+          "latency_p50_ms": 2.486973535269499,
+          "latency_p95_ms": 2.941297774668783
         },
         "keyword": {
           "n": 27,
@@ -488,8 +488,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 1.9293609075248241,
-          "latency_p95_ms": 2.0634615095332265
+          "latency_p50_ms": 2.560314955189824,
+          "latency_p95_ms": 2.76686477009207
         },
         "paraphrase": {
           "n": 17,
@@ -501,8 +501,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.132322872057557,
-          "latency_p95_ms": 2.3674518801271915
+          "latency_p50_ms": 2.5440119206905365,
+          "latency_p95_ms": 2.795718563720584
         },
         "typo": {
           "n": 17,
@@ -514,13 +514,13 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.0877609495073557,
-          "latency_p95_ms": 2.240639366209507
+          "latency_p50_ms": 2.490430837497115,
+          "latency_p95_ms": 2.9031262267380953
         }
       }
     },
     "2 bm25": {
-      "build_seconds": 0.099,
+      "build_seconds": 0.132,
       "validation": {
         "n": 505,
         "top1": 0.9900990099009901,
@@ -531,8 +531,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 0.17602904699742794,
-        "latency_p95_ms": 0.2119861077517271
+        "latency_p50_ms": 0.4397542215883732,
+        "latency_p95_ms": 0.5180113483220339
       },
       "test": {
         "n": 505,
@@ -544,8 +544,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 0.17463392578065395,
-        "latency_p95_ms": 0.21460507996380326
+        "latency_p50_ms": 0.4341099411249161,
+        "latency_p95_ms": 0.5122681614011526
       },
       "test_entity": {
         "n": 56,
@@ -557,15 +557,15 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 0.17943198326975107,
-        "latency_p95_ms": 0.20534725626930594
+        "latency_p50_ms": 0.4554145270958543,
+        "latency_p95_ms": 0.516556145157665
       },
       "law_injection": {
         "n": 505,
-        "answer_rate": 1.0,
+        "answer_rate": 0.0,
         "suggest_rate": 0.0,
-        "not_found_rate": 0.0,
-        "kept_original_answer_rate": 0.994059405940594
+        "not_found_rate": 1.0,
+        "kept_original_answer_rate": 0.0
       },
       "law_swap": {
         "n": 0
@@ -593,8 +593,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.009345794392523364,
-        "latency_p50_ms": 0.17258315347135067,
-        "latency_p95_ms": 0.22950237616896627
+        "latency_p50_ms": 0.42574014514684677,
+        "latency_p95_ms": 0.523182819597423
       },
       "realistic_dev_by_kind": {
         "abbreviation": {
@@ -607,8 +607,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.172137632034719,
-          "latency_p95_ms": 0.20419374341145158
+          "latency_p50_ms": 0.41120697278529406,
+          "latency_p95_ms": 0.47107412246987224
         },
         "colloquial": {
           "n": 16,
@@ -620,8 +620,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0625,
-          "latency_p50_ms": 0.17243600450456142,
-          "latency_p95_ms": 0.20251458045095205
+          "latency_p50_ms": 0.41991297621279955,
+          "latency_p95_ms": 0.4607040318660438
         },
         "cyrillic": {
           "n": 16,
@@ -633,8 +633,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.2251665573567152,
-          "latency_p95_ms": 0.2764561213552952
+          "latency_p50_ms": 0.4875906743109226,
+          "latency_p95_ms": 0.5517879035323858
         },
         "keyword": {
           "n": 27,
@@ -646,8 +646,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.13483711518347263,
-          "latency_p95_ms": 0.16092420555651188
+          "latency_p50_ms": 0.30346703715622425,
+          "latency_p95_ms": 0.43771767523139715
         },
         "paraphrase": {
           "n": 17,
@@ -659,8 +659,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.19740290008485317,
-          "latency_p95_ms": 0.23269667290151114
+          "latency_p50_ms": 0.480312155559659,
+          "latency_p95_ms": 0.5454130470752716
         },
         "typo": {
           "n": 17,
@@ -672,8 +672,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.1694748643785715,
-          "latency_p95_ms": 0.19214991480112076
+          "latency_p50_ms": 0.430976040661335,
+          "latency_p95_ms": 0.4732906352728605
         }
       },
       "realistic": {
@@ -686,8 +686,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 0.1488190609961748,
-        "latency_p95_ms": 0.18495612312108273
+        "latency_p50_ms": 0.42787007987499237,
+        "latency_p95_ms": 0.5398789886385202
       },
       "realistic_by_kind": {
         "abbreviation": {
@@ -700,8 +700,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.15230989083647728,
-          "latency_p95_ms": 0.16971075674518943
+          "latency_p50_ms": 0.4308869829401374,
+          "latency_p95_ms": 0.4855683306232095
         },
         "colloquial": {
           "n": 16,
@@ -713,8 +713,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.14928390737622976,
-          "latency_p95_ms": 0.1605401048436761
+          "latency_p50_ms": 0.3935244167223573,
+          "latency_p95_ms": 0.45380223309621215
         },
         "cyrillic": {
           "n": 16,
@@ -726,8 +726,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.17327454406768084,
-          "latency_p95_ms": 0.19901205087080598
+          "latency_p50_ms": 0.47886185348033905,
+          "latency_p95_ms": 0.5423910333774984
         },
         "keyword": {
           "n": 27,
@@ -739,8 +739,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.12192199937999249,
-          "latency_p95_ms": 0.13386409264057875
+          "latency_p50_ms": 0.3577910829335451,
+          "latency_p95_ms": 0.410857773385942
         },
         "paraphrase": {
           "n": 17,
@@ -752,8 +752,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.16945716924965382,
-          "latency_p95_ms": 0.20201853476464748
+          "latency_p50_ms": 0.5048350431025028,
+          "latency_p95_ms": 0.5551772192120552
         },
         "typo": {
           "n": 17,
@@ -765,13 +765,13 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 0.1398739404976368,
-          "latency_p95_ms": 0.15651974827051163
+          "latency_p50_ms": 0.39626401849091053,
+          "latency_p95_ms": 0.46012625098228455
         }
       }
     },
     "3 tfidf+bm25": {
-      "build_seconds": 0.203,
+      "build_seconds": 0.235,
       "validation": {
         "n": 505,
         "top1": 0.9881188118811881,
@@ -782,8 +782,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 1.9675479270517826,
-        "latency_p95_ms": 2.5251382496207952
+        "latency_p50_ms": 2.34813685528934,
+        "latency_p95_ms": 2.93081891722977
       },
       "test": {
         "n": 505,
@@ -795,8 +795,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 2.083569997921586,
-        "latency_p95_ms": 2.564606117084622
+        "latency_p50_ms": 2.3540579713881016,
+        "latency_p95_ms": 2.9439127072691917
       },
       "test_entity": {
         "n": 56,
@@ -808,15 +808,15 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 2.5072265416383743,
-        "latency_p95_ms": 2.9655497637577355
+        "latency_p50_ms": 2.8804135508835316,
+        "latency_p95_ms": 3.3257054165005684
       },
       "law_injection": {
         "n": 505,
-        "answer_rate": 1.0,
+        "answer_rate": 0.0,
         "suggest_rate": 0.0,
-        "not_found_rate": 0.0,
-        "kept_original_answer_rate": 0.9920792079207921
+        "not_found_rate": 1.0,
+        "kept_original_answer_rate": 0.0
       },
       "law_swap": {
         "n": 0
@@ -844,8 +844,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 2.236024010926485,
-        "latency_p95_ms": 2.678619883954525
+        "latency_p50_ms": 2.7354229241609573,
+        "latency_p95_ms": 3.559597674757242
       },
       "realistic_dev_by_kind": {
         "abbreviation": {
@@ -858,8 +858,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.6221064617857337,
-          "latency_p95_ms": 2.723937656264752
+          "latency_p50_ms": 3.5436670295894146,
+          "latency_p95_ms": 3.7424774607643485
         },
         "colloquial": {
           "n": 16,
@@ -871,8 +871,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.113390131853521,
-          "latency_p95_ms": 2.270624041557312
+          "latency_p50_ms": 2.6065860874950886,
+          "latency_p95_ms": 2.9679833096452057
         },
         "cyrillic": {
           "n": 16,
@@ -884,8 +884,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.312933560460806,
-          "latency_p95_ms": 2.6820534840226173
+          "latency_p50_ms": 2.653960953466594,
+          "latency_p95_ms": 2.9289298690855503
         },
         "keyword": {
           "n": 27,
@@ -897,8 +897,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 1.965862000361085,
-          "latency_p95_ms": 2.297448134049773
+          "latency_p50_ms": 2.724565099924803,
+          "latency_p95_ms": 2.888971846550703
         },
         "paraphrase": {
           "n": 17,
@@ -910,8 +910,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.3296379949897528,
-          "latency_p95_ms": 2.6495411060750484
+          "latency_p50_ms": 2.738460898399353,
+          "latency_p95_ms": 2.8814456425607204
         },
         "typo": {
           "n": 17,
@@ -923,8 +923,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.228032797574997,
-          "latency_p95_ms": 2.4758989457041025
+          "latency_p50_ms": 2.7489028871059418,
+          "latency_p95_ms": 3.0147843528538942
         }
       },
       "realistic": {
@@ -937,8 +937,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 2.2406058851629496,
-        "latency_p95_ms": 2.8550360584631562
+        "latency_p50_ms": 2.5263240095227957,
+        "latency_p95_ms": 3.140755486674607
       },
       "realistic_by_kind": {
         "abbreviation": {
@@ -951,8 +951,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.71680043078959,
-          "latency_p95_ms": 3.3466457156464458
+          "latency_p50_ms": 3.0327284475788474,
+          "latency_p95_ms": 3.2628576271235943
         },
         "colloquial": {
           "n": 16,
@@ -964,8 +964,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.1595144644379616,
-          "latency_p95_ms": 2.292089571710676
+          "latency_p50_ms": 2.4791270261630416,
+          "latency_p95_ms": 2.6649360079318285
         },
         "cyrillic": {
           "n": 16,
@@ -977,8 +977,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.3952695773914456,
-          "latency_p95_ms": 3.6304480163380504
+          "latency_p50_ms": 2.596915466710925,
+          "latency_p95_ms": 3.051451756618917
         },
         "keyword": {
           "n": 27,
@@ -990,8 +990,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.0384821109473705,
-          "latency_p95_ms": 2.340281382203102
+          "latency_p50_ms": 2.2604491095989943,
+          "latency_p95_ms": 2.4476000107824802
         },
         "paraphrase": {
           "n": 17,
@@ -1003,8 +1003,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.277002902701497,
-          "latency_p95_ms": 2.411880809813738
+          "latency_p50_ms": 2.6890039443969727,
+          "latency_p95_ms": 3.138648020103574
         },
         "typo": {
           "n": 17,
@@ -1016,13 +1016,13 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 2.286977134644985,
-          "latency_p95_ms": 2.621557330712676
+          "latency_p50_ms": 2.51965899951756,
+          "latency_p95_ms": 2.768316911533475
         }
       }
     },
     "4 tfidf+bm25+answers": {
-      "build_seconds": 0.308,
+      "build_seconds": 0.297,
       "validation": {
         "n": 505,
         "top1": 0.994059405940594,
@@ -1033,8 +1033,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.4332899376749992,
-        "latency_p95_ms": 4.4721026904881
+        "latency_p50_ms": 3.86255094781518,
+        "latency_p95_ms": 4.849150963127611
       },
       "test": {
         "n": 505,
@@ -1046,8 +1046,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.6105141043663025,
-        "latency_p95_ms": 4.549064068123697
+        "latency_p50_ms": 3.819759003818035,
+        "latency_p95_ms": 4.736006306484342
       },
       "test_entity": {
         "n": 56,
@@ -1059,15 +1059,15 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 4.50318050570786,
-        "latency_p95_ms": 5.178857943974435
+        "latency_p50_ms": 4.690992413088679,
+        "latency_p95_ms": 5.393762141466141
       },
       "law_injection": {
         "n": 505,
-        "answer_rate": 1.0,
+        "answer_rate": 0.0,
         "suggest_rate": 0.0,
-        "not_found_rate": 0.0,
-        "kept_original_answer_rate": 0.994059405940594
+        "not_found_rate": 1.0,
+        "kept_original_answer_rate": 0.0
       },
       "law_swap": {
         "n": 0
@@ -1095,8 +1095,8 @@
         "suggest_rate": 0.018691588785046728,
         "suggest_hit_at3": 0.0,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.718235995620489,
-        "latency_p95_ms": 4.680296313017606
+        "latency_p50_ms": 3.9390481542795897,
+        "latency_p95_ms": 5.299530713818965
       },
       "realistic_dev_by_kind": {
         "abbreviation": {
@@ -1109,8 +1109,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.55550744663924,
-          "latency_p95_ms": 5.255628738086671
+          "latency_p50_ms": 5.118523025885224,
+          "latency_p95_ms": 5.767511855810881
         },
         "colloquial": {
           "n": 16,
@@ -1122,8 +1122,8 @@
           "suggest_rate": 0.125,
           "suggest_hit_at3": 0.0,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.6142959725111723,
-          "latency_p95_ms": 3.9723667432554066
+          "latency_p50_ms": 3.8365345681086183,
+          "latency_p95_ms": 4.613351891748607
         },
         "cyrillic": {
           "n": 16,
@@ -1135,8 +1135,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.832391928881407,
-          "latency_p95_ms": 4.258175264112651
+          "latency_p50_ms": 4.344807588495314,
+          "latency_p95_ms": 4.817986686248332
         },
         "keyword": {
           "n": 27,
@@ -1148,8 +1148,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.799234051257372,
-          "latency_p95_ms": 4.132888210006058
+          "latency_p50_ms": 3.68799502030015,
+          "latency_p95_ms": 4.039866174571216
         },
         "paraphrase": {
           "n": 17,
@@ -1161,8 +1161,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.6301021464169025,
-          "latency_p95_ms": 3.8848381023854017
+          "latency_p50_ms": 4.203785909339786,
+          "latency_p95_ms": 4.625330492854118
         },
         "typo": {
           "n": 17,
@@ -1174,8 +1174,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.4867748618125916,
-          "latency_p95_ms": 3.6328737158328295
+          "latency_p50_ms": 3.8788509555161,
+          "latency_p95_ms": 4.1365886107087135
         }
       },
       "realistic": {
@@ -1188,8 +1188,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 4.426329862326384,
-        "latency_p95_ms": 5.600183014757931
+        "latency_p50_ms": 3.975347150117159,
+        "latency_p95_ms": 5.108717060647905
       },
       "realistic_by_kind": {
         "abbreviation": {
@@ -1202,8 +1202,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 5.226383567787707,
-          "latency_p95_ms": 5.832692852709442
+          "latency_p50_ms": 4.930331488139927,
+          "latency_p95_ms": 5.343856860417873
         },
         "colloquial": {
           "n": 16,
@@ -1215,8 +1215,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.178043571300805,
-          "latency_p95_ms": 5.170419346541166
+          "latency_p50_ms": 3.8424114463850856,
+          "latency_p95_ms": 4.165801277849823
         },
         "cyrillic": {
           "n": 16,
@@ -1228,8 +1228,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.768988001160324,
-          "latency_p95_ms": 5.900794756598771
+          "latency_p50_ms": 4.040898056700826,
+          "latency_p95_ms": 4.979841003660113
         },
         "keyword": {
           "n": 27,
@@ -1241,8 +1241,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.121646983548999,
-          "latency_p95_ms": 4.581953235901892
+          "latency_p50_ms": 3.5999079700559378,
+          "latency_p95_ms": 4.176674038171768
         },
         "paraphrase": {
           "n": 17,
@@ -1254,8 +1254,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.542018985375762,
-          "latency_p95_ms": 4.868946177884936
+          "latency_p50_ms": 4.207886988297105,
+          "latency_p95_ms": 4.958213865756988
         },
         "typo": {
           "n": 17,
@@ -1267,515 +1267,13 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.3812820222228765,
-          "latency_p95_ms": 5.147009948268533
+          "latency_p50_ms": 4.17793495580554,
+          "latency_p95_ms": 4.728560522198677
         }
       }
     },
-    "4a engine -fillers": {
-      "build_seconds": 0.387,
-      "validation": {
-        "n": 505,
-        "top1": 0.996039603960396,
-        "top3": 1.0,
-        "mrr10": 0.998019801980198,
-        "coverage": 1.0,
-        "precision_at_answer": 0.996039603960396,
-        "suggest_rate": 0.0,
-        "suggest_hit_at3": null,
-        "not_found_rate": 0.0,
-        "latency_p50_ms": 2.978309988975525,
-        "latency_p95_ms": 3.924931213259696
-      },
-      "test": {
-        "n": 505,
-        "top1": 0.994059405940594,
-        "top3": 0.998019801980198,
-        "mrr10": 0.996039603960396,
-        "coverage": 1.0,
-        "precision_at_answer": 0.994059405940594,
-        "suggest_rate": 0.0,
-        "suggest_hit_at3": null,
-        "not_found_rate": 0.0,
-        "latency_p50_ms": 3.0265399254858494,
-        "latency_p95_ms": 3.9999051485210626
-      },
-      "test_entity": {
-        "n": 56,
-        "top1": 0.9821428571428571,
-        "top3": 0.9821428571428571,
-        "mrr10": 0.9821428571428571,
-        "coverage": 1.0,
-        "precision_at_answer": 0.9821428571428571,
-        "suggest_rate": 0.0,
-        "suggest_hit_at3": null,
-        "not_found_rate": 0.0,
-        "latency_p50_ms": 3.9231968112289906,
-        "latency_p95_ms": 4.614308825694025
-      },
-      "law_injection": {
-        "n": 505,
-        "answer_rate": 1.0,
-        "suggest_rate": 0.0,
-        "not_found_rate": 0.0,
-        "kept_original_answer_rate": 0.994059405940594
-      },
-      "law_swap": {
-        "n": 0
-      },
-      "org_swap": {
-        "n": 56,
-        "answer_rate": 1.0,
-        "suggest_rate": 0.0,
-        "not_found_rate": 0.0,
-        "kept_original_answer_rate": 0.9642857142857143
-      },
-      "ood": {
-        "n": 23,
-        "answer_rate": 1.0,
-        "suggest_rate": 0.0,
-        "not_found_rate": 0.0
-      },
-      "realistic_dev": {
-        "n": 107,
-        "top1": 0.6822429906542056,
-        "top3": 0.8317757009345794,
-        "mrr10": 0.7621198635217327,
-        "coverage": 1.0,
-        "precision_at_answer": 0.6822429906542056,
-        "suggest_rate": 0.0,
-        "suggest_hit_at3": null,
-        "not_found_rate": 0.0,
-        "latency_p50_ms": 3.216444980353117,
-        "latency_p95_ms": 4.078616271726787
-      },
-      "realistic_dev_by_kind": {
-        "abbreviation": {
-          "n": 14,
-          "top1": 0.9285714285714286,
-          "top3": 1.0,
-          "mrr10": 0.9642857142857143,
-          "coverage": 1.0,
-          "precision_at_answer": 0.9285714285714286,
-          "suggest_rate": 0.0,
-          "suggest_hit_at3": null,
-          "not_found_rate": 0.0,
-          "latency_p50_ms": 4.061135929077864,
-          "latency_p95_ms": 4.187358496710658
-        },
-        "colloquial": {
-          "n": 16,
-          "top1": 0.3125,
-          "top3": 0.625,
-          "mrr10": 0.47048611111111105,
-          "coverage": 1.0,
-          "precision_at_answer": 0.3125,
-          "suggest_rate": 0.0,
-          "suggest_hit_at3": null,
-          "not_found_rate": 0.0,
-          "latency_p50_ms": 3.1851555686444044,
-          "latency_p95_ms": 3.4979222691617906
-        },
-        "cyrillic": {
-          "n": 16,
-          "top1": 0.75,
-          "top3": 1.0,
-          "mrr10": 0.84375,
-          "coverage": 1.0,
-          "precision_at_answer": 0.75,
-          "suggest_rate": 0.0,
-          "suggest_hit_at3": null,
-          "not_found_rate": 0.0,
-          "latency_p50_ms": 3.3726890105754137,
-          "latency_p95_ms": 3.7526371888816357
-        },
-        "keyword": {
-          "n": 27,
-          "top1": 0.9259259259259259,
-          "top3": 0.9629629629629629,
-          "mrr10": 0.9518518518518518,
-          "coverage": 1.0,
-          "precision_at_answer": 0.9259259259259259,
-          "suggest_rate": 0.0,
-          "suggest_hit_at3": null,
-          "not_found_rate": 0.0,
-          "latency_p50_ms": 2.967278938740492,
-          "latency_p95_ms": 3.3232346642762423
-        },
-        "paraphrase": {
-          "n": 17,
-          "top1": 0.29411764705882354,
-          "top3": 0.47058823529411764,
-          "mrr10": 0.4285714285714285,
-          "coverage": 1.0,
-          "precision_at_answer": 0.29411764705882354,
-          "suggest_rate": 0.0,
-          "suggest_hit_at3": null,
-          "not_found_rate": 0.0,
-          "latency_p50_ms": 3.341816132888198,
-          "latency_p95_ms": 3.6110765766352415
-        },
-        "typo": {
-          "n": 17,
-          "top1": 0.7647058823529411,
-          "top3": 0.8823529411764706,
-          "mrr10": 0.8254901960784313,
-          "coverage": 1.0,
-          "precision_at_answer": 0.7647058823529411,
-          "suggest_rate": 0.0,
-          "suggest_hit_at3": null,
-          "not_found_rate": 0.0,
-          "latency_p50_ms": 3.1555150635540485,
-          "latency_p95_ms": 3.490740153938532
-        }
-      },
-      "realistic": {
-        "n": 107,
-        "top1": 0.6261682242990654,
-        "top3": 0.7757009345794392,
-        "mrr10": 0.7120048954161103,
-        "coverage": 1.0,
-        "precision_at_answer": 0.6261682242990654,
-        "suggest_rate": 0.0,
-        "suggest_hit_at3": null,
-        "not_found_rate": 0.0,
-        "latency_p50_ms": 3.4086350351572037,
-        "latency_p95_ms": 4.449033411219715
-      },
-      "realistic_by_kind": {
-        "abbreviation": {
-          "n": 14,
-          "top1": 0.5,
-          "top3": 0.6428571428571429,
-          "mrr10": 0.6035714285714285,
-          "coverage": 1.0,
-          "precision_at_answer": 0.5,
-          "suggest_rate": 0.0,
-          "suggest_hit_at3": null,
-          "not_found_rate": 0.0,
-          "latency_p50_ms": 4.221618873998523,
-          "latency_p95_ms": 4.770934954285622
-        },
-        "colloquial": {
-          "n": 16,
-          "top1": 0.375,
-          "top3": 0.6875,
-          "mrr10": 0.5364583333333334,
-          "coverage": 1.0,
-          "precision_at_answer": 0.375,
-          "suggest_rate": 0.0,
-          "suggest_hit_at3": null,
-          "not_found_rate": 0.0,
-          "latency_p50_ms": 3.2253051176667213,
-          "latency_p95_ms": 3.5937565844506025
-        },
-        "cyrillic": {
-          "n": 16,
-          "top1": 0.8125,
-          "top3": 0.9375,
-          "mrr10": 0.8541666666666666,
-          "coverage": 1.0,
-          "precision_at_answer": 0.8125,
-          "suggest_rate": 0.0,
-          "suggest_hit_at3": null,
-          "not_found_rate": 0.0,
-          "latency_p50_ms": 3.7750290939584374,
-          "latency_p95_ms": 4.957649449352175
-        },
-        "keyword": {
-          "n": 27,
-          "top1": 0.8148148148148148,
-          "top3": 0.9259259259259259,
-          "mrr10": 0.8768959435626101,
-          "coverage": 1.0,
-          "precision_at_answer": 0.8148148148148148,
-          "suggest_rate": 0.0,
-          "suggest_hit_at3": null,
-          "not_found_rate": 0.0,
-          "latency_p50_ms": 2.9505109414458275,
-          "latency_p95_ms": 3.279009135439992
-        },
-        "paraphrase": {
-          "n": 17,
-          "top1": 0.17647058823529413,
-          "top3": 0.35294117647058826,
-          "mrr10": 0.32205882352941173,
-          "coverage": 1.0,
-          "precision_at_answer": 0.17647058823529413,
-          "suggest_rate": 0.0,
-          "suggest_hit_at3": null,
-          "not_found_rate": 0.0,
-          "latency_p50_ms": 3.326273988932371,
-          "latency_p95_ms": 3.8878012448549266
-        },
-        "typo": {
-          "n": 17,
-          "top1": 0.9411764705882353,
-          "top3": 1.0,
-          "mrr10": 0.9607843137254901,
-          "coverage": 1.0,
-          "precision_at_answer": 0.9411764705882353,
-          "suggest_rate": 0.0,
-          "suggest_hit_at3": null,
-          "not_found_rate": 0.0,
-          "latency_p50_ms": 3.7318281829357147,
-          "latency_p95_ms": 3.877997864037752
-        }
-      }
-    },
-    "4b engine -apostrophes": {
-      "build_seconds": 0.271,
-      "validation": {
-        "n": 505,
-        "top1": 0.9920792079207921,
-        "top3": 0.996039603960396,
-        "mrr10": 0.9948844884488449,
-        "coverage": 1.0,
-        "precision_at_answer": 0.9920792079207921,
-        "suggest_rate": 0.0,
-        "suggest_hit_at3": null,
-        "not_found_rate": 0.0,
-        "latency_p50_ms": 3.15065192990005,
-        "latency_p95_ms": 4.238116275519132
-      },
-      "test": {
-        "n": 505,
-        "top1": 0.9900990099009901,
-        "top3": 0.998019801980198,
-        "mrr10": 0.994059405940594,
-        "coverage": 1.0,
-        "precision_at_answer": 0.9900990099009901,
-        "suggest_rate": 0.0,
-        "suggest_hit_at3": null,
-        "not_found_rate": 0.0,
-        "latency_p50_ms": 3.3718091435730457,
-        "latency_p95_ms": 4.188811592757702
-      },
-      "test_entity": {
-        "n": 56,
-        "top1": 0.9642857142857143,
-        "top3": 0.9821428571428571,
-        "mrr10": 0.9732142857142857,
-        "coverage": 1.0,
-        "precision_at_answer": 0.9642857142857143,
-        "suggest_rate": 0.0,
-        "suggest_hit_at3": null,
-        "not_found_rate": 0.0,
-        "latency_p50_ms": 4.142444580793381,
-        "latency_p95_ms": 4.943442705553025
-      },
-      "law_injection": {
-        "n": 505,
-        "answer_rate": 1.0,
-        "suggest_rate": 0.0,
-        "not_found_rate": 0.0,
-        "kept_original_answer_rate": 0.9920792079207921
-      },
-      "law_swap": {
-        "n": 0
-      },
-      "org_swap": {
-        "n": 56,
-        "answer_rate": 1.0,
-        "suggest_rate": 0.0,
-        "not_found_rate": 0.0,
-        "kept_original_answer_rate": 0.9285714285714286
-      },
-      "ood": {
-        "n": 23,
-        "answer_rate": 1.0,
-        "suggest_rate": 0.0,
-        "not_found_rate": 0.0
-      },
-      "realistic_dev": {
-        "n": 107,
-        "top1": 0.6822429906542056,
-        "top3": 0.8411214953271028,
-        "mrr10": 0.7676605844830143,
-        "coverage": 1.0,
-        "precision_at_answer": 0.6822429906542056,
-        "suggest_rate": 0.0,
-        "suggest_hit_at3": null,
-        "not_found_rate": 0.0,
-        "latency_p50_ms": 3.2792738638818264,
-        "latency_p95_ms": 4.214843153022229
-      },
-      "realistic_dev_by_kind": {
-        "abbreviation": {
-          "n": 14,
-          "top1": 0.9285714285714286,
-          "top3": 1.0,
-          "mrr10": 0.9642857142857143,
-          "coverage": 1.0,
-          "precision_at_answer": 0.9285714285714286,
-          "suggest_rate": 0.0,
-          "suggest_hit_at3": null,
-          "not_found_rate": 0.0,
-          "latency_p50_ms": 4.125670995563269,
-          "latency_p95_ms": 4.321026871912181
-        },
-        "colloquial": {
-          "n": 16,
-          "top1": 0.3125,
-          "top3": 0.625,
-          "mrr10": 0.4697916666666666,
-          "coverage": 1.0,
-          "precision_at_answer": 0.3125,
-          "suggest_rate": 0.0,
-          "suggest_hit_at3": null,
-          "not_found_rate": 0.0,
-          "latency_p50_ms": 3.1746160238981247,
-          "latency_p95_ms": 3.8934644544497132
-        },
-        "cyrillic": {
-          "n": 16,
-          "top1": 0.75,
-          "top3": 1.0,
-          "mrr10": 0.8541666666666666,
-          "coverage": 1.0,
-          "precision_at_answer": 0.75,
-          "suggest_rate": 0.0,
-          "suggest_hit_at3": null,
-          "not_found_rate": 0.0,
-          "latency_p50_ms": 3.296083421446383,
-          "latency_p95_ms": 3.6904769949615
-        },
-        "keyword": {
-          "n": 27,
-          "top1": 0.8888888888888888,
-          "top3": 0.9629629629629629,
-          "mrr10": 0.9312169312169312,
-          "coverage": 1.0,
-          "precision_at_answer": 0.8888888888888888,
-          "suggest_rate": 0.0,
-          "suggest_hit_at3": null,
-          "not_found_rate": 0.0,
-          "latency_p50_ms": 2.933959010988474,
-          "latency_p95_ms": 3.342707920819521
-        },
-        "paraphrase": {
-          "n": 17,
-          "top1": 0.29411764705882354,
-          "top3": 0.47058823529411764,
-          "mrr10": 0.4302054154995331,
-          "coverage": 1.0,
-          "precision_at_answer": 0.29411764705882354,
-          "suggest_rate": 0.0,
-          "suggest_hit_at3": null,
-          "not_found_rate": 0.0,
-          "latency_p50_ms": 3.459241008386016,
-          "latency_p95_ms": 3.6837062798440456
-        },
-        "typo": {
-          "n": 17,
-          "top1": 0.8235294117647058,
-          "top3": 0.9411764705882353,
-          "mrr10": 0.8823529411764706,
-          "coverage": 1.0,
-          "precision_at_answer": 0.8235294117647058,
-          "suggest_rate": 0.0,
-          "suggest_hit_at3": null,
-          "not_found_rate": 0.0,
-          "latency_p50_ms": 3.247715998440981,
-          "latency_p95_ms": 3.5344209987670183
-        }
-      },
-      "realistic": {
-        "n": 107,
-        "top1": 0.616822429906542,
-        "top3": 0.7570093457943925,
-        "mrr10": 0.7081108144192256,
-        "coverage": 1.0,
-        "precision_at_answer": 0.616822429906542,
-        "suggest_rate": 0.0,
-        "suggest_hit_at3": null,
-        "not_found_rate": 0.0,
-        "latency_p50_ms": 3.3362999092787504,
-        "latency_p95_ms": 4.277907824143767
-      },
-      "realistic_by_kind": {
-        "abbreviation": {
-          "n": 14,
-          "top1": 0.5,
-          "top3": 0.7142857142857143,
-          "mrr10": 0.6095238095238095,
-          "coverage": 1.0,
-          "precision_at_answer": 0.5,
-          "suggest_rate": 0.0,
-          "suggest_hit_at3": null,
-          "not_found_rate": 0.0,
-          "latency_p50_ms": 4.1041625663638115,
-          "latency_p95_ms": 4.507700970862061
-        },
-        "colloquial": {
-          "n": 16,
-          "top1": 0.3125,
-          "top3": 0.6875,
-          "mrr10": 0.5052083333333333,
-          "coverage": 1.0,
-          "precision_at_answer": 0.3125,
-          "suggest_rate": 0.0,
-          "suggest_hit_at3": null,
-          "not_found_rate": 0.0,
-          "latency_p50_ms": 3.374789492227137,
-          "latency_p95_ms": 3.7311920896172523
-        },
-        "cyrillic": {
-          "n": 16,
-          "top1": 0.8125,
-          "top3": 0.8125,
-          "mrr10": 0.8359375,
-          "coverage": 1.0,
-          "precision_at_answer": 0.8125,
-          "suggest_rate": 0.0,
-          "suggest_hit_at3": null,
-          "not_found_rate": 0.0,
-          "latency_p50_ms": 3.5238824784755707,
-          "latency_p95_ms": 4.510162048973143
-        },
-        "keyword": {
-          "n": 27,
-          "top1": 0.8148148148148148,
-          "top3": 0.8888888888888888,
-          "mrr10": 0.8756613756613757,
-          "coverage": 1.0,
-          "precision_at_answer": 0.8148148148148148,
-          "suggest_rate": 0.0,
-          "suggest_hit_at3": null,
-          "not_found_rate": 0.0,
-          "latency_p50_ms": 3.1167881097644567,
-          "latency_p95_ms": 3.367355512455106
-        },
-        "paraphrase": {
-          "n": 17,
-          "top1": 0.17647058823529413,
-          "top3": 0.35294117647058826,
-          "mrr10": 0.33137254901960783,
-          "coverage": 1.0,
-          "precision_at_answer": 0.17647058823529413,
-          "suggest_rate": 0.0,
-          "suggest_hit_at3": null,
-          "not_found_rate": 0.0,
-          "latency_p50_ms": 3.441053908318281,
-          "latency_p95_ms": 3.990350198000669
-        },
-        "typo": {
-          "n": 17,
-          "top1": 0.9411764705882353,
-          "top3": 1.0,
-          "mrr10": 0.9705882352941176,
-          "coverage": 1.0,
-          "precision_at_answer": 0.9411764705882353,
-          "suggest_rate": 0.0,
-          "suggest_hit_at3": null,
-          "not_found_rate": 0.0,
-          "latency_p50_ms": 3.3614858984947205,
-          "latency_p95_ms": 3.7689977325499058
-        }
-      }
-    },
-    "engine": {
-      "build_seconds": 0.309,
+    "4* phase-4 engine": {
+      "build_seconds": 0.28,
       "validation": {
         "n": 505,
         "top1": 0.9920792079207921,
@@ -1786,8 +1284,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.4777240362018347,
-        "latency_p95_ms": 4.465806577354669
+        "latency_p50_ms": 3.5877160262316465,
+        "latency_p95_ms": 4.692025016993283
       },
       "test": {
         "n": 505,
@@ -1799,8 +1297,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.1100509222596884,
-        "latency_p95_ms": 4.116200469434261
+        "latency_p50_ms": 3.4051609691232443,
+        "latency_p95_ms": 4.383559245616198
       },
       "test_entity": {
         "n": 56,
@@ -1812,15 +1310,15 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 4.052076837979257,
-        "latency_p95_ms": 4.703786922618747
+        "latency_p50_ms": 4.349740454927087,
+        "latency_p95_ms": 4.770243656821549
       },
       "law_injection": {
         "n": 505,
-        "answer_rate": 1.0,
+        "answer_rate": 0.0,
         "suggest_rate": 0.0,
-        "not_found_rate": 0.0,
-        "kept_original_answer_rate": 0.9920792079207921
+        "not_found_rate": 1.0,
+        "kept_original_answer_rate": 0.0
       },
       "law_swap": {
         "n": 0
@@ -1848,8 +1346,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.6049371119588614,
-        "latency_p95_ms": 4.621182079426944
+        "latency_p50_ms": 3.697445848956704,
+        "latency_p95_ms": 4.770812671631575
       },
       "realistic_dev_by_kind": {
         "abbreviation": {
@@ -1862,8 +1360,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.613096010871232,
-          "latency_p95_ms": 4.759593494236469
+          "latency_p50_ms": 4.640914150513709,
+          "latency_p95_ms": 5.201496661175042
         },
         "colloquial": {
           "n": 16,
@@ -1875,8 +1373,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.5580534022301435,
-          "latency_p95_ms": 3.7981162895448506
+          "latency_p50_ms": 3.6580394953489304,
+          "latency_p95_ms": 3.8638085243292153
         },
         "cyrillic": {
           "n": 16,
@@ -1888,8 +1386,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.6396494833752513,
-          "latency_p95_ms": 3.8570016622543335
+          "latency_p50_ms": 3.905293997377157,
+          "latency_p95_ms": 6.894148129504174
         },
         "keyword": {
           "n": 27,
@@ -1901,8 +1399,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.301176941022277,
-          "latency_p95_ms": 3.450052556581795
+          "latency_p50_ms": 3.3365110866725445,
+          "latency_p95_ms": 3.6607890389859676
         },
         "paraphrase": {
           "n": 17,
@@ -1914,8 +1412,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.784150816500187,
-          "latency_p95_ms": 3.985448507592082
+          "latency_p50_ms": 3.9677999448031187,
+          "latency_p95_ms": 4.554923297837377
         },
         "typo": {
           "n": 17,
@@ -1927,8 +1425,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.5621789284050465,
-          "latency_p95_ms": 3.744134772568941
+          "latency_p50_ms": 3.703407011926174,
+          "latency_p95_ms": 4.338919185101986
         }
       },
       "realistic": {
@@ -1941,8 +1439,8 @@
         "suggest_rate": 0.0,
         "suggest_hit_at3": null,
         "not_found_rate": 0.0,
-        "latency_p50_ms": 3.548781853169203,
-        "latency_p95_ms": 4.651595512405037
+        "latency_p50_ms": 3.726382041350007,
+        "latency_p95_ms": 4.803442559204993
       },
       "realistic_by_kind": {
         "abbreviation": {
@@ -1955,8 +1453,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 4.559545544907451,
-          "latency_p95_ms": 4.857055633328855
+          "latency_p50_ms": 4.456544411368668,
+          "latency_p95_ms": 5.201145238243043
         },
         "colloquial": {
           "n": 16,
@@ -1968,8 +1466,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.4813808742910624,
-          "latency_p95_ms": 3.6741631338372827
+          "latency_p50_ms": 3.7521474296227098,
+          "latency_p95_ms": 4.088180023245513
         },
         "cyrillic": {
           "n": 16,
@@ -1981,8 +1479,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.671927493996918,
-          "latency_p95_ms": 4.804344091098756
+          "latency_p50_ms": 3.73736210167408,
+          "latency_p95_ms": 4.741600540000945
         },
         "keyword": {
           "n": 27,
@@ -1994,8 +1492,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.284492064267397,
-          "latency_p95_ms": 3.48824227694422
+          "latency_p50_ms": 3.4496141597628593,
+          "latency_p95_ms": 4.014119831845164
         },
         "paraphrase": {
           "n": 17,
@@ -2007,8 +1505,8 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.7021299358457327,
-          "latency_p95_ms": 4.007331561297177
+          "latency_p50_ms": 3.8551681209355593,
+          "latency_p95_ms": 4.476861422881484
         },
         "typo": {
           "n": 17,
@@ -2020,8 +1518,1765 @@
           "suggest_rate": 0.0,
           "suggest_hit_at3": null,
           "not_found_rate": 0.0,
-          "latency_p50_ms": 3.5773070994764566,
-          "latency_p95_ms": 3.7555836141109467
+          "latency_p50_ms": 3.673694096505642,
+          "latency_p95_ms": 4.264734219759703
+        }
+      }
+    },
+    "4a phase-4 -fillers": {
+      "build_seconds": 0.322,
+      "validation": {
+        "n": 505,
+        "top1": 0.996039603960396,
+        "top3": 1.0,
+        "mrr10": 0.998019801980198,
+        "coverage": 1.0,
+        "precision_at_answer": 0.996039603960396,
+        "suggest_rate": 0.0,
+        "suggest_hit_at3": null,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 3.2724530901759863,
+        "latency_p95_ms": 4.301793593913316
+      },
+      "test": {
+        "n": 505,
+        "top1": 0.994059405940594,
+        "top3": 0.998019801980198,
+        "mrr10": 0.996039603960396,
+        "coverage": 1.0,
+        "precision_at_answer": 0.994059405940594,
+        "suggest_rate": 0.0,
+        "suggest_hit_at3": null,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 3.2393510919064283,
+        "latency_p95_ms": 4.324960475787518
+      },
+      "test_entity": {
+        "n": 56,
+        "top1": 0.9821428571428571,
+        "top3": 0.9821428571428571,
+        "mrr10": 0.9821428571428571,
+        "coverage": 1.0,
+        "precision_at_answer": 0.9821428571428571,
+        "suggest_rate": 0.0,
+        "suggest_hit_at3": null,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 4.2674613650888205,
+        "latency_p95_ms": 4.896541649941355
+      },
+      "law_injection": {
+        "n": 505,
+        "answer_rate": 0.0,
+        "suggest_rate": 0.0,
+        "not_found_rate": 1.0,
+        "kept_original_answer_rate": 0.0
+      },
+      "law_swap": {
+        "n": 0
+      },
+      "org_swap": {
+        "n": 56,
+        "answer_rate": 1.0,
+        "suggest_rate": 0.0,
+        "not_found_rate": 0.0,
+        "kept_original_answer_rate": 0.9642857142857143
+      },
+      "ood": {
+        "n": 23,
+        "answer_rate": 1.0,
+        "suggest_rate": 0.0,
+        "not_found_rate": 0.0
+      },
+      "realistic_dev": {
+        "n": 107,
+        "top1": 0.6822429906542056,
+        "top3": 0.8317757009345794,
+        "mrr10": 0.7621198635217327,
+        "coverage": 1.0,
+        "precision_at_answer": 0.6822429906542056,
+        "suggest_rate": 0.0,
+        "suggest_hit_at3": null,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 3.506953828036785,
+        "latency_p95_ms": 4.354211222380399
+      },
+      "realistic_dev_by_kind": {
+        "abbreviation": {
+          "n": 14,
+          "top1": 0.9285714285714286,
+          "top3": 1.0,
+          "mrr10": 0.9642857142857143,
+          "coverage": 1.0,
+          "precision_at_answer": 0.9285714285714286,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 4.3192439479753375,
+          "latency_p95_ms": 4.589760140515864
+        },
+        "colloquial": {
+          "n": 16,
+          "top1": 0.3125,
+          "top3": 0.625,
+          "mrr10": 0.47048611111111105,
+          "coverage": 1.0,
+          "precision_at_answer": 0.3125,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.413190017454326,
+          "latency_p95_ms": 3.54196410626173
+        },
+        "cyrillic": {
+          "n": 16,
+          "top1": 0.75,
+          "top3": 1.0,
+          "mrr10": 0.84375,
+          "coverage": 1.0,
+          "precision_at_answer": 0.75,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.4964500227943063,
+          "latency_p95_ms": 3.780706669203937
+        },
+        "keyword": {
+          "n": 27,
+          "top1": 0.9259259259259259,
+          "top3": 0.9629629629629629,
+          "mrr10": 0.9518518518518518,
+          "coverage": 1.0,
+          "precision_at_answer": 0.9259259259259259,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.2528529409319162,
+          "latency_p95_ms": 3.6006815498694777
+        },
+        "paraphrase": {
+          "n": 17,
+          "top1": 0.29411764705882354,
+          "top3": 0.47058823529411764,
+          "mrr10": 0.4285714285714285,
+          "coverage": 1.0,
+          "precision_at_answer": 0.29411764705882354,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.663536161184311,
+          "latency_p95_ms": 3.934053098782897
+        },
+        "typo": {
+          "n": 17,
+          "top1": 0.7647058823529411,
+          "top3": 0.8823529411764706,
+          "mrr10": 0.8254901960784313,
+          "coverage": 1.0,
+          "precision_at_answer": 0.7647058823529411,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.5207869950681925,
+          "latency_p95_ms": 3.776392713189125
+        }
+      },
+      "realistic": {
+        "n": 107,
+        "top1": 0.6261682242990654,
+        "top3": 0.7757009345794392,
+        "mrr10": 0.7120048954161103,
+        "coverage": 1.0,
+        "precision_at_answer": 0.6261682242990654,
+        "suggest_rate": 0.0,
+        "suggest_hit_at3": null,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 3.618998918682337,
+        "latency_p95_ms": 4.507284611463547
+      },
+      "realistic_by_kind": {
+        "abbreviation": {
+          "n": 14,
+          "top1": 0.5,
+          "top3": 0.6428571428571429,
+          "mrr10": 0.6035714285714285,
+          "coverage": 1.0,
+          "precision_at_answer": 0.5,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 4.4655404053628445,
+          "latency_p95_ms": 5.172990832943469
+        },
+        "colloquial": {
+          "n": 16,
+          "top1": 0.375,
+          "top3": 0.6875,
+          "mrr10": 0.5364583333333334,
+          "coverage": 1.0,
+          "precision_at_answer": 0.375,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.5778300371021032,
+          "latency_p95_ms": 4.058606398757547
+        },
+        "cyrillic": {
+          "n": 16,
+          "top1": 0.8125,
+          "top3": 0.9375,
+          "mrr10": 0.8541666666666666,
+          "coverage": 1.0,
+          "precision_at_answer": 0.8125,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.6756735062226653,
+          "latency_p95_ms": 4.836529493331909
+        },
+        "keyword": {
+          "n": 27,
+          "top1": 0.8148148148148148,
+          "top3": 0.9259259259259259,
+          "mrr10": 0.8768959435626101,
+          "coverage": 1.0,
+          "precision_at_answer": 0.8148148148148148,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.3975020051002502,
+          "latency_p95_ms": 3.7858292926102877
+        },
+        "paraphrase": {
+          "n": 17,
+          "top1": 0.17647058823529413,
+          "top3": 0.35294117647058826,
+          "mrr10": 0.32205882352941173,
+          "coverage": 1.0,
+          "precision_at_answer": 0.17647058823529413,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.613752080127597,
+          "latency_p95_ms": 3.976133139804005
+        },
+        "typo": {
+          "n": 17,
+          "top1": 0.9411764705882353,
+          "top3": 1.0,
+          "mrr10": 0.9607843137254901,
+          "coverage": 1.0,
+          "precision_at_answer": 0.9411764705882353,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.730732947587967,
+          "latency_p95_ms": 4.212237102910876
+        }
+      }
+    },
+    "4b phase-4 -apostrophes": {
+      "build_seconds": 0.276,
+      "validation": {
+        "n": 505,
+        "top1": 0.9920792079207921,
+        "top3": 0.996039603960396,
+        "mrr10": 0.9948844884488449,
+        "coverage": 1.0,
+        "precision_at_answer": 0.9920792079207921,
+        "suggest_rate": 0.0,
+        "suggest_hit_at3": null,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 3.5771799739450216,
+        "latency_p95_ms": 4.663106566295027
+      },
+      "test": {
+        "n": 505,
+        "top1": 0.9900990099009901,
+        "top3": 0.998019801980198,
+        "mrr10": 0.994059405940594,
+        "coverage": 1.0,
+        "precision_at_answer": 0.9900990099009901,
+        "suggest_rate": 0.0,
+        "suggest_hit_at3": null,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 3.450365038588643,
+        "latency_p95_ms": 4.668448166921734
+      },
+      "test_entity": {
+        "n": 56,
+        "top1": 0.9642857142857143,
+        "top3": 0.9821428571428571,
+        "mrr10": 0.9732142857142857,
+        "coverage": 1.0,
+        "precision_at_answer": 0.9642857142857143,
+        "suggest_rate": 0.0,
+        "suggest_hit_at3": null,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 4.633996984921396,
+        "latency_p95_ms": 5.446648341603577
+      },
+      "law_injection": {
+        "n": 505,
+        "answer_rate": 0.0,
+        "suggest_rate": 0.0,
+        "not_found_rate": 1.0,
+        "kept_original_answer_rate": 0.0
+      },
+      "law_swap": {
+        "n": 0
+      },
+      "org_swap": {
+        "n": 56,
+        "answer_rate": 1.0,
+        "suggest_rate": 0.0,
+        "not_found_rate": 0.0,
+        "kept_original_answer_rate": 0.9285714285714286
+      },
+      "ood": {
+        "n": 23,
+        "answer_rate": 1.0,
+        "suggest_rate": 0.0,
+        "not_found_rate": 0.0
+      },
+      "realistic_dev": {
+        "n": 107,
+        "top1": 0.6822429906542056,
+        "top3": 0.8411214953271028,
+        "mrr10": 0.7676605844830143,
+        "coverage": 1.0,
+        "precision_at_answer": 0.6822429906542056,
+        "suggest_rate": 0.0,
+        "suggest_hit_at3": null,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 3.752710996195674,
+        "latency_p95_ms": 5.207272642292082
+      },
+      "realistic_dev_by_kind": {
+        "abbreviation": {
+          "n": 14,
+          "top1": 0.9285714285714286,
+          "top3": 1.0,
+          "mrr10": 0.9642857142857143,
+          "coverage": 1.0,
+          "precision_at_answer": 0.9285714285714286,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 5.196082522161305,
+          "latency_p95_ms": 5.426983663346618
+        },
+        "colloquial": {
+          "n": 16,
+          "top1": 0.3125,
+          "top3": 0.625,
+          "mrr10": 0.4697916666666666,
+          "coverage": 1.0,
+          "precision_at_answer": 0.3125,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.515321994200349,
+          "latency_p95_ms": 3.6998994182795286
+        },
+        "cyrillic": {
+          "n": 16,
+          "top1": 0.75,
+          "top3": 1.0,
+          "mrr10": 0.8541666666666666,
+          "coverage": 1.0,
+          "precision_at_answer": 0.75,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.7853489629924297,
+          "latency_p95_ms": 4.163723031524569
+        },
+        "keyword": {
+          "n": 27,
+          "top1": 0.8888888888888888,
+          "top3": 0.9629629629629629,
+          "mrr10": 0.9312169312169312,
+          "coverage": 1.0,
+          "precision_at_answer": 0.8888888888888888,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.7519820034503937,
+          "latency_p95_ms": 3.9928799029439688
+        },
+        "paraphrase": {
+          "n": 17,
+          "top1": 0.29411764705882354,
+          "top3": 0.47058823529411764,
+          "mrr10": 0.4302054154995331,
+          "coverage": 1.0,
+          "precision_at_answer": 0.29411764705882354,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 4.230533028021455,
+          "latency_p95_ms": 4.716713260859251
+        },
+        "typo": {
+          "n": 17,
+          "top1": 0.8235294117647058,
+          "top3": 0.9411764705882353,
+          "mrr10": 0.8823529411764706,
+          "coverage": 1.0,
+          "precision_at_answer": 0.8235294117647058,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.7056810688227415,
+          "latency_p95_ms": 3.9729560259729624
+        }
+      },
+      "realistic": {
+        "n": 107,
+        "top1": 0.616822429906542,
+        "top3": 0.7570093457943925,
+        "mrr10": 0.7081108144192256,
+        "coverage": 1.0,
+        "precision_at_answer": 0.616822429906542,
+        "suggest_rate": 0.0,
+        "suggest_hit_at3": null,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 3.8256351836025715,
+        "latency_p95_ms": 4.673146479763091
+      },
+      "realistic_by_kind": {
+        "abbreviation": {
+          "n": 14,
+          "top1": 0.5,
+          "top3": 0.7142857142857143,
+          "mrr10": 0.6095238095238095,
+          "coverage": 1.0,
+          "precision_at_answer": 0.5,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 4.478446091525257,
+          "latency_p95_ms": 5.324329901486635
+        },
+        "colloquial": {
+          "n": 16,
+          "top1": 0.3125,
+          "top3": 0.6875,
+          "mrr10": 0.5052083333333333,
+          "coverage": 1.0,
+          "precision_at_answer": 0.3125,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.565392456948757,
+          "latency_p95_ms": 3.954811254516244
+        },
+        "cyrillic": {
+          "n": 16,
+          "top1": 0.8125,
+          "top3": 0.8125,
+          "mrr10": 0.8359375,
+          "coverage": 1.0,
+          "precision_at_answer": 0.8125,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.906124969944358,
+          "latency_p95_ms": 4.699253651779145
+        },
+        "keyword": {
+          "n": 27,
+          "top1": 0.8148148148148148,
+          "top3": 0.8888888888888888,
+          "mrr10": 0.8756613756613757,
+          "coverage": 1.0,
+          "precision_at_answer": 0.8148148148148148,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.8270021323114634,
+          "latency_p95_ms": 4.184476938098669
+        },
+        "paraphrase": {
+          "n": 17,
+          "top1": 0.17647058823529413,
+          "top3": 0.35294117647058826,
+          "mrr10": 0.33137254901960783,
+          "coverage": 1.0,
+          "precision_at_answer": 0.17647058823529413,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.84518806822598,
+          "latency_p95_ms": 4.444975079968572
+        },
+        "typo": {
+          "n": 17,
+          "top1": 0.9411764705882353,
+          "top3": 1.0,
+          "mrr10": 0.9705882352941176,
+          "coverage": 1.0,
+          "precision_at_answer": 0.9411764705882353,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.713729092851281,
+          "latency_p95_ms": 4.126978199928999
+        }
+      }
+    },
+    "5 +rerank": {
+      "build_seconds": 0.314,
+      "validation": {
+        "n": 505,
+        "top1": 0.9920792079207921,
+        "top3": 1.0,
+        "mrr10": 0.995049504950495,
+        "coverage": 1.0,
+        "precision_at_answer": 0.9920792079207921,
+        "suggest_rate": 0.0,
+        "suggest_hit_at3": null,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 3.6013079807162285,
+        "latency_p95_ms": 4.666103469207883
+      },
+      "test": {
+        "n": 505,
+        "top1": 0.9881188118811881,
+        "top3": 0.998019801980198,
+        "mrr10": 0.9935643564356436,
+        "coverage": 1.0,
+        "precision_at_answer": 0.9881188118811881,
+        "suggest_rate": 0.0,
+        "suggest_hit_at3": null,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 3.5947619471699,
+        "latency_p95_ms": 4.609873937442897
+      },
+      "test_entity": {
+        "n": 56,
+        "top1": 0.9642857142857143,
+        "top3": 0.9821428571428571,
+        "mrr10": 0.9776785714285714,
+        "coverage": 1.0,
+        "precision_at_answer": 0.9642857142857143,
+        "suggest_rate": 0.0,
+        "suggest_hit_at3": null,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 4.549580509774387,
+        "latency_p95_ms": 5.269789195153862
+      },
+      "law_injection": {
+        "n": 505,
+        "answer_rate": 0.0,
+        "suggest_rate": 0.0,
+        "not_found_rate": 1.0,
+        "kept_original_answer_rate": 0.0
+      },
+      "law_swap": {
+        "n": 0
+      },
+      "org_swap": {
+        "n": 56,
+        "answer_rate": 1.0,
+        "suggest_rate": 0.0,
+        "not_found_rate": 0.0,
+        "kept_original_answer_rate": 0.875
+      },
+      "ood": {
+        "n": 23,
+        "answer_rate": 0.30434782608695654,
+        "suggest_rate": 0.6956521739130435,
+        "not_found_rate": 0.0
+      },
+      "realistic_dev": {
+        "n": 107,
+        "top1": 0.7009345794392523,
+        "top3": 0.8411214953271028,
+        "mrr10": 0.7771139296840232,
+        "coverage": 0.9065420560747663,
+        "precision_at_answer": 0.7525773195876289,
+        "suggest_rate": 0.09345794392523364,
+        "suggest_hit_at3": 0.3,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 3.912102896720171,
+        "latency_p95_ms": 5.265172873623669
+      },
+      "realistic_dev_by_kind": {
+        "abbreviation": {
+          "n": 14,
+          "top1": 0.9285714285714286,
+          "top3": 1.0,
+          "mrr10": 0.9642857142857143,
+          "coverage": 1.0,
+          "precision_at_answer": 0.9285714285714286,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 5.250158021226525,
+          "latency_p95_ms": 5.462451349012554
+        },
+        "colloquial": {
+          "n": 16,
+          "top1": 0.5,
+          "top3": 0.625,
+          "mrr10": 0.5729166666666667,
+          "coverage": 0.625,
+          "precision_at_answer": 0.6,
+          "suggest_rate": 0.375,
+          "suggest_hit_at3": 0.3333333333333333,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.7660389207303524,
+          "latency_p95_ms": 3.9706675452180207
+        },
+        "cyrillic": {
+          "n": 16,
+          "top1": 0.75,
+          "top3": 1.0,
+          "mrr10": 0.8645833333333333,
+          "coverage": 1.0,
+          "precision_at_answer": 0.75,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.9232330163940787,
+          "latency_p95_ms": 4.39399853348732
+        },
+        "keyword": {
+          "n": 27,
+          "top1": 0.9259259259259259,
+          "top3": 0.9629629629629629,
+          "mrr10": 0.9475308641975309,
+          "coverage": 0.9629629629629629,
+          "precision_at_answer": 0.9615384615384616,
+          "suggest_rate": 0.037037037037037035,
+          "suggest_hit_at3": 1.0,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.8776721339672804,
+          "latency_p95_ms": 4.25446464214474
+        },
+        "paraphrase": {
+          "n": 17,
+          "top1": 0.23529411764705882,
+          "top3": 0.5294117647058824,
+          "mrr10": 0.4039915966386554,
+          "coverage": 0.8823529411764706,
+          "precision_at_answer": 0.26666666666666666,
+          "suggest_rate": 0.11764705882352941,
+          "suggest_hit_at3": 0.0,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.970103105530143,
+          "latency_p95_ms": 4.463788215070963
+        },
+        "typo": {
+          "n": 17,
+          "top1": 0.7647058823529411,
+          "top3": 0.8823529411764706,
+          "mrr10": 0.8352941176470587,
+          "coverage": 0.9411764705882353,
+          "precision_at_answer": 0.8125,
+          "suggest_rate": 0.058823529411764705,
+          "suggest_hit_at3": 0.0,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.763867076486349,
+          "latency_p95_ms": 4.078600648790598
+        }
+      },
+      "realistic": {
+        "n": 107,
+        "top1": 0.5981308411214953,
+        "top3": 0.7570093457943925,
+        "mrr10": 0.6942478860703161,
+        "coverage": 0.8878504672897196,
+        "precision_at_answer": 0.6526315789473685,
+        "suggest_rate": 0.11214953271028037,
+        "suggest_hit_at3": 0.5,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 4.164715996012092,
+        "latency_p95_ms": 5.402133078314361
+      },
+      "realistic_by_kind": {
+        "abbreviation": {
+          "n": 14,
+          "top1": 0.5,
+          "top3": 0.6428571428571429,
+          "mrr10": 0.6422619047619047,
+          "coverage": 0.9285714285714286,
+          "precision_at_answer": 0.5384615384615384,
+          "suggest_rate": 0.07142857142857142,
+          "suggest_hit_at3": 0.0,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 4.854503436945379,
+          "latency_p95_ms": 5.704127543140203
+        },
+        "colloquial": {
+          "n": 16,
+          "top1": 0.25,
+          "top3": 0.6875,
+          "mrr10": 0.43229166666666663,
+          "coverage": 0.5625,
+          "precision_at_answer": 0.3333333333333333,
+          "suggest_rate": 0.4375,
+          "suggest_hit_at3": 0.5714285714285714,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.9467059541493654,
+          "latency_p95_ms": 4.369850445073098
+        },
+        "cyrillic": {
+          "n": 16,
+          "top1": 0.75,
+          "top3": 0.875,
+          "mrr10": 0.8177083333333333,
+          "coverage": 0.9375,
+          "precision_at_answer": 0.8,
+          "suggest_rate": 0.0625,
+          "suggest_hit_at3": 1.0,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 4.658628022298217,
+          "latency_p95_ms": 5.977062915917486
+        },
+        "keyword": {
+          "n": 27,
+          "top1": 0.8518518518518519,
+          "top3": 0.8888888888888888,
+          "mrr10": 0.8870370370370372,
+          "coverage": 1.0,
+          "precision_at_answer": 0.8518518518518519,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 4.081138875335455,
+          "latency_p95_ms": 4.298219364136457
+        },
+        "paraphrase": {
+          "n": 17,
+          "top1": 0.23529411764705882,
+          "top3": 0.4117647058823529,
+          "mrr10": 0.3633053221288515,
+          "coverage": 0.8823529411764706,
+          "precision_at_answer": 0.2,
+          "suggest_rate": 0.11764705882352941,
+          "suggest_hit_at3": 0.5,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.9854589849710464,
+          "latency_p95_ms": 4.687801422551273
+        },
+        "typo": {
+          "n": 17,
+          "top1": 0.8235294117647058,
+          "top3": 0.9411764705882353,
+          "mrr10": 0.8921568627450981,
+          "coverage": 0.9411764705882353,
+          "precision_at_answer": 0.875,
+          "suggest_rate": 0.058823529411764705,
+          "suggest_hit_at3": 0.0,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 4.164638929069042,
+          "latency_p95_ms": 4.787546768784523
+        }
+      }
+    },
+    "5a +rerank -entity": {
+      "build_seconds": 0.292,
+      "validation": {
+        "n": 505,
+        "top1": 0.9920792079207921,
+        "top3": 0.996039603960396,
+        "mrr10": 0.9941254125412541,
+        "coverage": 1.0,
+        "precision_at_answer": 0.9920792079207921,
+        "suggest_rate": 0.0,
+        "suggest_hit_at3": null,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 3.603077959269285,
+        "latency_p95_ms": 4.6710785478353465
+      },
+      "test": {
+        "n": 505,
+        "top1": 0.9881188118811881,
+        "top3": 0.998019801980198,
+        "mrr10": 0.9935643564356436,
+        "coverage": 1.0,
+        "precision_at_answer": 0.9881188118811881,
+        "suggest_rate": 0.0,
+        "suggest_hit_at3": null,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 3.6249258555471897,
+        "latency_p95_ms": 4.595143161714077
+      },
+      "test_entity": {
+        "n": 56,
+        "top1": 0.9642857142857143,
+        "top3": 0.9821428571428571,
+        "mrr10": 0.9776785714285714,
+        "coverage": 1.0,
+        "precision_at_answer": 0.9642857142857143,
+        "suggest_rate": 0.0,
+        "suggest_hit_at3": null,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 4.55009751021862,
+        "latency_p95_ms": 5.277529009617865
+      },
+      "law_injection": {
+        "n": 505,
+        "answer_rate": 0.0,
+        "suggest_rate": 0.0,
+        "not_found_rate": 1.0,
+        "kept_original_answer_rate": 0.0
+      },
+      "law_swap": {
+        "n": 0
+      },
+      "org_swap": {
+        "n": 56,
+        "answer_rate": 1.0,
+        "suggest_rate": 0.0,
+        "not_found_rate": 0.0,
+        "kept_original_answer_rate": 0.8928571428571429
+      },
+      "ood": {
+        "n": 23,
+        "answer_rate": 0.30434782608695654,
+        "suggest_rate": 0.6956521739130435,
+        "not_found_rate": 0.0
+      },
+      "realistic_dev": {
+        "n": 107,
+        "top1": 0.7009345794392523,
+        "top3": 0.8411214953271028,
+        "mrr10": 0.7771139296840232,
+        "coverage": 0.9065420560747663,
+        "precision_at_answer": 0.7525773195876289,
+        "suggest_rate": 0.09345794392523364,
+        "suggest_hit_at3": 0.3,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 4.000244894996285,
+        "latency_p95_ms": 4.801130597479641
+      },
+      "realistic_dev_by_kind": {
+        "abbreviation": {
+          "n": 14,
+          "top1": 0.9285714285714286,
+          "top3": 1.0,
+          "mrr10": 0.9642857142857143,
+          "coverage": 1.0,
+          "precision_at_answer": 0.9285714285714286,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 4.697360913269222,
+          "latency_p95_ms": 5.0457362667657435
+        },
+        "colloquial": {
+          "n": 16,
+          "top1": 0.5,
+          "top3": 0.625,
+          "mrr10": 0.5729166666666667,
+          "coverage": 0.625,
+          "precision_at_answer": 0.6,
+          "suggest_rate": 0.375,
+          "suggest_hit_at3": 0.3333333333333333,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 4.0709859458729625,
+          "latency_p95_ms": 4.525036609265953
+        },
+        "cyrillic": {
+          "n": 16,
+          "top1": 0.75,
+          "top3": 1.0,
+          "mrr10": 0.8645833333333333,
+          "coverage": 1.0,
+          "precision_at_answer": 0.75,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.9119765860959888,
+          "latency_p95_ms": 4.571515892166644
+        },
+        "keyword": {
+          "n": 27,
+          "top1": 0.9259259259259259,
+          "top3": 0.9629629629629629,
+          "mrr10": 0.9475308641975309,
+          "coverage": 0.9629629629629629,
+          "precision_at_answer": 0.9615384615384616,
+          "suggest_rate": 0.037037037037037035,
+          "suggest_hit_at3": 1.0,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.490778151899576,
+          "latency_p95_ms": 3.940943907946348
+        },
+        "paraphrase": {
+          "n": 17,
+          "top1": 0.23529411764705882,
+          "top3": 0.5294117647058824,
+          "mrr10": 0.4039915966386554,
+          "coverage": 0.8823529411764706,
+          "precision_at_answer": 0.26666666666666666,
+          "suggest_rate": 0.11764705882352941,
+          "suggest_hit_at3": 0.0,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 4.561172099784017,
+          "latency_p95_ms": 4.829287948086858
+        },
+        "typo": {
+          "n": 17,
+          "top1": 0.7647058823529411,
+          "top3": 0.8823529411764706,
+          "mrr10": 0.8352941176470587,
+          "coverage": 0.9411764705882353,
+          "precision_at_answer": 0.8125,
+          "suggest_rate": 0.058823529411764705,
+          "suggest_hit_at3": 0.0,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.971084952354431,
+          "latency_p95_ms": 4.292555712163448
+        }
+      },
+      "realistic": {
+        "n": 107,
+        "top1": 0.5981308411214953,
+        "top3": 0.7476635514018691,
+        "mrr10": 0.6895749888740543,
+        "coverage": 0.8785046728971962,
+        "precision_at_answer": 0.6595744680851063,
+        "suggest_rate": 0.12149532710280374,
+        "suggest_hit_at3": 0.46153846153846156,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 3.7283580750226974,
+        "latency_p95_ms": 5.051178904250264
+      },
+      "realistic_by_kind": {
+        "abbreviation": {
+          "n": 14,
+          "top1": 0.5,
+          "top3": 0.5714285714285714,
+          "mrr10": 0.606547619047619,
+          "coverage": 0.8571428571428571,
+          "precision_at_answer": 0.5833333333333334,
+          "suggest_rate": 0.14285714285714285,
+          "suggest_hit_at3": 0.0,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 4.905760986730456,
+          "latency_p95_ms": 5.670181207824498
+        },
+        "colloquial": {
+          "n": 16,
+          "top1": 0.25,
+          "top3": 0.6875,
+          "mrr10": 0.43229166666666663,
+          "coverage": 0.5625,
+          "precision_at_answer": 0.3333333333333333,
+          "suggest_rate": 0.4375,
+          "suggest_hit_at3": 0.5714285714285714,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.726228605955839,
+          "latency_p95_ms": 4.050373041536659
+        },
+        "cyrillic": {
+          "n": 16,
+          "top1": 0.75,
+          "top3": 0.875,
+          "mrr10": 0.8177083333333333,
+          "coverage": 0.9375,
+          "precision_at_answer": 0.8,
+          "suggest_rate": 0.0625,
+          "suggest_hit_at3": 1.0,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.9580960292369127,
+          "latency_p95_ms": 4.831620550248772
+        },
+        "keyword": {
+          "n": 27,
+          "top1": 0.8518518518518519,
+          "top3": 0.8888888888888888,
+          "mrr10": 0.8870370370370372,
+          "coverage": 1.0,
+          "precision_at_answer": 0.8518518518518519,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.4917769953608513,
+          "latency_p95_ms": 3.6688101245090365
+        },
+        "paraphrase": {
+          "n": 17,
+          "top1": 0.23529411764705882,
+          "top3": 0.4117647058823529,
+          "mrr10": 0.3633053221288515,
+          "coverage": 0.8823529411764706,
+          "precision_at_answer": 0.2,
+          "suggest_rate": 0.11764705882352941,
+          "suggest_hit_at3": 0.5,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.980914130806923,
+          "latency_p95_ms": 4.586239624768496
+        },
+        "typo": {
+          "n": 17,
+          "top1": 0.8235294117647058,
+          "top3": 0.9411764705882353,
+          "mrr10": 0.8921568627450981,
+          "coverage": 0.9411764705882353,
+          "precision_at_answer": 0.875,
+          "suggest_rate": 0.058823529411764705,
+          "suggest_hit_at3": 0.0,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.724690992385149,
+          "latency_p95_ms": 4.2221794836223125
+        }
+      }
+    },
+    "6 +rerank +synonyms": {
+      "build_seconds": 0.327,
+      "validation": {
+        "n": 505,
+        "top1": 0.9920792079207921,
+        "top3": 1.0,
+        "mrr10": 0.995049504950495,
+        "coverage": 1.0,
+        "precision_at_answer": 0.9920792079207921,
+        "suggest_rate": 0.0,
+        "suggest_hit_at3": null,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 3.632421838119626,
+        "latency_p95_ms": 4.624833306297659
+      },
+      "test": {
+        "n": 505,
+        "top1": 0.9881188118811881,
+        "top3": 0.998019801980198,
+        "mrr10": 0.9935643564356436,
+        "coverage": 1.0,
+        "precision_at_answer": 0.9881188118811881,
+        "suggest_rate": 0.0,
+        "suggest_hit_at3": null,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 3.9577640127390623,
+        "latency_p95_ms": 5.111428210511804
+      },
+      "test_entity": {
+        "n": 56,
+        "top1": 0.9642857142857143,
+        "top3": 0.9821428571428571,
+        "mrr10": 0.9776785714285714,
+        "coverage": 1.0,
+        "precision_at_answer": 0.9642857142857143,
+        "suggest_rate": 0.0,
+        "suggest_hit_at3": null,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 4.729529027827084,
+        "latency_p95_ms": 6.348797760438174
+      },
+      "law_injection": {
+        "n": 505,
+        "answer_rate": 0.0,
+        "suggest_rate": 0.0,
+        "not_found_rate": 1.0,
+        "kept_original_answer_rate": 0.0
+      },
+      "law_swap": {
+        "n": 0
+      },
+      "org_swap": {
+        "n": 56,
+        "answer_rate": 1.0,
+        "suggest_rate": 0.0,
+        "not_found_rate": 0.0,
+        "kept_original_answer_rate": 0.875
+      },
+      "ood": {
+        "n": 23,
+        "answer_rate": 0.30434782608695654,
+        "suggest_rate": 0.6956521739130435,
+        "not_found_rate": 0.0
+      },
+      "realistic_dev": {
+        "n": 107,
+        "top1": 0.7663551401869159,
+        "top3": 0.897196261682243,
+        "mrr10": 0.8393413440142412,
+        "coverage": 0.9532710280373832,
+        "precision_at_answer": 0.7941176470588235,
+        "suggest_rate": 0.04672897196261682,
+        "suggest_hit_at3": 0.4,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 3.9589758962392807,
+        "latency_p95_ms": 5.048368615098298
+      },
+      "realistic_dev_by_kind": {
+        "abbreviation": {
+          "n": 14,
+          "top1": 0.9285714285714286,
+          "top3": 1.0,
+          "mrr10": 0.9642857142857143,
+          "coverage": 1.0,
+          "precision_at_answer": 0.9285714285714286,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 5.009418469853699,
+          "latency_p95_ms": 5.460286699235439
+        },
+        "colloquial": {
+          "n": 16,
+          "top1": 0.8125,
+          "top3": 0.875,
+          "mrr10": 0.871875,
+          "coverage": 0.9375,
+          "precision_at_answer": 0.8,
+          "suggest_rate": 0.0625,
+          "suggest_hit_at3": 1.0,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.937919973395765,
+          "latency_p95_ms": 4.740720090921968
+        },
+        "cyrillic": {
+          "n": 16,
+          "top1": 0.75,
+          "top3": 1.0,
+          "mrr10": 0.8645833333333333,
+          "coverage": 1.0,
+          "precision_at_answer": 0.75,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 4.450849373824894,
+          "latency_p95_ms": 4.7886118409223855
+        },
+        "keyword": {
+          "n": 27,
+          "top1": 0.9629629629629629,
+          "top3": 0.9629629629629629,
+          "mrr10": 0.9722222222222222,
+          "coverage": 1.0,
+          "precision_at_answer": 0.9629629629629629,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.625508164986968,
+          "latency_p95_ms": 3.9162099361419678
+        },
+        "paraphrase": {
+          "n": 17,
+          "top1": 0.23529411764705882,
+          "top3": 0.6470588235294118,
+          "mrr10": 0.4456582633053221,
+          "coverage": 0.8235294117647058,
+          "precision_at_answer": 0.2857142857142857,
+          "suggest_rate": 0.17647058823529413,
+          "suggest_hit_at3": 0.3333333333333333,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 4.004650982096791,
+          "latency_p95_ms": 4.4088884722441435
+        },
+        "typo": {
+          "n": 17,
+          "top1": 0.8235294117647058,
+          "top3": 0.8823529411764706,
+          "mrr10": 0.8647058823529411,
+          "coverage": 0.9411764705882353,
+          "precision_at_answer": 0.875,
+          "suggest_rate": 0.058823529411764705,
+          "suggest_hit_at3": 0.0,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.9589758962392807,
+          "latency_p95_ms": 4.42814058624208
+        }
+      },
+      "realistic": {
+        "n": 107,
+        "top1": 0.6355140186915887,
+        "top3": 0.7757009345794392,
+        "mrr10": 0.7309301290609701,
+        "coverage": 0.9345794392523364,
+        "precision_at_answer": 0.67,
+        "suggest_rate": 0.06542056074766354,
+        "suggest_hit_at3": 0.2857142857142857,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 3.9206459186971188,
+        "latency_p95_ms": 5.023266980424522
+      },
+      "realistic_by_kind": {
+        "abbreviation": {
+          "n": 14,
+          "top1": 0.5,
+          "top3": 0.7142857142857143,
+          "mrr10": 0.6696428571428571,
+          "coverage": 1.0,
+          "precision_at_answer": 0.5,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 4.772205953486264,
+          "latency_p95_ms": 5.541928042657673
+        },
+        "colloquial": {
+          "n": 16,
+          "top1": 0.4375,
+          "top3": 0.6875,
+          "mrr10": 0.59375,
+          "coverage": 0.875,
+          "precision_at_answer": 0.5,
+          "suggest_rate": 0.125,
+          "suggest_hit_at3": 0.0,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.85623995680362,
+          "latency_p95_ms": 4.308633564505726
+        },
+        "cyrillic": {
+          "n": 16,
+          "top1": 0.75,
+          "top3": 0.875,
+          "mrr10": 0.8177083333333333,
+          "coverage": 0.9375,
+          "precision_at_answer": 0.8,
+          "suggest_rate": 0.0625,
+          "suggest_hit_at3": 1.0,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.9270789129659534,
+          "latency_p95_ms": 4.953615018166602
+        },
+        "keyword": {
+          "n": 27,
+          "top1": 0.8888888888888888,
+          "top3": 0.9259259259259259,
+          "mrr10": 0.9179012345679012,
+          "coverage": 1.0,
+          "precision_at_answer": 0.8888888888888888,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.5591600462794304,
+          "latency_p95_ms": 4.258771589957178
+        },
+        "paraphrase": {
+          "n": 17,
+          "top1": 0.23529411764705882,
+          "top3": 0.4117647058823529,
+          "mrr10": 0.3706582633053221,
+          "coverage": 0.8235294117647058,
+          "precision_at_answer": 0.21428571428571427,
+          "suggest_rate": 0.17647058823529413,
+          "suggest_hit_at3": 0.3333333333333333,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.9359808433800936,
+          "latency_p95_ms": 4.620627034455538
+        },
+        "typo": {
+          "n": 17,
+          "top1": 0.8235294117647058,
+          "top3": 0.9411764705882353,
+          "mrr10": 0.8921568627450981,
+          "coverage": 0.9411764705882353,
+          "precision_at_answer": 0.875,
+          "suggest_rate": 0.058823529411764705,
+          "suggest_hit_at3": 0.0,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.9075009990483522,
+          "latency_p95_ms": 4.508918663486838
+        }
+      }
+    },
+    "6b +rerank +synonyms +bm25": {
+      "build_seconds": 0.335,
+      "validation": {
+        "n": 505,
+        "top1": 0.9920792079207921,
+        "top3": 1.0,
+        "mrr10": 0.9953795379537953,
+        "coverage": 1.0,
+        "precision_at_answer": 0.9920792079207921,
+        "suggest_rate": 0.0,
+        "suggest_hit_at3": null,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 4.0099481120705605,
+        "latency_p95_ms": 5.15415221452713
+      },
+      "test": {
+        "n": 505,
+        "top1": 0.9920792079207921,
+        "top3": 0.998019801980198,
+        "mrr10": 0.9955445544554455,
+        "coverage": 1.0,
+        "precision_at_answer": 0.9920792079207921,
+        "suggest_rate": 0.0,
+        "suggest_hit_at3": null,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 3.952532075345516,
+        "latency_p95_ms": 4.947916185483336
+      },
+      "test_entity": {
+        "n": 56,
+        "top1": 0.9642857142857143,
+        "top3": 0.9821428571428571,
+        "mrr10": 0.9776785714285714,
+        "coverage": 1.0,
+        "precision_at_answer": 0.9642857142857143,
+        "suggest_rate": 0.0,
+        "suggest_hit_at3": null,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 4.862586967647076,
+        "latency_p95_ms": 5.6843123165890574
+      },
+      "law_injection": {
+        "n": 505,
+        "answer_rate": 0.0,
+        "suggest_rate": 0.0,
+        "not_found_rate": 1.0,
+        "kept_original_answer_rate": 0.0
+      },
+      "law_swap": {
+        "n": 0
+      },
+      "org_swap": {
+        "n": 56,
+        "answer_rate": 1.0,
+        "suggest_rate": 0.0,
+        "not_found_rate": 0.0,
+        "kept_original_answer_rate": 0.8392857142857143
+      },
+      "ood": {
+        "n": 23,
+        "answer_rate": 0.2608695652173913,
+        "suggest_rate": 0.7391304347826086,
+        "not_found_rate": 0.0
+      },
+      "realistic_dev": {
+        "n": 107,
+        "top1": 0.7476635514018691,
+        "top3": 0.8785046728971962,
+        "mrr10": 0.8215472481827621,
+        "coverage": 0.9158878504672897,
+        "precision_at_answer": 0.8061224489795918,
+        "suggest_rate": 0.08411214953271028,
+        "suggest_hit_at3": 0.2222222222222222,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 4.187063779681921,
+        "latency_p95_ms": 5.3902258863672605
+      },
+      "realistic_dev_by_kind": {
+        "abbreviation": {
+          "n": 14,
+          "top1": 0.9285714285714286,
+          "top3": 1.0,
+          "mrr10": 0.9642857142857143,
+          "coverage": 1.0,
+          "precision_at_answer": 0.9285714285714286,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 5.029628053307533,
+          "latency_p95_ms": 5.752199457492679
+        },
+        "colloquial": {
+          "n": 16,
+          "top1": 0.75,
+          "top3": 0.8125,
+          "mrr10": 0.8197916666666667,
+          "coverage": 0.9375,
+          "precision_at_answer": 0.8,
+          "suggest_rate": 0.0625,
+          "suggest_hit_at3": 0.0,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 4.6128235990181565,
+          "latency_p95_ms": 5.338605027645826
+        },
+        "cyrillic": {
+          "n": 16,
+          "top1": 0.6875,
+          "top3": 0.9375,
+          "mrr10": 0.8145833333333333,
+          "coverage": 1.0,
+          "precision_at_answer": 0.6875,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 4.184279008768499,
+          "latency_p95_ms": 4.509120248258114
+        },
+        "keyword": {
+          "n": 27,
+          "top1": 0.9629629629629629,
+          "top3": 0.9629629629629629,
+          "mrr10": 0.9670781893004116,
+          "coverage": 0.9629629629629629,
+          "precision_at_answer": 1.0,
+          "suggest_rate": 0.037037037037037035,
+          "suggest_hit_at3": 0.0,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.7084149662405252,
+          "latency_p95_ms": 4.08559120260179
+        },
+        "paraphrase": {
+          "n": 17,
+          "top1": 0.23529411764705882,
+          "top3": 0.5882352941176471,
+          "mrr10": 0.4202614379084967,
+          "coverage": 0.6470588235294118,
+          "precision_at_answer": 0.2727272727272727,
+          "suggest_rate": 0.35294117647058826,
+          "suggest_hit_at3": 0.3333333333333333,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 5.153964040800929,
+          "latency_p95_ms": 5.466432450339198
+        },
+        "typo": {
+          "n": 17,
+          "top1": 0.8235294117647058,
+          "top3": 0.9411764705882353,
+          "mrr10": 0.8823529411764706,
+          "coverage": 0.9411764705882353,
+          "precision_at_answer": 0.875,
+          "suggest_rate": 0.058823529411764705,
+          "suggest_hit_at3": 0.0,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 4.100233083590865,
+          "latency_p95_ms": 4.299127450212836
+        }
+      },
+      "realistic": {
+        "n": 107,
+        "top1": 0.6448598130841121,
+        "top3": 0.8037383177570093,
+        "mrr10": 0.734431093309598,
+        "coverage": 0.897196261682243,
+        "precision_at_answer": 0.6875,
+        "suggest_rate": 0.102803738317757,
+        "suggest_hit_at3": 0.45454545454545453,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 4.376129014417529,
+        "latency_p95_ms": 5.387385399080813
+      },
+      "realistic_by_kind": {
+        "abbreviation": {
+          "n": 14,
+          "top1": 0.5,
+          "top3": 0.7142857142857143,
+          "mrr10": 0.6454081632653061,
+          "coverage": 1.0,
+          "precision_at_answer": 0.5,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 4.992501926608384,
+          "latency_p95_ms": 5.522285867482424
+        },
+        "colloquial": {
+          "n": 16,
+          "top1": 0.4375,
+          "top3": 0.625,
+          "mrr10": 0.5762896825396826,
+          "coverage": 0.75,
+          "precision_at_answer": 0.5,
+          "suggest_rate": 0.25,
+          "suggest_hit_at3": 0.25,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 4.1776205180212855,
+          "latency_p95_ms": 4.918787511996925
+        },
+        "cyrillic": {
+          "n": 16,
+          "top1": 0.8125,
+          "top3": 0.9375,
+          "mrr10": 0.8541666666666666,
+          "coverage": 1.0,
+          "precision_at_answer": 0.8125,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 4.452109453268349,
+          "latency_p95_ms": 5.491138552315533
+        },
+        "keyword": {
+          "n": 27,
+          "top1": 0.8888888888888888,
+          "top3": 0.9259259259259259,
+          "mrr10": 0.9179012345679012,
+          "coverage": 1.0,
+          "precision_at_answer": 0.8888888888888888,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.65074397996068,
+          "latency_p95_ms": 4.734833259135485
+        },
+        "paraphrase": {
+          "n": 17,
+          "top1": 0.23529411764705882,
+          "top3": 0.5294117647058824,
+          "mrr10": 0.3849673202614379,
+          "coverage": 0.6470588235294118,
+          "precision_at_answer": 0.18181818181818182,
+          "suggest_rate": 0.35294117647058826,
+          "suggest_hit_at3": 0.5,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 4.32397099211812,
+          "latency_p95_ms": 5.191375873982906
+        },
+        "typo": {
+          "n": 17,
+          "top1": 0.8235294117647058,
+          "top3": 1.0,
+          "mrr10": 0.9019607843137254,
+          "coverage": 0.9411764705882353,
+          "precision_at_answer": 0.875,
+          "suggest_rate": 0.058823529411764705,
+          "suggest_hit_at3": 1.0,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 4.727235063910484,
+          "latency_p95_ms": 5.09692570194602
+        }
+      }
+    },
+    "engine": {
+      "build_seconds": 0.383,
+      "validation": {
+        "n": 505,
+        "top1": 0.9920792079207921,
+        "top3": 1.0,
+        "mrr10": 0.995049504950495,
+        "coverage": 1.0,
+        "precision_at_answer": 0.9920792079207921,
+        "suggest_rate": 0.0,
+        "suggest_hit_at3": null,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 3.9390139281749725,
+        "latency_p95_ms": 5.128031969070435
+      },
+      "test": {
+        "n": 505,
+        "top1": 0.9881188118811881,
+        "top3": 0.998019801980198,
+        "mrr10": 0.9935643564356436,
+        "coverage": 1.0,
+        "precision_at_answer": 0.9881188118811881,
+        "suggest_rate": 0.0,
+        "suggest_hit_at3": null,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 3.7413788959383965,
+        "latency_p95_ms": 4.744825279340148
+      },
+      "test_entity": {
+        "n": 56,
+        "top1": 0.9642857142857143,
+        "top3": 0.9821428571428571,
+        "mrr10": 0.9776785714285714,
+        "coverage": 1.0,
+        "precision_at_answer": 0.9642857142857143,
+        "suggest_rate": 0.0,
+        "suggest_hit_at3": null,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 4.686889122240245,
+        "latency_p95_ms": 5.712091049645096
+      },
+      "law_injection": {
+        "n": 505,
+        "answer_rate": 0.0,
+        "suggest_rate": 0.0,
+        "not_found_rate": 1.0,
+        "kept_original_answer_rate": 0.0
+      },
+      "law_swap": {
+        "n": 0
+      },
+      "org_swap": {
+        "n": 56,
+        "answer_rate": 1.0,
+        "suggest_rate": 0.0,
+        "not_found_rate": 0.0,
+        "kept_original_answer_rate": 0.875
+      },
+      "ood": {
+        "n": 23,
+        "answer_rate": 0.30434782608695654,
+        "suggest_rate": 0.6956521739130435,
+        "not_found_rate": 0.0
+      },
+      "realistic_dev": {
+        "n": 107,
+        "top1": 0.7663551401869159,
+        "top3": 0.897196261682243,
+        "mrr10": 0.8393413440142412,
+        "coverage": 0.9532710280373832,
+        "precision_at_answer": 0.7941176470588235,
+        "suggest_rate": 0.04672897196261682,
+        "suggest_hit_at3": 0.4,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 4.017353989183903,
+        "latency_p95_ms": 4.984044120647013
+      },
+      "realistic_dev_by_kind": {
+        "abbreviation": {
+          "n": 14,
+          "top1": 0.9285714285714286,
+          "top3": 1.0,
+          "mrr10": 0.9642857142857143,
+          "coverage": 1.0,
+          "precision_at_answer": 0.9285714285714286,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 4.965949454344809,
+          "latency_p95_ms": 5.482354876585305
+        },
+        "colloquial": {
+          "n": 16,
+          "top1": 0.8125,
+          "top3": 0.875,
+          "mrr10": 0.871875,
+          "coverage": 0.9375,
+          "precision_at_answer": 0.8,
+          "suggest_rate": 0.0625,
+          "suggest_hit_at3": 1.0,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 4.255681880749762,
+          "latency_p95_ms": 4.631596268154681
+        },
+        "cyrillic": {
+          "n": 16,
+          "top1": 0.75,
+          "top3": 1.0,
+          "mrr10": 0.8645833333333333,
+          "coverage": 1.0,
+          "precision_at_answer": 0.75,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.9293640293180943,
+          "latency_p95_ms": 4.26144344964996
+        },
+        "keyword": {
+          "n": 27,
+          "top1": 0.9629629629629629,
+          "top3": 0.9629629629629629,
+          "mrr10": 0.9722222222222222,
+          "coverage": 1.0,
+          "precision_at_answer": 0.9629629629629629,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.7573270965367556,
+          "latency_p95_ms": 4.168472555465996
+        },
+        "paraphrase": {
+          "n": 17,
+          "top1": 0.23529411764705882,
+          "top3": 0.6470588235294118,
+          "mrr10": 0.4456582633053221,
+          "coverage": 0.8235294117647058,
+          "precision_at_answer": 0.2857142857142857,
+          "suggest_rate": 0.17647058823529413,
+          "suggest_hit_at3": 0.3333333333333333,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 4.089204128831625,
+          "latency_p95_ms": 4.593701381236315
+        },
+        "typo": {
+          "n": 17,
+          "top1": 0.8235294117647058,
+          "top3": 0.8823529411764706,
+          "mrr10": 0.8647058823529411,
+          "coverage": 0.9411764705882353,
+          "precision_at_answer": 0.875,
+          "suggest_rate": 0.058823529411764705,
+          "suggest_hit_at3": 0.0,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.9552589878439903,
+          "latency_p95_ms": 4.510865919291973
+        }
+      },
+      "realistic": {
+        "n": 107,
+        "top1": 0.6355140186915887,
+        "top3": 0.7757009345794392,
+        "mrr10": 0.7309301290609701,
+        "coverage": 0.9345794392523364,
+        "precision_at_answer": 0.67,
+        "suggest_rate": 0.06542056074766354,
+        "suggest_hit_at3": 0.2857142857142857,
+        "not_found_rate": 0.0,
+        "latency_p50_ms": 3.944999072700739,
+        "latency_p95_ms": 4.832920944318175
+      },
+      "realistic_by_kind": {
+        "abbreviation": {
+          "n": 14,
+          "top1": 0.5,
+          "top3": 0.7142857142857143,
+          "mrr10": 0.6696428571428571,
+          "coverage": 1.0,
+          "precision_at_answer": 0.5,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 4.722475539892912,
+          "latency_p95_ms": 5.714936775621027
+        },
+        "colloquial": {
+          "n": 16,
+          "top1": 0.4375,
+          "top3": 0.6875,
+          "mrr10": 0.59375,
+          "coverage": 0.875,
+          "precision_at_answer": 0.5,
+          "suggest_rate": 0.125,
+          "suggest_hit_at3": 0.0,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 4.167169565334916,
+          "latency_p95_ms": 4.607167036738247
+        },
+        "cyrillic": {
+          "n": 16,
+          "top1": 0.75,
+          "top3": 0.875,
+          "mrr10": 0.8177083333333333,
+          "coverage": 0.9375,
+          "precision_at_answer": 0.8,
+          "suggest_rate": 0.0625,
+          "suggest_hit_at3": 1.0,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.915516543202102,
+          "latency_p95_ms": 5.018641066271812
+        },
+        "keyword": {
+          "n": 27,
+          "top1": 0.8888888888888888,
+          "top3": 0.9259259259259259,
+          "mrr10": 0.9179012345679012,
+          "coverage": 1.0,
+          "precision_at_answer": 0.8888888888888888,
+          "suggest_rate": 0.0,
+          "suggest_hit_at3": null,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.508260939270258,
+          "latency_p95_ms": 4.08109410200268
+        },
+        "paraphrase": {
+          "n": 17,
+          "top1": 0.23529411764705882,
+          "top3": 0.4117647058823529,
+          "mrr10": 0.3706582633053221,
+          "coverage": 0.8235294117647058,
+          "precision_at_answer": 0.21428571428571427,
+          "suggest_rate": 0.17647058823529413,
+          "suggest_hit_at3": 0.3333333333333333,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 4.100062884390354,
+          "latency_p95_ms": 4.801769414916635
+        },
+        "typo": {
+          "n": 17,
+          "top1": 0.8235294117647058,
+          "top3": 0.9411764705882353,
+          "mrr10": 0.8921568627450981,
+          "coverage": 0.9411764705882353,
+          "precision_at_answer": 0.875,
+          "suggest_rate": 0.058823529411764705,
+          "suggest_hit_at3": 0.0,
+          "not_found_rate": 0.0,
+          "latency_p50_ms": 3.950969083234668,
+          "latency_p95_ms": 4.353876458480954
         }
       }
     }

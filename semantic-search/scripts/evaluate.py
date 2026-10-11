@@ -2,8 +2,10 @@
 
 Usage: python -m scripts.evaluate [--systems random,...] [--primary NAME]
        python -m scripts.evaluate --sweep [--grid '{"rrf_k": [5, 60]}']
+       python -m scripts.evaluate --tune-reranker [--grid '{"rrf": [1], "fuzzy": [0, 1]}']
 The primary system (default: the last one) gets the worst-failure list and the predictions log.
---sweep prints decision metrics only (validation + realistic-dev), never test numbers.
+--sweep and --tune-reranker print decision metrics only (validation + realistic-dev), never
+test numbers.
 """
 
 import argparse
@@ -15,6 +17,7 @@ from app.core.config import get_settings
 from app.eval.report import write_reports
 from app.eval.runner import build_context, evaluate, sweep
 from app.eval.systems import SYSTEMS
+from app.eval.tuning import tune_reranker
 
 DEFAULT_GRID = {
     "answer_index_weight": [0.0, 0.1, 0.25],
@@ -50,16 +53,57 @@ def run_sweep(grid: dict[str, list]) -> None:
     print(f"\nSaved {out}")
 
 
+RERANK_GRID = {
+    "rrf": [0.5, 1.0, 2.0],
+    "sim_q": [0.0, 0.5, 1.0, 2.0],
+    "sim_a": [0.0, 0.5],
+    "fuzzy": [0.0, 0.5, 1.0, 2.0],
+    "entity_match": [0.0, 0.5, 1.0, 2.0],
+    "entity_match_q": [0.0, 0.5, 1.0, 2.0],
+    "category": [0.0, 0.5],
+    "entity_conflict": [0.0, 1.0, 3.0],
+}
+
+
+def run_rerank_tuning(grid: dict[str, list[float]]) -> None:
+    settings = get_settings()
+    ctx = build_context(settings)
+    baseline, rows = tune_reranker(ctx, grid)
+    b_dev, b_val = baseline["realistic_dev"], baseline["validation"]
+    print(
+        f"baseline (fused only): dev Top-1 {b_dev['top1']:.3f} MRR {b_dev['mrr10']:.3f} | "
+        f"val Top-1 {b_val['top1']:.3f}"
+    )
+    print(
+        f"{len(rows)} combinations kept\n{'dev Top-1':>9} {'dev MRR':>8} {'val Top-1':>9}  weights"
+    )
+    for r in rows[:15]:
+        weights = {k: v for k, v in r["weights"].items() if v}
+        print(
+            f"{r['realistic_dev']['top1']:9.3f} {r['realistic_dev']['mrr10']:8.3f} "
+            f"{r['validation']['top1']:9.3f}  {weights}"
+        )
+    out = settings.reports_dir / "rerank_sweep.json"
+    out.write_text(
+        json.dumps({"baseline": baseline, "top": rows[:100]}, indent=2), encoding="utf-8"
+    )
+    print(f"\nSaved {out}")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--systems", default=",".join(SYSTEMS), help="comma-separated names")
     parser.add_argument("--primary", default=None, help="system for the failure analysis")
     parser.add_argument("--sweep", action="store_true", help="grid search on decision sets")
-    parser.add_argument("--grid", default=None, help="JSON dict of setting -> values")
+    parser.add_argument("--tune-reranker", action="store_true", help="re-ranker weight search")
+    parser.add_argument("--grid", default=None, help="JSON dict of setting/feature -> values")
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     logging.getLogger("bm25s").setLevel(logging.WARNING)
 
+    if args.tune_reranker:
+        run_rerank_tuning(json.loads(args.grid) if args.grid else RERANK_GRID)
+        return
     if args.sweep:
         run_sweep(json.loads(args.grid) if args.grid else DEFAULT_GRID)
         return

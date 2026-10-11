@@ -1,0 +1,106 @@
+# Query-side synonyms: colloquial / Russian words → the wording used in the answer bank.
+# A match (whole word, optional Uzbek suffixes: pravamni, spravkaga) appends `canonical` to the
+# query; the original words stay. Input is normalized first (Cyrillic → Latin, lowercase).
+# Organizations and abbreviations belong in gazetteer.yaml, not here.
+
+- canonical: haydovchilik guvohnomasi
+  variants: [prava, prav, voditelskiy prava, voditelskoe udostoverenie, voditelskiye prava]
+
+- canonical: ma'lumotnoma
+  variants: [spravka, spravkasi]
+
+- canonical: soliq
+  variants: [nalog, nalogi, nalogovaya]
+
+- canonical: muddati
+  variants: [srok, sroki]
+
+- canonical: ishonchnoma
+  variants: [doverennost, doverenost]
+
+- canonical: ijara
+  variants: [arenda, kvartirant, s'yomniy]
+
+- canonical: ta'til
+  variants: [otpusk]
+
+- canonical: homiladorlik va tug'ruq ta'tili
+  variants: [dekret, dekretniy, dekretniy otpusk]
+
+- canonical: nafaqa
+  variants: [posobiya, posobie, posobiye]
+
+- canonical: hisoblagich
+  variants: [schyotchik, schetchik, sch'otchik, schotchik]
+
+- canonical: elektr
+  variants: [svet, elektrichestvo]
+
+- canonical: ro'yxatga olish
+  variants: [propiska, registratsiya, uchyot, uchet, uchot]
+
+- canonical: mudofaa ishlari bo'limi
+  variants: [voenkomat, voyenkomat, harbiy komissariat]
+
+- canonical: harbiy bilet
+  variants: [voenniy bilet, voyenniy bilet, voenniy]
+
+- canonical: uy joy ko'chmas mulk
+  variants: [kvartira, dom]
+
+- canonical: pochta jo'natmasi
+  variants: [posilka, posylka, banderol]
+
+- canonical: transport vositasi avtomobil
+  variants: [mashina, moshina, avto]
+
+- canonical: davlat raqam belgisi avtoraqam
+  variants: [avtonomer, gos nomer, gosnomer]
+
+- canonical: kasalxona
+  variants: [bolnitsa, gospital, statsionar]
+
+- canonical: yo'llanma
+  variants: [napravleniya, napravlenie, napravleniye]
+
+- canonical: shikoyat
+  variants: [jaloba, jalob]
+
+- canonical: tibbiy ko'rik
+  variants: [medosmotr, medkomissiya]
+
+- canonical: jarima
+  variants: [shtraf]
+
+- canonical: hadya
+  variants: [dareniya, darenie, darstvennaya]
+
+- canonical: tug'ilganlik guvohnomasi
+  variants: [metrika, svidetelstvo o rojdenii]
+
+- canonical: nikoh
+  variants: [brak]
+
+- canonical: nikohdan ajratish
+  variants: [razvod]
+
+- canonical: hisob raqami
+  variants: [raschyotniy schyot, rasschetniy schet, raschetniy schet]
+
+- canonical: kommunal to'lovlar
+  variants: [kommunalka, kommunalniye, kommunalniy]
+
+- canonical: bog'cha
+  variants: [detsad, detskiy sad]
+
+- canonical: yotoqxona
+  variants: [obshchejitie, obshejitie, obshaga]
+
+- canonical: imtihon
+  variants: [ekzamen]
+
+- canonical: ish haqi
+  variants: [zarplata, oylik]
+
+- canonical: taqiq xatlash
+  variants: [arest]

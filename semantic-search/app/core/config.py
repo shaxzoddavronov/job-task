@@ -57,6 +57,23 @@ class Settings(BaseSettings):
     weight_bm25: float = 1.0
     answer_index_weight: float = 0.1
 
+    # Query expansion with data/synonyms.yaml (all retrieval channels)
+    use_synonyms: bool = True  # +4.7 realistic-dev Top-1 with the re-ranker (Phase 5 sweep)
+
+    # Entity-aware linear re-ranker over the top fused candidates (Phase 5, tuned on
+    # validation + realistic-dev with `scripts.evaluate --tune-reranker`).
+    use_reranker: bool = True
+    rerank_top_n: int = 20
+    rerank_w_rrf: float = 0.5
+    rerank_w_sim_q: float = 2.0
+    rerank_w_sim_a: float = 0.0
+    rerank_w_fuzzy: float = 2.0
+    rerank_w_entity_match: float = 0.5
+    rerank_w_entity_match_q: float = 0.0  # measured: 0.25-0.5 cost one realistic-dev query
+    rerank_w_category: float = 0.5
+    # No law numbers in the decision sets, so conflict is a safety setting, not a tuned one.
+    rerank_w_entity_conflict: float = 3.0
+
     # Data source
     data_source: Literal["postgres", "file"] = "file"
     database_url: str = "postgresql+psycopg://qa:qa@localhost:5432/qa"

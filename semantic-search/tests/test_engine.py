@@ -3,6 +3,7 @@ import pytest
 from app.core.config import Settings
 from app.core.data import Answer, Corpus, Question
 from app.core.engine import QAEngine
+from app.core.ranker import rerank
 from app.eval.systems import SYSTEMS
 
 
@@ -26,7 +27,12 @@ def corpus():
 
 @pytest.fixture
 def settings(tmp_path):
-    return Settings(_env_file=None, gazetteer_path=tmp_path / "none.yaml", use_bm25=True)
+    return Settings(
+        _env_file=None,
+        gazetteer_path=tmp_path / "none.yaml",
+        synonyms_path=tmp_path / "none.yaml",
+        use_bm25=True,
+    )
 
 
 @pytest.fixture
@@ -55,25 +61,46 @@ def test_answer_index_finds_entity_only_in_answers(corpus, settings):
     assert engine.ask("PQ-4567 haqida").top.answer_id == 3
 
 
-@pytest.mark.xfail(
-    reason="answer index is only a tie-breaker at the tuned weight; Phase 5 "
-    "entity_match re-ranking should promote answers that mention the query entity",
-    strict=True,
-)
-def test_default_config_promotes_entity_only_in_answers(engine):
+def test_reranker_promotes_entity_only_in_answers(engine):
+    # The answer index alone is only a tie-breaker; entity_match lifts answer 3.
     assert engine.ask("PQ-4567 haqida").top.answer_id == 3
 
 
-def test_debug_lists_every_channel(engine):
+def test_unknown_law_is_not_found(engine):
+    unknown = engine.ask("PQ-9999 qarori bo'yicha soliq qarzi")
+    assert unknown.status == "not_found" and unknown.reason == "unknown_law"
+    assert unknown.candidates  # still returned for debugging
+    known = engine.ask("PQ-4567 qarori bo'yicha soliq qarzi")
+    assert known.reason is None
+
+
+def test_debug_has_features_and_channels(engine):
     result = engine.ask("soliq qarzi", debug=True)
-    assert set(result.debug["channels"]) == {
+    assert result.debug["processed_query"] == "soliq qarzi"
+    top = result.debug["candidates"][str(result.top.answer_id)]
+    assert set(top["features"]) >= {"rrf", "sim_q", "fuzzy", "entity_match", "entity_conflict"}
+    assert set(top["channels"]) <= {
         "tfidf:questions",
         "bm25:questions",
         "tfidf:answers",
         "bm25:answers",
     }
-    assert result.debug["processed_query"] == "soliq qarzi"
     assert engine.ask("soliq qarzi").debug is None
+
+
+def test_retrieve_then_rerank_matches_ask(engine):
+    r = engine.retrieve("soliq qarzi")
+    scored = rerank(r.candidates, engine.weights, bool(r.tagged.tokens))
+    assert [a for a, _ in scored[:3]] == [c.answer_id for c in engine.ask("soliq qarzi").candidates]
+
+
+def test_synonyms_expand_retrieval_query(corpus, settings, tmp_path):
+    path = tmp_path / "syn.yaml"
+    path.write_text("- {canonical: haydovchilik guvohnomasi, variants: [voditelskiy]}\n")
+    engine = QAEngine(corpus, settings.model_copy(update={"synonyms_path": path}))
+    result = engine.ask("voditelskiy olish", debug=True)
+    assert result.debug["retrieval_query"] == "voditelskiy olish haydovchilik guvohnomasi"
+    assert result.top.answer_id == 2
 
 
 def test_status_follows_thresholds(corpus, settings):

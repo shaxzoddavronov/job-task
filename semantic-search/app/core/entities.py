@@ -16,7 +16,7 @@ from app.core.normalize import clean_text, normalize_script
 # Optional Uzbek suffix chain after a gazetteer alias: plural, possessive, case.
 # Covers DXMga, DXM-ga, DXM ga, markaziga, ID-kartamni, inspeksiyasiga, ...
 _CASE = r"(?:ning|ni|ga|ka|qa|dagi|da|ta|dan|tan|gacha|dek|day)"
-_SUFFIX = (
+UZBEK_SUFFIX = (
     r"(?i:\s" + _CASE + r"(?![\w'])"  # detached case suffix: "DXM ga"
     r"|-?(?:lar)?(?:ingiz|ngiz|imiz|miz|ing|ng|im|m|si|i)?" + _CASE + r"?)"
 )
@@ -95,7 +95,12 @@ class Gazetteer:
         patterns.sort(key=lambda p: -p[0])
         self._regex = (
             re.compile(
-                _LEFT + "(?P<alias>" + "|".join(p for _, p in patterns) + ")" + _SUFFIX + _RIGHT
+                _LEFT
+                + "(?P<alias>"
+                + "|".join(p for _, p in patterns)
+                + ")"
+                + UZBEK_SUFFIX
+                + _RIGHT
             )
             if patterns
             else None

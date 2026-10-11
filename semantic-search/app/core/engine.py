@@ -1,4 +1,4 @@
-"""QAEngine: preprocessing → retrievers → answer aggregation → RRF fusion → decision.
+"""QAEngine: preprocessing → retrievers → aggregation → RRF fusion → re-ranking → decision.
 
 QAEngine and the evaluation baselines both return QAResult, so the evaluation code does not
 care which system produced it.
@@ -8,15 +8,26 @@ import time
 from dataclasses import dataclass, field
 from typing import Literal, Protocol
 
+from rapidfuzz import fuzz
+
 from app.core.config import Settings
 from app.core.data import Corpus
 from app.core.entities import Entity, EntityExtractor, TaggedText
 from app.core.fusion import max_rrf_score, weighted_rrf
 from app.core.normalize import strip_phrases
-from app.core.ranker import aggregate_max
+from app.core.ranker import (
+    CandidateFeatures,
+    aggregate_max,
+    category_agreement,
+    entity_conflict,
+    entity_match,
+    rerank,
+    weights_from_settings,
+)
 from app.core.retrievers.base import Retriever
 from app.core.retrievers.bm25 import BM25Retriever
 from app.core.retrievers.tfidf_char import CharTfidfRetriever
+from app.core.synonyms import QueryExpander
 
 Status = Literal["answer", "suggest", "not_found"]
 
@@ -34,6 +45,7 @@ class QAResult:
     entities: list[Entity] = field(default_factory=list)
     debug: dict | None = None
     latency_ms: float = 0.0
+    reason: str | None = None  # e.g. "unknown_law" when status is forced to not_found
 
     @property
     def top(self) -> Candidate | None:
@@ -73,6 +85,20 @@ class _Channel:
     weight: float
 
 
+@dataclass
+class Retrieval:
+    """First-stage output: candidates with re-ranker features, best fused first."""
+
+    tagged: TaggedText
+    retrieval_text: str
+    candidates: list[CandidateFeatures]
+    channel_hits: dict[str, dict[int, tuple[int, float]]]
+
+
+# Entity kinds that must exist in the data; a query citing an unknown one gets not_found.
+_MUST_EXIST = ("LAW_", "ART_")
+
+
 class QAEngine:
     """In-memory search engine over a Corpus. Build once, then call ask() per query."""
 
@@ -81,12 +107,33 @@ class QAEngine:
         self.corpus = corpus
         self.settings = settings
         self.extractor = EntityExtractor.from_settings(settings)
+        self.expander = (
+            QueryExpander.from_yaml(settings.synonyms_path)
+            if settings.use_synonyms
+            else QueryExpander([])
+        )
+        self.weights = weights_from_settings(settings)
 
         answer_ids = sorted(corpus.answers)
+        question_tagged = [self._preprocess(q.text) for q in corpus.questions]
+        answer_tagged = {a: self._preprocess(corpus.answers[a].text) for a in answer_ids}
+
+        # Per-answer data for the re-ranker features
+        self.answer_entities: dict[int, set[str]] = {
+            a: set(t.tokens) for a, t in answer_tagged.items()
+        }
+        self.question_entities: dict[int, set[str]] = {a: set() for a in answer_ids}
+        self.answer_questions: dict[int, list[str]] = {a: [] for a in answer_ids}
+        for q, tagged in zip(corpus.questions, question_tagged, strict=True):
+            self.answer_entities[q.answer_id] |= tagged.tokens
+            self.question_entities[q.answer_id] |= tagged.tokens
+            self.answer_questions[q.answer_id].append(tagged.text)
+        self.known_entities = set().union(*self.answer_entities.values()) if answer_ids else set()
+
         doc_sets = [
             (
                 "questions",
-                [self._preprocess(q.text).text for q in corpus.questions],
+                [t.text for t in question_tagged],
                 [q.answer_id for q in corpus.questions],
                 1.0,
             )
@@ -95,7 +142,7 @@ class QAEngine:
             doc_sets.append(
                 (
                     "answers",
-                    [self._preprocess(corpus.answers[a].text).text for a in answer_ids],
+                    [answer_tagged[a].text for a in answer_ids],
                     answer_ids,
                     settings.answer_index_weight,
                 )
@@ -136,49 +183,105 @@ class QAEngine:
             )
         return tagged
 
-    def ask(self, query: str, k: int = 3, debug: bool = False) -> QAResult:
-        start = time.perf_counter()
+    def unknown_entities(self, tagged: TaggedText) -> list[str]:
+        """Law / article references in the query that appear nowhere in the data."""
+        return sorted(
+            t for t in tagged.tokens if t.startswith(_MUST_EXIST) and t not in self.known_entities
+        )
+
+    def retrieve(self, query: str) -> Retrieval:
+        """Retrieval + fusion + features for the top `rerank_top_n` fused candidates."""
         s = self.settings
         tagged = self._preprocess(query)
+        retrieval_text = self.expander.expand(tagged.text)
 
         ranked_lists: list[tuple[float, list[int]]] = []
-        per_channel: dict[str, dict[int, tuple[int, float]]] = {}
+        channel_hits: dict[str, dict[int, tuple[int, float]]] = {}
         for ch in self.channels:
             ranked = aggregate_max(
-                ch.retriever.search(tagged.text, s.candidate_pool), ch.doc_answer_ids
+                ch.retriever.search(retrieval_text, s.candidate_pool), ch.doc_answer_ids
             )
             ranked_lists.append((ch.weight, [answer_id for answer_id, _ in ranked]))
-            if debug:
-                per_channel[ch.name] = {a: (rank, sc) for rank, (a, sc) in enumerate(ranked, 1)}
+            channel_hits[ch.name] = {a: (rank, sc) for rank, (a, sc) in enumerate(ranked, 1)}
 
         fused = weighted_rrf(ranked_lists, s.rrf_k)
         scale = max_rrf_score([w for w, _ in ranked_lists], s.rrf_k)
-        best = sorted(fused.items(), key=lambda item: (-item[1], item[0]))[:k]
-        candidates = [Candidate(answer_id, score / scale) for answer_id, score in best]
+        top = sorted(fused.items(), key=lambda item: (-item[1], item[0]))[: s.rerank_top_n]
+
+        sim_scale = 1.0 + s.tfidf_entity_weight
+        tfidf_q = channel_hits.get("tfidf:questions", {})
+        tfidf_a = channel_hits.get("tfidf:answers", {})
+        query_tokens = tagged.tokens
+        categories = [self.corpus.answers[a].category_id for a, _ in top]
+        category_flags = category_agreement(categories)
+        candidates = []
+        for (answer_id, fused_score), category in zip(top, category_flags, strict=True):
+            entities = self.answer_entities.get(answer_id, set())
+            questions = self.answer_questions.get(answer_id, [])
+            candidates.append(
+                CandidateFeatures(
+                    answer_id,
+                    {
+                        "rrf": fused_score / scale,
+                        "sim_q": min(tfidf_q.get(answer_id, (0, 0.0))[1] / sim_scale, 1.0),
+                        "sim_a": min(tfidf_a.get(answer_id, (0, 0.0))[1] / sim_scale, 1.0),
+                        "fuzzy": max(
+                            (fuzz.token_set_ratio(tagged.text, q) for q in questions), default=0.0
+                        )
+                        / 100,
+                        "entity_match": entity_match(query_tokens, entities),
+                        "entity_match_q": entity_match(
+                            query_tokens, self.question_entities.get(answer_id, set())
+                        ),
+                        "category": category,
+                        "entity_conflict": entity_conflict(query_tokens, entities),
+                    },
+                )
+            )
+        return Retrieval(tagged, retrieval_text, candidates, channel_hits)
+
+    def ask(self, query: str, k: int = 3, debug: bool = False) -> QAResult:
+        start = time.perf_counter()
+        s = self.settings
+        r = self.retrieve(query)
+
+        if s.use_reranker:
+            scored = rerank(r.candidates, self.weights, bool(r.tagged.tokens))
+        else:
+            scored = [(c.answer_id, c.features["rrf"]) for c in r.candidates]
+        candidates = [Candidate(answer_id, score) for answer_id, score in scored[:k]]
         status = decide_status(
             candidates, s.answer_threshold, s.suggest_threshold, s.answer_min_margin
         )
+        unknown = self.unknown_entities(r.tagged)
+        reason = None
+        if unknown:
+            status, reason = "not_found", "unknown_law"
 
         debug_info = None
         if debug:
+            features = {c.answer_id: c.features for c in r.candidates}
             debug_info = {
-                "processed_query": tagged.text,
-                "channels": {
-                    name: {
-                        str(c.answer_id): {
-                            "rank": hits[c.answer_id][0],
-                            "score": hits[c.answer_id][1],
-                        }
-                        for c in candidates
-                        if c.answer_id in hits
+                "processed_query": r.tagged.text,
+                "retrieval_query": r.retrieval_text,
+                "unknown_entities": unknown,
+                "candidates": {
+                    str(c.answer_id): {
+                        "features": features[c.answer_id],
+                        "channels": {
+                            name: {"rank": hits[c.answer_id][0], "score": hits[c.answer_id][1]}
+                            for name, hits in r.channel_hits.items()
+                            if c.answer_id in hits
+                        },
                     }
-                    for name, hits in per_channel.items()
+                    for c in candidates
                 },
             }
         return QAResult(
             status=status,
             candidates=candidates,
-            entities=tagged.entities,
+            entities=r.tagged.entities,
             debug=debug_info,
             latency_ms=(time.perf_counter() - start) * 1000,
+            reason=reason,
         )

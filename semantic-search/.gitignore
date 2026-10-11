@@ -23,3 +23,4 @@ __pycache__/
 .ruff_cache/
 *.egg-info/
 reports/sweep.json
+reports/rerank_sweep.json
