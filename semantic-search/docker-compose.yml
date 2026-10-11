@@ -30,6 +30,14 @@ services:
       # answers.csv / questions.csv (or .xlsx) from ./data, used by the first-run import
       ANSWERS_PATH: /app/data-import/answers.csv
       QUESTIONS_PATH: /app/data-import/questions.csv
+      # Compute and threshold overrides from .env (empty = defaults)
+      DEVICE: ${DEVICE:-auto}
+      RERANKER: ${RERANKER:-auto}
+      CPU_THREADS: ${CPU_THREADS:-}
+      ANSWER_THRESHOLD_RERANK: ${ANSWER_THRESHOLD_RERANK:-}
+      SUGGEST_THRESHOLD_RERANK: ${SUGGEST_THRESHOLD_RERANK:-}
+      ANSWER_THRESHOLD_DENSE: ${ANSWER_THRESHOLD_DENSE:-}
+      SUGGEST_THRESHOLD_DENSE: ${SUGGEST_THRESHOLD_DENSE:-}
     volumes:
       # Private data files, read-only; only needed for the first import into PostgreSQL
       - ./data:/app/data-import:ro

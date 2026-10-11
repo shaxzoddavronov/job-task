@@ -33,7 +33,9 @@ class Settings(BaseSettings):
     # Transformer models (pinned Hugging Face revisions for reproducible results)
     model_backend: Literal["transformers", "fake"] = "transformers"  # fake = tests only
     bi_encoder_model: str = "BAAI/bge-m3"
-    bi_encoder_revision: str | None = "5617a9f61b028005a4858fdac845db406aefb181"
+    # refs/pr/130 = the official safetensors conversion of main (5617a9f), identical vectors;
+    # main ships only pytorch_model.bin, which made transformers download the weights twice.
+    bi_encoder_revision: str | None = "9a0624b896d81da7492a910ffa53731274b6cf3d"
     reranker_model: str = "BAAI/bge-reranker-v2-m3"
     reranker_revision: str | None = "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e"
     hf_cache_dir: str | None = None  # None = HF_HOME / default Hugging Face cache

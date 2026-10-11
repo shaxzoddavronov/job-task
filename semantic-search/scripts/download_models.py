@@ -13,6 +13,7 @@ from huggingface_hub import snapshot_download
 from app.core.config import get_settings
 
 PATTERNS = ["*.json", "*.safetensors", "sentencepiece.bpe.model", "1_Pooling/*"]
+IGNORE = ["onnx/*"]
 
 
 def main() -> None:
@@ -21,7 +22,11 @@ def main() -> None:
     models = [(s.bi_encoder_model, s.bi_encoder_revision), (s.reranker_model, s.reranker_revision)]
     for repo, revision in models:
         path = snapshot_download(
-            repo, revision=revision, allow_patterns=PATTERNS, cache_dir=s.hf_cache_dir
+            repo,
+            revision=revision,
+            allow_patterns=PATTERNS,
+            ignore_patterns=IGNORE,
+            cache_dir=s.hf_cache_dir,
         )
         print(f"{repo}@{(revision or 'latest')[:8]} ready ({path})")
 
