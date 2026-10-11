@@ -33,7 +33,7 @@ COPY --chown=app docker/entrypoint.sh docker/entrypoint.sh
 RUN sed -i 's/\r$//' docker/entrypoint.sh
 # Committed, non-private data and the last evaluation metrics (shown by /stats and /about)
 COPY --chown=app data/gazetteer.yaml data/synonyms.yaml data/
-COPY --chown=app reports/eval_results.json reports/benchmark_bge_m3.json reports/thresholds.json reports/
+COPY --chown=app reports/eval_results.json reports/thresholds.json reports/
 
 EXPOSE 8000
 ENTRYPOINT ["sh", "docker/entrypoint.sh"]

@@ -110,7 +110,8 @@ class HealthOut(BaseModel):
     questions: int
     build_seconds: float
     data_source: str
-    static_embeddings: bool
+    device: str = Field(description="cuda or cpu")
+    mode: str = Field(description="rerank (bi-encoder + cross-encoder) or dense (bi-encoder only)")
 
 
 class StatsOut(BaseModel):

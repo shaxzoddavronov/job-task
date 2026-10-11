@@ -1,7 +1,0 @@
-# Offline only: static-embedding distillation and the BGE-M3 reference benchmark.
-# Never install these in the runtime image.
--r requirements.txt
-model2vec[distill]==0.9.0
-sentence-transformers
-FlagEmbedding
-torch

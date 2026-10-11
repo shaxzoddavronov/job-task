@@ -1,9 +1,9 @@
-"""From document hits to answer candidates, and the entity-aware linear re-ranker.
+"""From document hits to answer candidates, and the final linear score over model and rule features.
 
 Every candidate gets features in [0, 1]; the re-ranker score is a weighted mean of the positive
 features minus a conflict penalty, so it doubles as an absolute confidence:
     score = (Σ wᵢ·fᵢ − w_conflict·entity_conflict) / Σ wᵢ, clipped to [0, 1].
-The entity weight is left out (numerator and denominator) when the query has no entities.
+The entity weights are left out (numerator and denominator) when the query has no entities.
 """
 
 from collections import Counter
@@ -15,17 +15,15 @@ from app.core.config import Settings
 
 # Order matters: score_matrix and the tuner index features by position.
 POSITIVE_FEATURES = (
-    "rrf",
-    "sim_q",
-    "sim_a",
-    "sim_e",
-    "fuzzy",
+    "rerank",  # cross-encoder relevance (GPU mode)
+    "dense",  # bi-encoder similarity: best question + answer-text bonus
+    "sim_a",  # bi-encoder similarity to the answer text alone
     "entity_match",
     "entity_match_q",
     "category",
 )
 FEATURES = (*POSITIVE_FEATURES, "entity_conflict")
-_ENTITY_IDX = FEATURES.index("entity_match")
+_ENTITY_IDX = [FEATURES.index("entity_match"), FEATURES.index("entity_match_q")]
 _CONFLICT_IDX = FEATURES.index("entity_conflict")
 
 
@@ -38,8 +36,13 @@ class CandidateFeatures:
         return np.array([self.features.get(name, 0.0) for name in FEATURES])
 
 
-def weights_from_settings(settings: Settings) -> np.ndarray:
-    return np.array([getattr(settings, f"rerank_w_{name}") for name in FEATURES], dtype=float)
+def weights_from_settings(settings: Settings, mode: str) -> np.ndarray:
+    """Weight vector for mode "rerank" (with cross-encoder) or "dense" (without)."""
+    table = settings.weights_rerank if mode == "rerank" else settings.weights_dense
+    unknown = set(table) - set(FEATURES)
+    if unknown:
+        raise ValueError(f"Unknown re-ranker features {sorted(unknown)}; known: {FEATURES}")
+    return np.array([float(table.get(name, 0.0)) for name in FEATURES])
 
 
 def aggregate_max(
@@ -106,7 +109,7 @@ def score_matrix(features: np.ndarray, weights: np.ndarray, has_entities: np.nda
     numerator = features[..., :_CONFLICT_IDX] @ positive
     numerator = numerator - features[..., _CONFLICT_IDX] * weights[_CONFLICT_IDX]
     has_entities = np.asarray(has_entities, dtype=float)
-    denominator = positive.sum() - weights[_ENTITY_IDX] * (1.0 - has_entities)
+    denominator = positive.sum() - weights[_ENTITY_IDX].sum() * (1.0 - has_entities)
     denominator = np.where(denominator > 0, denominator, np.inf)
     return np.clip(numerator / denominator[..., None], 0.0, 1.0)
 

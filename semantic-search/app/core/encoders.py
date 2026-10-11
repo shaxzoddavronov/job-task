@@ -9,9 +9,12 @@ seconds and the engine is rebuilt on /reload and twice per evaluation run.
 
 import logging
 import threading
-from typing import Protocol
+from typing import TYPE_CHECKING, Protocol
 
 import numpy as np
+
+if TYPE_CHECKING:
+    from app.core.config import Settings
 
 log = logging.getLogger(__name__)
 
@@ -64,6 +67,7 @@ class SentenceTransformerEncoder:
         self.model = _cache[key]
         self.model.max_seq_length = max_length
         self.batch_size = batch_size
+        self.cache_id = f"{model}@{revision or 'latest'}:{max_length}"
 
     def encode(self, texts: list[str]) -> np.ndarray:
         batch = self.batch_size
@@ -137,6 +141,8 @@ def _empty_cuda_cache() -> None:
 class HashingEncoder:
     """Character-trigram hashing vectors: similar strings get similar vectors."""
 
+    cache_id = None  # never cached on disk
+
     def __init__(self, dim: int = 512) -> None:
         self.dim = dim
 
@@ -159,3 +165,32 @@ class OverlapScorer:
             a, b = set(query.lower().split()), set(doc.lower().split())
             scores.append(len(a & b) / len(a | b) if a | b else 0.0)
         return np.asarray(scores, dtype=np.float32)
+
+
+def build_models(
+    settings: "Settings", device: str, with_reranker: bool
+) -> tuple[Encoder, Scorer | None]:
+    """Bi-encoder (+ cross-encoder when `with_reranker`) for MODEL_BACKEND on `device`."""
+    if settings.model_backend == "fake":
+        return HashingEncoder(), (OverlapScorer() if with_reranker else None)
+    encoder = SentenceTransformerEncoder(
+        settings.bi_encoder_model,
+        settings.bi_encoder_revision,
+        device,
+        settings.max_seq_length,
+        settings.encode_batch_size,
+        settings.hf_cache_dir,
+    )
+    scorer = (
+        CrossEncoderScorer(
+            settings.reranker_model,
+            settings.reranker_revision,
+            device,
+            settings.max_seq_length,
+            settings.rerank_batch_size,
+            settings.hf_cache_dir,
+        )
+        if with_reranker
+        else None
+    )
+    return encoder, scorer

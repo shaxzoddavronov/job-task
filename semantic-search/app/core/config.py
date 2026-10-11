@@ -27,59 +27,65 @@ class Settings(BaseSettings):
     models_dir: Path = PROJECT_ROOT / "models"
     reports_dir: Path = PROJECT_ROOT / "reports"
 
-    # Normalization (stripping apostrophes is measured as a Phase 4 ablation)
+    # Normalization
     normalize_strip_apostrophes: bool = False
 
-    # Template filler phrases from the generated paraphrases (Phase 1 audit, ablation E4)
-    strip_template_fillers: bool = False
-    template_fillers: list[str] = [
-        "haqida ma'lumot bering",
-        "bo'yicha ma'lumot kerak",
-        "haqida ayting",
-        "iltimos ayting",
-        "menga",
-    ]
+    # Transformer models (pinned Hugging Face revisions for reproducible results)
+    model_backend: Literal["transformers", "fake"] = "transformers"  # fake = tests only
+    bi_encoder_model: str = "BAAI/bge-m3"
+    bi_encoder_revision: str | None = "5617a9f61b028005a4858fdac845db406aefb181"
+    reranker_model: str = "BAAI/bge-reranker-v2-m3"
+    reranker_revision: str | None = "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e"
+    hf_cache_dir: str | None = None  # None = HF_HOME / default Hugging Face cache
 
-    # Retrieval
-    use_tfidf: bool = True
-    use_bm25: bool = False  # hurt realistic-dev Top-1 by ~6 points (Phase 4 sweep)
-    use_static_emb: bool = True  # Model2Vec channel: +3.8 realistic-dev Top-1 (Phase 6 sweep)
-    static_model_path: Path = PROJECT_ROOT / "models" / "potion-multilingual-128M"
+    # Compute: DEVICE=auto picks CUDA when available. The reranker runs on GPU only by
+    # default (RERANKER=auto); on CPU the engine uses dense retrieval alone.
+    device: str = "auto"
+    reranker: Literal["auto", "on", "off"] = "auto"
+    cpu_threads: int = 0  # 0 = torch default
+    max_seq_length: int = 512
+    encode_batch_size: int = 32
+    rerank_batch_size: int = 32
+    embedding_cache_dir: Path | None = PROJECT_ROOT / ".cache" / "embeddings"
+
+    # Retrieval: question vectors plus answer-text vectors scaled by answer_index_weight
     use_answer_index: bool = True
-    tfidf_ngram_min: int = 3
-    tfidf_ngram_max: int = 5
-    tfidf_entity_weight: float = 0.25
-    bm25_k1: float = 1.5
-    bm25_b: float = 0.75
-    candidate_pool: int = 100
-
-    # Fusion (weighted RRF); answer-text lists are scaled by answer_index_weight.
-    # Small k and a small answer weight keep the answer index a tie-breaker (Phase 4 sweep).
-    rrf_k: int = 5
-    weight_tfidf: float = 1.0
-    weight_bm25: float = 1.0
-    weight_static: float = 1.0
-    answer_index_weight: float = 0.1
-
-    # Query expansion with data/synonyms.yaml (all retrieval channels)
-    use_synonyms: bool = True  # +4.7 realistic-dev Top-1 with the re-ranker (Phase 5 sweep)
-
-    # Entity-aware linear re-ranker over the top fused candidates (Phase 5, tuned on
-    # validation + realistic-dev with `scripts.evaluate --tune-reranker`; re-tuned in Phase 6).
-    use_reranker: bool = True
+    answer_index_weight: float = 0.3
     rerank_top_n: int = 20
-    rerank_w_rrf: float = 2.0
-    rerank_w_sim_q: float = 0.5
-    rerank_w_sim_a: float = 0.0
-    rerank_w_sim_e: float = 0.0
-    rerank_w_fuzzy: float = 2.0
-    rerank_w_entity_match: float = 0.5
-    # Phase 6: entity_match / entity_match_q at 0.5 each tie with either alone on the decision
-    # sets; both kept so an entity found only in an answer still lifts it (plan requirement).
-    rerank_w_entity_match_q: float = 0.5
-    rerank_w_category: float = 0.5
-    # No law numbers in the decision sets, so conflict is a safety setting, not a tuned one.
-    rerank_w_entity_conflict: float = 3.0
+    # Text paired with the query for the cross-encoder: best-matching question, answer, or both
+    rerank_pair: Literal["question", "answer", "question+answer"] = "question"
+
+    # Query expansion with data/synonyms.yaml
+    use_synonyms: bool = False
+
+    # Final linear score per mode (weighted mean of features in [0, 1] minus a law-conflict
+    # penalty; see ranker.py). "rerank" = GPU with cross-encoder, "dense" = CPU / no reranker.
+    weights_rerank: dict[str, float] = {
+        "rerank": 1.0,
+        "dense": 0.0,
+        "sim_a": 0.0,
+        "entity_match": 0.0,
+        "entity_match_q": 0.0,
+        "category": 0.0,
+        "entity_conflict": 3.0,
+    }
+    weights_dense: dict[str, float] = {
+        "rerank": 0.0,
+        "dense": 1.0,
+        "sim_a": 0.0,
+        "entity_match": 0.0,
+        "entity_match_q": 0.0,
+        "category": 0.0,
+        "entity_conflict": 3.0,
+    }
+
+    # Decision thresholds per mode (placeholders until calibration)
+    answer_threshold_rerank: float = 0.5
+    suggest_threshold_rerank: float = 0.2
+    answer_min_margin_rerank: float = 0.0
+    answer_threshold_dense: float = 0.7
+    suggest_threshold_dense: float = 0.5
+    answer_min_margin_dense: float = 0.0
 
     # API
     max_question_chars: int = 500
@@ -96,12 +102,6 @@ class Settings(BaseSettings):
     eval_top_k: int = 10
     eval_realistic_path: Path = PROJECT_ROOT / "data" / "eval_realistic.csv"
     eval_realistic_dev_path: Path = PROJECT_ROOT / "data" / "eval_realistic_dev.csv"
-
-    # Decision thresholds, calibrated on validation + realistic-dev + OOD-dev
-    # (`scripts.evaluate --calibrate`, reports/thresholds.md): 95% precision when answering.
-    answer_threshold: float = 0.68
-    suggest_threshold: float = 0.61
-    answer_min_margin: float = 0.05
 
     # Bot
     api_url: str = "http://localhost:8000"

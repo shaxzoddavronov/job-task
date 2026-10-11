@@ -173,7 +173,8 @@ def fixture_settings(tmp_path) -> Settings:
         eval_realistic_path=tmp_path / "realistic.csv",
         eval_realistic_dev_path=tmp_path / "realistic_dev.csv",
         synonyms_path=tmp_path / "no_synonyms.yaml",
-        use_static_emb=False,
+        model_backend="fake",
+        embedding_cache_dir=None,
         reports_dir=tmp_path / "reports",
     )
 
@@ -206,8 +207,8 @@ def test_evaluate_end_to_end(tmp_path):
 
 def test_tune_reranker_uses_decision_sets_only(tmp_path):
     ctx = build_context(fixture_settings(tmp_path))
-    baseline, rows = tune_reranker(ctx, {"rrf": [1.0], "fuzzy": [0.0, 1.0]})
-    assert set(baseline) == {"validation", "realistic_dev"}
+    baseline, rows = tune_reranker(ctx, {"dense": [1.0], "rerank": [0.0, 1.0]})
+    assert set(baseline) == {"mode", "validation", "realistic_dev"}
     assert rows and all(set(r) == {"weights", "validation", "realistic_dev"} for r in rows)
     keys = [(-r["realistic_dev"]["top1"], -r["realistic_dev"]["mrr10"]) for r in rows]
     assert keys == sorted(keys)

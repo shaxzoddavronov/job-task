@@ -20,16 +20,18 @@ reports/eval_predictions.jsonl
 __pycache__/
 *.py[cod]
 .venv/
-.venv-bench/
 .pytest_cache/
 .ruff_cache/
 *.egg-info/
 reports/sweep.json
 reports/rerank_sweep.json
 
-# Static embedding tables are downloaded / distilled, not committed (see README)
+# Downloaded model files (not committed)
 models/*
 !models/.gitkeep
 
 # Local screenshots
 screenshots/
+
+# Cached document embeddings (rebuilt automatically)
+.cache/

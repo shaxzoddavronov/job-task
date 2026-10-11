@@ -69,52 +69,6 @@ def _kind_table(
     )
 
 
-def _benchmark_section(path: Path) -> list[str]:
-    """Comparison with the offline BGE-M3 benchmark (scripts/benchmark_bge_m3.py), if it ran."""
-    if not path.is_file():
-        return []
-    bench = json.loads(path.read_text(encoding="utf-8"))
-    rows = []
-    for name, r in bench["systems"].items():
-        m = r["metrics"]
-        real, test = m.get("realistic", {}), m["test"]
-        rows.append(
-            [
-                name,
-                _fmt(test["top1"]),
-                _fmt(m["test_entity"]["top1"]),
-                _fmt(m.get("realistic_dev", {}).get("top1")),
-                _fmt(real.get("top1")),
-                _fmt(real.get("top3")),
-                _fmt(m["law_injection"].get("not_found_rate")),
-                f"{test['latency_p50_ms']:.1f}",
-                r["runs_on"],
-            ]
-        )
-    cpu = bench.get("bge_cpu_latency")
-    note = f" BGE-M3 dense on CPU: p50 {cpu['p50_ms']:.0f} ms per query." if cpu else ""
-    return [
-        f"## Comparison with BGE-M3 ({bench['label']})",
-        "",
-        f"From `{path.name}` ({bench['generated_at']}, GPU {bench['hardware']['gpu']}).{note}",
-        "",
-        *_table(
-            [
-                "system",
-                "Test Top-1",
-                "Entity Top-1",
-                "Dev Top-1",
-                "Realistic Top-1",
-                "Realistic Top-3",
-                "Unknown law → not_found",
-                "p50 ms",
-                "runs on",
-            ],
-            rows,
-        ),
-    ]
-
-
 def render_markdown(ctx: EvalContext, reports: list[SystemReport], primary: SystemReport) -> str:
     s = ctx.split
     md = [
@@ -123,8 +77,11 @@ def render_markdown(ctx: EvalContext, reports: list[SystemReport], primary: Syst
         f"Generated {datetime.now(UTC):%Y-%m-%d %H:%M} UTC · seed {ctx.settings.eval_seed} · "
         f"{len(ctx.corpus.answers)} answers · index {len(s.index)} / validation "
         f"{len(s.validation)} / test {len(s.test)} questions · "
-        f"thresholds answer ≥ {ctx.settings.answer_threshold}, suggest ≥ "
-        f"{ctx.settings.suggest_threshold}, margin ≥ {ctx.settings.answer_min_margin}",
+        f"thresholds (answer / suggest / margin): rerank mode "
+        f"{ctx.settings.answer_threshold_rerank} / {ctx.settings.suggest_threshold_rerank} / "
+        f"{ctx.settings.answer_min_margin_rerank}, dense mode "
+        f"{ctx.settings.answer_threshold_dense} / {ctx.settings.suggest_threshold_dense} / "
+        f"{ctx.settings.answer_min_margin_dense}",
         "",
         "> The random split is **optimistic**: most paraphrases are template variants of one",
         "> original question, so a held-out question usually has a near-copy in the index.",
@@ -195,8 +152,6 @@ def render_markdown(ctx: EvalContext, reports: list[SystemReport], primary: Syst
         md += _table(head, [_ranking_row(r.name, r.metrics["realistic"]) for r in reports])
         md += _kind_table(reports, primary, "realistic", "Top-1 by query kind:")
 
-    md += _benchmark_section(ctx.settings.reports_dir / "benchmark_bge_m3.json")
-
     md += [f"## {WORST_N} worst test failures — `{primary.name}`", ""]
     rows = []
     for r in worst_failures(primary.records["test"]):
@@ -232,9 +187,12 @@ def write_reports(
             "realistic": len(ctx.realistic),
         },
         "thresholds": {
-            "answer": ctx.settings.answer_threshold,
-            "suggest": ctx.settings.suggest_threshold,
-            "min_margin": ctx.settings.answer_min_margin,
+            mode: {
+                "answer": getattr(ctx.settings, f"answer_threshold_{mode}"),
+                "suggest": getattr(ctx.settings, f"suggest_threshold_{mode}"),
+                "min_margin": getattr(ctx.settings, f"answer_min_margin_{mode}"),
+            }
+            for mode in ("rerank", "dense")
         },
         "primary": primary.name,
         "systems": {

@@ -48,7 +48,8 @@ def settings(tmp_path):
         questions_path=tmp_path / "questions.csv",
         gazetteer_path=tmp_path / "none.yaml",
         synonyms_path=tmp_path / "none.yaml",
-        use_static_emb=False,
+        model_backend="fake",
+        embedding_cache_dir=None,
         logs_dir=tmp_path / "logs",
         reports_dir=reports,
     )
@@ -72,7 +73,8 @@ def test_health(client):
         "questions": 6,
         "build_seconds": body["build_seconds"],
         "data_source": "file",
-        "static_embeddings": False,
+        "device": "cpu",
+        "mode": "dense",
     }
 
 
@@ -102,11 +104,14 @@ def test_ask_unknown_law_is_not_found(client):
 
 def test_ask_gibberish_is_not_found(client):
     body = ask(client, "zzzz qqqq").json()
-    assert body["status"] == "not_found" and body["candidates"] == []
+    assert body["status"] == "not_found"
+    assert all(c["score"] < 0.5 for c in body["candidates"])
 
 
 def test_ask_suggest_has_candidates_but_no_answer(settings):
-    strict = settings.model_copy(update={"answer_threshold": 0.999, "suggest_threshold": 0.0})
+    strict = settings.model_copy(
+        update={"answer_threshold_dense": 0.999, "suggest_threshold_dense": 0.0}
+    )
     with TestClient(create_app(strict)) as c:
         body = ask(c, "Soliq qarzimni qanday tekshiraman?").json()
     assert body["status"] == "suggest"
@@ -117,7 +122,7 @@ def test_ask_suggest_has_candidates_but_no_answer(settings):
 def test_ask_debug_and_top_k(client):
     body = ask(client, "soliq qarzi", debug=True, top_k=2).json()
     assert len(body["candidates"]) <= 2
-    assert "candidates" in body["debug"] and "processed_query" in body["debug"]
+    assert {"candidates", "mode", "retrieval_query"} <= set(body["debug"])
 
 
 @pytest.mark.parametrize(
@@ -165,7 +170,8 @@ def test_stats_include_eval_and_usage(client):
     ask(client, "zzzz qqqq")
     body = client.get("/stats").json()
     assert body["data"] == {"answers": 3, "questions": 6}
-    assert body["config"]["answer_threshold"] == 0.68
+    assert body["config"]["answer_threshold"] == 0.7  # dense mode (CPU, no reranker)
+    assert body["config"]["models"]["mode"] == "dense"
     assert body["eval"]["test"]["top1"] == 0.99
     usage = body["usage"]
     assert usage["total_queries"] == 2

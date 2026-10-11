@@ -1,8 +1,10 @@
 """Evaluate one or more systems and write reports/eval_results.{md,json}.
 
 Usage: python -m scripts.evaluate [--systems random,...] [--primary NAME]
-       python -m scripts.evaluate --sweep [--grid '{"rrf_k": [5, 60]}']
-       python -m scripts.evaluate --tune-reranker [--grid '{"rrf": [1], "fuzzy": [0, 1]}']
+       python -m scripts.evaluate --sweep [--grid '{"rerank_top_n": [10, 20]}']
+       python -m scripts.evaluate --tune-reranker [--grid '{"rerank": [1], "dense": [0, 1]}']
+The weights found by --tune-reranker apply to the engine's current mode (rerank on a GPU,
+dense on CPU / RERANKER=off).
        python -m scripts.evaluate --calibrate   (thresholds → reports/thresholds.{md,json})
 The primary system (default: the last one) gets the worst-failure list and the predictions log.
 --sweep, --tune-reranker and --calibrate use decision sets only (validation + realistic-dev), never
@@ -24,10 +26,8 @@ from app.eval.systems import SYSTEMS
 from app.eval.tuning import tune_reranker
 
 DEFAULT_GRID = {
-    "answer_index_weight": [0.0, 0.1, 0.25],
-    "rrf_k": [5, 20, 60],
-    "tfidf_entity_weight": [0.25, 0.5, 1.0],
-    "use_bm25": [True, False],
+    "answer_index_weight": [0.0, 0.3, 0.6],
+    "use_synonyms": [False, True],
 }
 
 
@@ -58,15 +58,13 @@ def run_sweep(grid: dict[str, list]) -> None:
 
 
 RERANK_GRID = {
-    "rrf": [0.5, 1.0, 2.0],
-    "sim_q": [0.0, 0.5, 1.0, 2.0],
+    "rerank": [0.0, 0.5, 1.0, 2.0],
+    "dense": [0.0, 0.5, 1.0, 2.0],
     "sim_a": [0.0, 0.5],
-    "sim_e": [0.0, 0.5, 1.0, 2.0],
-    "fuzzy": [0.0, 0.5, 1.0, 2.0],
-    "entity_match": [0.0, 0.5, 1.0, 2.0],
-    "entity_match_q": [0.0, 0.5, 1.0, 2.0],
+    "entity_match": [0.0, 0.5, 1.0],
+    "entity_match_q": [0.0, 0.5, 1.0],
     "category": [0.0, 0.5],
-    "entity_conflict": [0.0, 1.0, 3.0],
+    "entity_conflict": [0.0, 3.0],
 }
 
 

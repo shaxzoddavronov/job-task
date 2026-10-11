@@ -160,7 +160,8 @@ def create_app(settings: Settings | None = None, repo: Repository | None = None)
             questions=len(engine.corpus.questions),
             build_seconds=round(engine.build_seconds, 3),
             data_source=settings.data_source,
-            static_embeddings=settings.use_static_emb,
+            device=engine.device,
+            mode=engine.mode,
         )
 
     @app.get("/stats", response_model=StatsOut, tags=["service"])
@@ -170,11 +171,10 @@ def create_app(settings: Settings | None = None, repo: Repository | None = None)
         return StatsOut(
             data={"answers": len(engine.corpus.answers), "questions": len(engine.corpus.questions)},
             config={
-                "answer_threshold": s.answer_threshold,
-                "suggest_threshold": s.suggest_threshold,
-                "answer_min_margin": s.answer_min_margin,
-                "retrievers": [ch.name for ch in engine.channels],
-                "reranker": s.use_reranker,
+                "answer_threshold": engine.thresholds[0],
+                "suggest_threshold": engine.thresholds[1],
+                "answer_min_margin": engine.thresholds[2],
+                "models": engine.models,
                 "synonyms": s.use_synonyms,
                 "data_source": s.data_source,
             },
@@ -217,7 +217,7 @@ def create_app(settings: Settings | None = None, repo: Repository | None = None)
 
 
 def _eval_summary(settings: Settings) -> dict | None:
-    """Headline metrics of the production engine from the last `make eval` (+ BGE-M3 if run)."""
+    """Headline metrics of the production engine from the last `make eval`."""
     path = settings.reports_dir / "eval_results.json"
     if not path.is_file():
         return None
@@ -234,13 +234,6 @@ def _eval_summary(settings: Settings) -> dict | None:
     )
     summary = {"generated_at": results.get("generated_at"), "dataset": results.get("dataset")}
     summary |= {k: engine[k] for k in keys if k in engine}
-    bench = settings.reports_dir / "benchmark_bge_m3.json"
-    if bench.is_file():
-        systems = json.loads(bench.read_text(encoding="utf-8")).get("systems", {})
-        summary["bge_m3_benchmark"] = {
-            name: {k: r["metrics"].get(k, {}).get("top1") for k in ("test", "realistic")}
-            for name, r in systems.items()
-        }
     return summary
 
 

@@ -81,15 +81,18 @@ def tune_reranker(
     Combinations whose validation Top-1 falls more than `max_val_drop` below the fused-only
     baseline (re-ranker off) are dropped. Returns (baseline, ranked rows).
     """
-    settings = ctx.settings.model_copy(update={"use_reranker": True})
-    val = collect_features(QAEngine(ctx.index_corpus, settings), ctx.query_sets["validation"])
+    settings = ctx.settings
+    val_engine = QAEngine(ctx.index_corpus, settings)
+    val = collect_features(val_engine, ctx.query_sets["validation"])
     dev = collect_features(QAEngine(ctx.corpus, settings), ctx.realistic_dev)
 
-    rrf_only = np.zeros(len(FEATURES))
-    rrf_only[FEATURES.index("rrf")] = 1.0
+    # Baseline: the model score alone (cross-encoder in rerank mode, bi-encoder in dense mode)
+    model_only = np.zeros(len(FEATURES))
+    model_only[FEATURES.index("rerank" if val_engine.mode == "rerank" else "dense")] = 1.0
     baseline = {
-        "validation": ranking_metrics(val, rrf_only),
-        "realistic_dev": ranking_metrics(dev, rrf_only),
+        "mode": val_engine.mode,
+        "validation": ranking_metrics(val, model_only),
+        "realistic_dev": ranking_metrics(dev, model_only),
     }
 
     rows = []
