@@ -114,7 +114,10 @@ def test_retrieve_then_rerank_matches_ask(engine):
 
 
 def test_status_follows_thresholds(corpus, settings):
-    always = QAEngine(corpus, settings.model_copy(update={"answer_threshold_dense": 0.0}))
+    always = QAEngine(
+        corpus,
+        settings.model_copy(update={"answer_threshold_dense": 0.0, "suggest_threshold_dense": 0.0}),
+    )
     never = QAEngine(corpus, settings.model_copy(update={"suggest_threshold_dense": 1.01}))
     assert always.ask("soliq qarzi").status == "answer"
     assert never.ask("soliq qarzi").status == "not_found"

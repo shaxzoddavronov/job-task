@@ -3,7 +3,7 @@ VENV := .venv
 PY := $(VENV)/bin/python
 PORT ?= 8000
 
-.PHONY: install lint format test test-db audit gazetteer eval db-up migrate import api bot up down
+.PHONY: install models latency lint format test test-db audit gazetteer eval db-up migrate import api bot up down
 
 $(PY):
 	$(PYTHON) -m venv $(VENV)
@@ -11,6 +11,12 @@ $(PY):
 
 install: $(PY)  ## runtime + dev tools (pytest, ruff)
 	$(PY) -m pip install -r requirements-dev.txt
+
+models:  ## optional: pre-download the transformer models (~4.5 GB)
+	$(PY) -m scripts.download_models
+
+latency:  ## per-question latency + GPU memory on this machine
+	$(PY) -m scripts.latency
 
 lint:
 	$(PY) -m ruff check .
@@ -53,10 +59,8 @@ api:  ## PORT=8010 make api if 8000 is taken
 bot:
 	$(PY) -m app.bot.main
 
-up:  ## BOT_TOKEN from the shell or .env, else from bot_token.txt (never printed or baked in)
-	@if [ -z "$$BOT_TOKEN" ] && ! grep -qs '^BOT_TOKEN=.' .env && [ -f bot_token.txt ]; then \
-		export BOT_TOKEN="$$(cat bot_token.txt)"; fi; \
-	docker compose up --build
+up:  ## db + api + bot; GPU mode automatically when Docker can use an NVIDIA GPU
+	sh start.sh
 
 down:
 	docker compose down

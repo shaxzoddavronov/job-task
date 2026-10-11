@@ -117,7 +117,10 @@ def calibrate(
     )
 
 
-def collect_tables(ctx: EvalContext, ood_dev_path: Path) -> tuple[ScoreTable, ...]:
+def collect_tables(
+    ctx: EvalContext, ood_dev_path: Path
+) -> tuple[str, ScoreTable, ScoreTable, ScoreTable]:
+    """(engine mode, dev, validation, OOD-dev) score tables for the current settings."""
     k = ctx.settings.eval_top_k
     val = run_queries(
         QAEngine(ctx.index_corpus, ctx.settings), ctx.query_sets["validation"], ctx.extractor, k
@@ -126,7 +129,7 @@ def collect_tables(ctx: EvalContext, ood_dev_path: Path) -> tuple[ScoreTable, ..
     dev = run_queries(full, ctx.realistic_dev, ctx.extractor, k)
     ood_queries = load_ood(ctx.settings.model_copy(update={"ood_questions_path": ood_dev_path}))
     ood = run_queries(full, ood_queries, ctx.extractor, k)
-    return tuple(ScoreTable.from_records(r) for r in (dev, val, ood))
+    return (full.mode, *(ScoreTable.from_records(r) for r in (dev, val, ood)))
 
 
 def threshold_table(

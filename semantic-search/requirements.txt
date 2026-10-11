@@ -1,13 +1,15 @@
-# Runtime dependencies only. No torch / transformers.
+# Runtime dependencies.
+# torch: Linux PyPI wheels include CUDA. The Docker image and Windows GPU users install the
+# CUDA 12.6 build from https://download.pytorch.org/whl/cu126 (see Dockerfile / README).
 pandas==3.0.6
 openpyxl==3.1.5
 numpy==2.4.6
 scipy==1.17.1
 scikit-learn==1.9.1
-bm25s==0.3.13
-rapidfuzz==3.14.6
-model2vec==0.9.0
 pyyaml==6.0.3
+torch==2.14.1
+sentence-transformers==6.1.0
+transformers==5.19.0
 fastapi==0.143.0
 uvicorn[standard]==0.54.0
 pydantic==2.13.5

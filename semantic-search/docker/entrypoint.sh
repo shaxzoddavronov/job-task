@@ -1,5 +1,6 @@
 #!/bin/sh
-# api: wait for PostgreSQL → migrate → import the data files if the DB is empty → uvicorn.
+# api: wait for PostgreSQL → migrate → import the data if the DB is empty → download the
+#      models if missing → uvicorn (the engine picks CUDA or CPU automatically).
 # bot: start the Telegram bot (talks to the api over HTTP).
 set -e
 
@@ -23,6 +24,7 @@ else:
 PY
     python -m alembic upgrade head
     python -m scripts.import_xlsx --if-empty
+    python -m scripts.download_models   # first start: ~4.5 GB into the models volume
     exec uvicorn app.api.main:app --host 0.0.0.0 --port 8000
     ;;
   bot)

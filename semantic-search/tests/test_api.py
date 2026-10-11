@@ -170,7 +170,7 @@ def test_stats_include_eval_and_usage(client):
     ask(client, "zzzz qqqq")
     body = client.get("/stats").json()
     assert body["data"] == {"answers": 3, "questions": 6}
-    assert body["config"]["answer_threshold"] == 0.7  # dense mode (CPU, no reranker)
+    assert body["config"]["answer_threshold"] == 0.65  # dense mode (CPU, no reranker)
     assert body["config"]["models"]["mode"] == "dense"
     assert body["eval"]["test"]["top1"] == 0.99
     usage = body["usage"]

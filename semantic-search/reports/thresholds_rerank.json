@@ -1,0 +1,26 @@
+{
+  "answer_threshold": 0.56,
+  "suggest_threshold": 0.45,
+  "min_margin": 0.02,
+  "dev": {
+    "coverage": 0.8504672897196262,
+    "precision_at_answer": 0.9560439560439561,
+    "suggest_rate": 0.14018691588785046,
+    "not_found_rate": 0.009345794392523364,
+    "useful": 0.9532710280373832
+  },
+  "validation": {
+    "coverage": 0.9861386138613861,
+    "precision_at_answer": 0.9979919678714859,
+    "suggest_rate": 0.013861386138613862,
+    "not_found_rate": 0.0,
+    "useful": 0.998019801980198
+  },
+  "ood": {
+    "coverage": 0.0,
+    "precision_at_answer": null,
+    "suggest_rate": 0.06666666666666667,
+    "not_found_rate": 0.9333333333333333,
+    "useful": 0.0
+  }
+}

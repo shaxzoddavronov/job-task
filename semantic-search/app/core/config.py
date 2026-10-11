@@ -51,18 +51,22 @@ class Settings(BaseSettings):
     # Retrieval: question vectors plus answer-text vectors scaled by answer_index_weight
     use_answer_index: bool = True
     answer_index_weight: float = 0.3
-    rerank_top_n: int = 20
+    rerank_top_n: int = 10  # dev sweep: 10 ≥ 20 ≈ 30, and the fastest
     # Text paired with the query for the cross-encoder: best-matching question, answer, or both
-    rerank_pair: Literal["question", "answer", "question+answer"] = "question"
+    # (dev sweep: question+answer 91.6 > question 82.2 > answer 64.5 Top-1)
+    rerank_pair: Literal["question", "answer", "question+answer"] = "question+answer"
 
     # Query expansion with data/synonyms.yaml
-    use_synonyms: bool = False
+    use_synonyms: bool = True  # dev sweep: +3.7 Top-1 in dense mode, +1.9 with the reranker
 
     # Final linear score per mode (weighted mean of features in [0, 1] minus a law-conflict
     # penalty; see ranker.py). "rerank" = GPU with cross-encoder, "dense" = CPU / no reranker.
+    # Tuned on validation + realistic-dev: reranker 1 : dense 2 keeps the reranker's dev gain
+    # (91.6 vs 89.7 Top-1) without its validation loss (99.2 vs 97.0). Entity features did
+    # not help in either mode; the law-conflict penalty is a safety rule (no laws in dev).
     weights_rerank: dict[str, float] = {
         "rerank": 1.0,
-        "dense": 0.0,
+        "dense": 2.0,
         "sim_a": 0.0,
         "entity_match": 0.0,
         "entity_match_q": 0.0,
@@ -79,13 +83,15 @@ class Settings(BaseSettings):
         "entity_conflict": 3.0,
     }
 
-    # Decision thresholds per mode (placeholders until calibration)
-    answer_threshold_rerank: float = 0.5
-    suggest_threshold_rerank: float = 0.2
-    answer_min_margin_rerank: float = 0.0
-    answer_threshold_dense: float = 0.7
-    suggest_threshold_dense: float = 0.5
-    answer_min_margin_dense: float = 0.0
+    # Decision thresholds per mode, calibrated on validation + realistic-dev + OOD-dev
+    # (`scripts.evaluate --calibrate`, reports/thresholds_<mode>.md): ≥ 95% precision when
+    # answering on realistic-dev, ≤ 5% of off-topic questions answered, ≥ 80% not_found.
+    answer_threshold_rerank: float = 0.56
+    suggest_threshold_rerank: float = 0.45
+    answer_min_margin_rerank: float = 0.02
+    answer_threshold_dense: float = 0.65
+    suggest_threshold_dense: float = 0.62
+    answer_min_margin_dense: float = 0.02
 
     # API
     max_question_chars: int = 500

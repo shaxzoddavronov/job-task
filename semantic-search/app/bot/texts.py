@@ -28,10 +28,11 @@ HELP = (
 )
 
 ABOUT = (
-    "Bu bot sun'iy intellekt chat-modelisiz (LLM) va transformer modellarisiz ishlaydi.\n\n"
+    "Bu bot sun'iy intellekt chat-modelisiz (LLM) ishlaydi va javobni o'zi yozmaydi: u faqat "
+    "tayyor javoblar bazasidan eng mosini tanlaydi.\n\n"
     "Usul: savol normallashtiriladi (kirill → lotin, apostroflar), qonun raqamlari va "
-    "tashkilot nomlari ajratiladi, so'ng belgi n-gramm TF-IDF va statik so'z vektorlari "
-    "(Model2Vec) yordamida eng yaqin javob qidiriladi. Natijalar qayta saralanadi va ishonch "
+    "tashkilot nomlari ajratiladi. So'ng BGE-M3 modeli savolning ma'nosini vektorga aylantirib, "
+    "eng yaqin savollarni topadi, qayta saralash modeli esa eng mos javobni tanlaydi. Ishonch "
     "darajasi past bo'lsa, bot javob o'rniga takliflar beradi.\n\n"
     "{metrics}"
 )

@@ -10,6 +10,7 @@ data/*.csv
 data/*.xlsx
 data/logs
 models
+.cache
 reports/*.md
 reports/eval_predictions.jsonl
 reports/*sweep*.json

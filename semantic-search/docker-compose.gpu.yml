@@ -1,0 +1,11 @@
+# GPU override: added automatically by start.sh / start.ps1 / `make up` when Docker can use an
+# NVIDIA GPU. Without it the same image runs on CPU (dense retrieval, no reranker).
+services:
+  api:
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]

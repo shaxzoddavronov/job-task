@@ -74,7 +74,8 @@ def run_rerank_tuning(grid: dict[str, list[float]]) -> None:
     baseline, rows = tune_reranker(ctx, grid)
     b_dev, b_val = baseline["realistic_dev"], baseline["validation"]
     print(
-        f"baseline (fused only): dev Top-1 {b_dev['top1']:.3f} MRR {b_dev['mrr10']:.3f} | "
+        f"baseline (model score only, mode={baseline['mode']}): "
+        f"dev Top-1 {b_dev['top1']:.3f} MRR {b_dev['mrr10']:.3f} | "
         f"val Top-1 {b_val['top1']:.3f}"
     )
     print(
@@ -96,7 +97,7 @@ def run_rerank_tuning(grid: dict[str, list[float]]) -> None:
 def run_calibration() -> None:
     settings = get_settings()
     ctx = build_context(settings)
-    dev, val, ood = collect_tables(ctx, settings.ood_dev_path)
+    mode, dev, val, ood = collect_tables(ctx, settings.ood_dev_path)
     grid = np.round(np.arange(0.30, 0.96, 0.01), 2)
     # OOD not_found floor 0.80 = the user's "balanced" choice (Phase 7): suggestions for an
     # off-topic question are cheap, a third of realistic queries rejected (floor 0.90) is not.
@@ -122,7 +123,7 @@ def run_calibration() -> None:
     ]
     rows = threshold_table(dev, val, ood, result.min_margin, result.suggest_threshold)
     lines = [
-        "# Threshold calibration",
+        f"# Threshold calibration — {mode} mode",
         "",
         "Decision sets only: validation (template paraphrases), realistic-dev (hand-written) and",
         "OOD-dev (`data/ood_dev.txt`). Rule: highest dev coverage with precision when answering",
@@ -131,9 +132,10 @@ def run_calibration() -> None:
         "that ≥ 80% of OOD-dev gets not_found (a suggestion for an off-topic question is cheap;",
         "a 90% floor would reject a third of realistic queries — see the table below).",
         "",
-        f"**Chosen:** `ANSWER_THRESHOLD={result.answer_threshold:.2f}`, "
-        f"`SUGGEST_THRESHOLD={result.suggest_threshold:.2f}`, "
-        f"`ANSWER_MIN_MARGIN={result.min_margin:.2f}`",
+        f"**Mode `{mode}`. Chosen:** "
+        f"`ANSWER_THRESHOLD_{mode.upper()}={result.answer_threshold:.2f}`, "
+        f"`SUGGEST_THRESHOLD_{mode.upper()}={result.suggest_threshold:.2f}`, "
+        f"`ANSWER_MIN_MARGIN_{mode.upper()}={result.min_margin:.2f}`",
         "",
         "| set | coverage | precision when answering | suggest | not_found | useful |",
         "|---|---|---|---|---|---|",
@@ -156,9 +158,9 @@ def run_calibration() -> None:
         "|" + "---|" * len(head),
     ]
     lines += ["| " + " | ".join([f"{r[0]:.2f}", *[pct(v) for v in r[1:]]]) + " |" for r in rows]
-    out = settings.reports_dir / "thresholds.md"
+    out = settings.reports_dir / f"thresholds_{mode}.md"
     out.write_text("\n".join(lines) + "\n", encoding="utf-8")
-    (settings.reports_dir / "thresholds.json").write_text(
+    (settings.reports_dir / f"thresholds_{mode}.json").write_text(
         json.dumps(result.__dict__, indent=2), encoding="utf-8"
     )
     print("\n".join(lines[8:16]))

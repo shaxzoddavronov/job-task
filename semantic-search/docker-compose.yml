@@ -33,6 +33,8 @@ services:
     volumes:
       # Private data files, read-only; only needed for the first import into PostgreSQL
       - ./data:/app/data-import:ro
+      # Transformer models (~4.5 GB, downloaded once) and cached document embeddings
+      - models:/models
     ports:
       - "${API_PORT:-8000}:8000"
     healthcheck:
@@ -40,7 +42,7 @@ services:
       interval: 5s
       timeout: 5s
       retries: 30
-      start_period: 20s
+      start_period: 30m  # first start downloads the models
     restart: unless-stopped
 
   bot:
@@ -57,3 +59,4 @@ services:
 
 volumes:
   pgdata:
+  models:

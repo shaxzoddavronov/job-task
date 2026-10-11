@@ -67,7 +67,8 @@ class SentenceTransformerEncoder:
         self.model = _cache[key]
         self.model.max_seq_length = max_length
         self.batch_size = batch_size
-        self.cache_id = f"{model}@{revision or 'latest'}:{max_length}"
+        precision = "fp16" if device == "cuda" else "fp32"
+        self.cache_id = f"{model}@{revision or 'latest'}:{max_length}:{precision}"
 
     def encode(self, texts: list[str]) -> np.ndarray:
         batch = self.batch_size
