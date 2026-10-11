@@ -1,0 +1,34 @@
+# Out-of-domain questions for threshold calibration (decision set). Disjoint from
+# ood_questions.txt, which is kept for reporting. Expected status: not_found.
+# General topics
+Ertangi kun issiq bo'ladimi?
+Qaysi telefon sotib olsam yaxshi?
+Toshkentda eng yaxshi restoran qaysi?
+Kecha qanday kino chiqdi?
+Mashinamning motori shovqin qilyapti, sababi nima?
+Qanday qilib tez uxlab qolish mumkin?
+Bugungi futbol o'yinini qayerdan ko'rsam bo'ladi?
+Somsa qanday tayyorlanadi?
+Internetim sekin, nima qilsam bo'ladi?
+Bolalar uchun qaysi multfilm yaxshi?
+Eng arzon aviachipta qayerdan topiladi?
+Metro soat nechagacha ishlaydi?
+Instagram akkauntim buzildi, nima qilay?
+Yangi yil qachon nishonlanadi?
+Сколько стоит такси до аэропорта?
+Кечки овқатга нима пиширсам бўлади?
+# Near-domain: sounds like a government question, but the bank has no answer
+Amerika vizasini qanday olaman?
+Germaniyaga ishlashga ketish uchun nemis tili sertifikati kerakmi?
+Bitcoin bilan savdo qilish qonuniymi?
+Kriptovalyutadan olingan daromadga soliq bormi?
+Avtobus yo'l haqi qancha?
+Universitetga grant asosida o'qish uchun qancha ball kerak?
+Ov qilish uchun litsenziya qanday olinadi?
+Itimni ro'yxatga qo'yish kerakmi?
+Dron uchirish uchun ruxsat kerakmi?
+Prezident saylovi qachon bo'ladi?
+Deputatga qanday nomzod bo'lsam bo'ladi?
+Qurol saqlash uchun ruxsatnoma qanday olinadi?
+Kosmonavt bo'lish uchun nima qilish kerak?
+Oyga sayohat qilish mumkinmi?

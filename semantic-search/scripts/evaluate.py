@@ -3,8 +3,9 @@
 Usage: python -m scripts.evaluate [--systems random,...] [--primary NAME]
        python -m scripts.evaluate --sweep [--grid '{"rrf_k": [5, 60]}']
        python -m scripts.evaluate --tune-reranker [--grid '{"rrf": [1], "fuzzy": [0, 1]}']
+       python -m scripts.evaluate --calibrate   (thresholds → reports/thresholds.{md,json})
 The primary system (default: the last one) gets the worst-failure list and the predictions log.
---sweep and --tune-reranker print decision metrics only (validation + realistic-dev), never
+--sweep, --tune-reranker and --calibrate use decision sets only (validation + realistic-dev), never
 test numbers.
 """
 
@@ -13,7 +14,10 @@ import itertools
 import json
 import logging
 
+import numpy as np
+
 from app.core.config import get_settings
+from app.eval.calibration import calibrate, collect_tables, threshold_table
 from app.eval.report import write_reports
 from app.eval.runner import build_context, evaluate, sweep
 from app.eval.systems import SYSTEMS
@@ -91,17 +95,93 @@ def run_rerank_tuning(grid: dict[str, list[float]]) -> None:
     print(f"\nSaved {out}")
 
 
+def run_calibration() -> None:
+    settings = get_settings()
+    ctx = build_context(settings)
+    dev, val, ood = collect_tables(ctx, settings.ood_dev_path)
+    grid = np.round(np.arange(0.30, 0.96, 0.01), 2)
+    # OOD not_found floor 0.80 = the user's "balanced" choice (Phase 7): suggestions for an
+    # off-topic question are cheap, a third of realistic queries rejected (floor 0.90) is not.
+    result = calibrate(
+        dev, val, ood, grid, margin_grid=[0.0, 0.02, 0.05, 0.1], min_ood_not_found=0.80
+    )
+    if result is None:
+        print("No thresholds meet the constraints; relax min_precision / max_ood_answer.")
+        return
+
+    def pct(v):
+        return "–" if v is None else f"{100 * v:.1f}"
+
+    head = [
+        "answer ≥",
+        "dev coverage",
+        "dev precision",
+        "dev useful",
+        "val coverage",
+        "val precision",
+        "OOD answered",
+        "OOD not_found",
+    ]
+    rows = threshold_table(dev, val, ood, result.min_margin, result.suggest_threshold)
+    lines = [
+        "# Threshold calibration",
+        "",
+        "Decision sets only: validation (template paraphrases), realistic-dev (hand-written) and",
+        "OOD-dev (`data/ood_dev.txt`). Rule: highest dev coverage with precision when answering",
+        "≥ 95% on dev and validation and ≤ 5% of OOD-dev answered; then the suggest threshold with",
+        'the highest dev "useful" rate (correct answer, or gold in the top-3 suggestions) such',
+        "that ≥ 80% of OOD-dev gets not_found (a suggestion for an off-topic question is cheap;",
+        "a 90% floor would reject a third of realistic queries — see the table below).",
+        "",
+        f"**Chosen:** `ANSWER_THRESHOLD={result.answer_threshold:.2f}`, "
+        f"`SUGGEST_THRESHOLD={result.suggest_threshold:.2f}`, "
+        f"`ANSWER_MIN_MARGIN={result.min_margin:.2f}`",
+        "",
+        "| set | coverage | precision when answering | suggest | not_found | useful |",
+        "|---|---|---|---|---|---|",
+    ]
+    for name, m in (
+        ("realistic-dev", result.dev),
+        ("validation", result.validation),
+        ("OOD-dev", result.ood),
+    ):
+        lines.append(
+            f"| {name} | {pct(m['coverage'])} | {pct(m['precision_at_answer'])} | "
+            f"{pct(m['suggest_rate'])} | {pct(m['not_found_rate'])} | {pct(m['useful'])} |"
+        )
+    lines += [
+        "",
+        f"Trade-off at margin {result.min_margin:.2f} (suggest threshold capped at the "
+        "answer threshold), percentages:",
+        "",
+        "| " + " | ".join(head) + " |",
+        "|" + "---|" * len(head),
+    ]
+    lines += ["| " + " | ".join([f"{r[0]:.2f}", *[pct(v) for v in r[1:]]]) + " |" for r in rows]
+    out = settings.reports_dir / "thresholds.md"
+    out.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    (settings.reports_dir / "thresholds.json").write_text(
+        json.dumps(result.__dict__, indent=2), encoding="utf-8"
+    )
+    print("\n".join(lines[8:16]))
+    print(f"\nReport: {out}")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--systems", default=",".join(SYSTEMS), help="comma-separated names")
     parser.add_argument("--primary", default=None, help="system for the failure analysis")
     parser.add_argument("--sweep", action="store_true", help="grid search on decision sets")
     parser.add_argument("--tune-reranker", action="store_true", help="re-ranker weight search")
+    parser.add_argument("--calibrate", action="store_true", help="decision threshold calibration")
     parser.add_argument("--grid", default=None, help="JSON dict of setting/feature -> values")
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     logging.getLogger("bm25s").setLevel(logging.WARNING)
 
+    if args.calibrate:
+        run_calibration()
+        return
     if args.tune_reranker:
         run_rerank_tuning(json.loads(args.grid) if args.grid else RERANK_GRID)
         return

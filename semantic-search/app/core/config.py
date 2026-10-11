@@ -23,6 +23,7 @@ class Settings(BaseSettings):
     gazetteer_path: Path = PROJECT_ROOT / "data" / "gazetteer.yaml"
     synonyms_path: Path = PROJECT_ROOT / "data" / "synonyms.yaml"
     ood_questions_path: Path = PROJECT_ROOT / "data" / "ood_questions.txt"
+    ood_dev_path: Path = PROJECT_ROOT / "data" / "ood_dev.txt"  # threshold calibration only
     models_dir: Path = PROJECT_ROOT / "models"
     reports_dir: Path = PROJECT_ROOT / "reports"
 
@@ -90,10 +91,11 @@ class Settings(BaseSettings):
     eval_realistic_path: Path = PROJECT_ROOT / "data" / "eval_realistic.csv"
     eval_realistic_dev_path: Path = PROJECT_ROOT / "data" / "eval_realistic_dev.csv"
 
-    # Decision thresholds (placeholders until Phase 7 calibration)
-    answer_threshold: float = 0.5
-    suggest_threshold: float = 0.2
-    answer_min_margin: float = 0.0
+    # Decision thresholds, calibrated on validation + realistic-dev + OOD-dev
+    # (`scripts.evaluate --calibrate`, reports/thresholds.md): 95% precision when answering.
+    answer_threshold: float = 0.68
+    suggest_threshold: float = 0.61
+    answer_min_margin: float = 0.05
 
     # Bot
     api_url: str = "http://localhost:8000"
