@@ -29,10 +29,12 @@ COPY --chown=app scripts scripts
 COPY --chown=app alembic alembic
 COPY --chown=app alembic.ini .
 COPY --chown=app docker/entrypoint.sh docker/entrypoint.sh
+# Strip Windows line endings in case the repo was checked out with CRLF
+RUN sed -i 's/\r$//' docker/entrypoint.sh
 # Committed, non-private data and the last evaluation metrics (shown by /stats and /about)
 COPY --chown=app data/gazetteer.yaml data/synonyms.yaml data/
 COPY --chown=app reports/eval_results.json reports/benchmark_bge_m3.json reports/thresholds.json reports/
 
 EXPOSE 8000
-ENTRYPOINT ["docker/entrypoint.sh"]
+ENTRYPOINT ["sh", "docker/entrypoint.sh"]
 CMD ["api"]
