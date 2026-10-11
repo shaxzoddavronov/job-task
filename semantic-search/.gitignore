@@ -30,3 +30,6 @@ reports/rerank_sweep.json
 # Static embedding tables are downloaded / distilled, not committed (see README)
 models/*
 !models/.gitkeep
+
+# Local screenshots
+screenshots/
