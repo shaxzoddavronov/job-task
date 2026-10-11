@@ -78,3 +78,10 @@ def test_audit_finds_planted_issues(raw):
     assert summary["entities"]["questions_with_law_whose_answer_has_it"] == 2
     assert summary["short_texts"]["short_answers(<30 chars)"] == 1
     assert md[0] == "# Data audit"
+
+
+def test_loader_falls_back_to_other_extension(tmp_path):
+    pd.DataFrame({c: [1] for c in ANSWER_COLUMNS}).to_excel(tmp_path / "answers.xlsx", index=False)
+    pd.DataFrame({c: [1] for c in QUESTION_COLUMNS}).to_csv(tmp_path / "questions.csv", index=False)
+    raw = FileSource(tmp_path / "answers.csv", tmp_path / "questions.xlsx").load_raw()
+    assert len(raw.answers) == len(raw.questions) == 1

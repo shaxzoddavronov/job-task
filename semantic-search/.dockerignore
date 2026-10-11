@@ -1,0 +1,17 @@
+# Keep the image small and free of private files
+.git
+.venv
+.venv-bench
+**/__pycache__
+.pytest_cache
+.ruff_cache
+.env
+bot_token.txt
+data/*.csv
+data/*.xlsx
+data/logs
+models
+reports/*.md
+reports/eval_predictions.jsonl
+reports/*sweep*.json
+tests

@@ -28,9 +28,20 @@ class RawData:
     questions: pd.DataFrame
 
 
+def resolve_data_file(path: Path) -> Path:
+    """The path itself, or the same file with the other supported extension (.csv ↔ .xlsx)."""
+    path = Path(path)
+    if path.is_file():
+        return path
+    for suffix in (".csv", ".xlsx"):
+        alternative = path.with_suffix(suffix)
+        if alternative.is_file():
+            return alternative
+    raise FileNotFoundError(f"{path} not found (also tried .csv / .xlsx). Put the data in data/.")
+
+
 def _read_table(path: Path, required: tuple[str, ...]) -> pd.DataFrame:
-    if not path.is_file():
-        raise FileNotFoundError(f"{path} not found. Put the data file in data/ (see README).")
+    path = resolve_data_file(path)
     if path.suffix.lower() == ".csv":
         df = pd.read_csv(path, encoding="utf-8")
     elif path.suffix.lower() in {".xlsx", ".xls"}:

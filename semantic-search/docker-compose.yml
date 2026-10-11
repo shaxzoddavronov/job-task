@@ -17,5 +17,43 @@ services:
       timeout: 3s
       retries: 20
 
+  api:
+    build: .
+    image: uz-legal-qa:latest
+    command: ["api"]
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATA_SOURCE: postgres
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-qa}:${POSTGRES_PASSWORD:-qa}@db:5432/${POSTGRES_DB:-qa}
+      # answers.csv / questions.csv (or .xlsx) from ./data, used by the first-run import
+      ANSWERS_PATH: /app/data-import/answers.csv
+      QUESTIONS_PATH: /app/data-import/questions.csv
+    volumes:
+      # Private data files, read-only; only needed for the first import into PostgreSQL
+      - ./data:/app/data-import:ro
+    ports:
+      - "${API_PORT:-8000}:8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 20s
+    restart: unless-stopped
+
+  bot:
+    image: uz-legal-qa:latest
+    command: ["bot"]
+    depends_on:
+      api:
+        condition: service_healthy
+    environment:
+      API_URL: http://api:8000
+      # From .env or the shell; `make up` falls back to bot_token.txt. Never baked into the image.
+      BOT_TOKEN: ${BOT_TOKEN:-}
+    restart: unless-stopped
+
 volumes:
   pgdata:

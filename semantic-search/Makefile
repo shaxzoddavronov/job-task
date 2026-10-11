@@ -73,7 +73,9 @@ api:  ## PORT=8010 make api if 8000 is taken
 bot:
 	$(PY) -m app.bot.main
 
-up:
+up:  ## BOT_TOKEN from the shell or .env, else from bot_token.txt (never printed or baked in)
+	@if [ -z "$$BOT_TOKEN" ] && ! grep -qs '^BOT_TOKEN=.' .env && [ -f bot_token.txt ]; then \
+		export BOT_TOKEN="$$(cat bot_token.txt)"; fi; \
 	docker compose up --build
 
 down:
