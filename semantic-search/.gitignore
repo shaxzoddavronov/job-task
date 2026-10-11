@@ -1,0 +1,15 @@
+# Secrets
+.env
+bot_token.txt
+
+# Private data
+data/*.xlsx
+data/feedback.jsonl
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
